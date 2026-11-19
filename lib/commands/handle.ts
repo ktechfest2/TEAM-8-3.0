@@ -1,7 +1,7 @@
 import type { Deps } from "@/lib/context";
 import { t, type Messages } from "@/lib/i18n/messages";
 import { unitSummary } from "@/lib/queries";
-import { hashSender } from "@/lib/senders";
+import { checkReadiness, sendLiveReport, voterFrom } from "@/lib/myUnit";
 import { LIVE_REPORT_KINDS, type Lang, type PollingUnit, type Sender } from "@/lib/types";
 import { parseCommand, type Command } from "./parse";
 
@@ -21,8 +21,7 @@ const MAX_TEXT = 500;
 
 /** The single entry point for every channel: WhatsApp, SMS and the simulator. */
 export async function handleMessage(deps: Deps, msg: Inbound): Promise<Outbound> {
-  const senderHash = hashSender(msg.from, deps.salt);
-  const sender: Sender = (await deps.store.getSender(senderHash)) ?? { senderHash, unitCode: null, lang: "en" };
+  const sender = await voterFrom(deps, msg.from);
   const cmd = parseCommand(String(msg.text ?? "").slice(0, MAX_TEXT));
   const lines = await run(deps, sender, cmd);
   const lang = cmd.kind === "lang" ? cmd.lang : sender.lang;
@@ -66,17 +65,10 @@ async function run(deps: Deps, sender: Sender, cmd: Command): Promise<string[]> 
       return [t(cmd.lang).langSet()];
 
     case "ready": {
-      const card = await deps.voterLookup.lookupCard(cmd.last4);
-      if (!card) return [m.cardNotFound()];
-      const unit = await deps.store.getUnit(card.assignedUnit);
-      if (!unit) return [m.cardReady(card.ready), m.unitCodeNotFound(card.assignedUnit)];
-      // Remember the unit, not the card digits.
-      await deps.store.upsertSender({ ...sender, unitCode: unit.code });
-      return [
-        m.cardReady(card.ready),
-        card.previousUnit ? m.unitMoved(unit, card.note) : m.unitSame(unit),
-        m.readyNext(),
-      ];
+      const r = await checkReadiness(deps, sender, cmd.last4);
+      if (!r) return [m.cardNotFound()];
+      if (!r.unit) return [m.cardReady(r.cardReady), m.unitCodeNotFound(r.assignedCode)];
+      return [m.cardReady(r.cardReady), r.moved ? m.unitMoved(r.unit, r.note) : m.unitSame(r.unit), m.readyNext()];
     }
 
     case "unit": {
@@ -88,8 +80,8 @@ async function run(deps: Deps, sender: Sender, cmd: Command): Promise<string[]> 
     case "report": {
       const r = await resolveUnit(deps, sender, cmd.unitCode, m);
       if ("error" in r) return [r.error];
-      const added = await deps.store.addLiveReport(r.unit.code, cmd.report, sender.senderHash);
-      return [added ? m.reportCounted() : m.reportDuplicate(), ...(await liveLines(deps, r.unit, m))];
+      const { counted } = await sendLiveReport(deps, sender, r.unit, cmd.report);
+      return [counted ? m.reportCounted() : m.reportDuplicate(), ...(await liveLines(deps, r.unit, m))];
     }
   }
 }
