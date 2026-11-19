@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MyUnit } from "@/components/app/MyUnit";
 import { Chevron } from "@/components/app/ui";
 import { currentElection, currentTrail } from "@/lib/count/current";
 import { n, unexplainedAreas } from "@/lib/count/explain";
@@ -18,7 +19,7 @@ export default function HomePage() {
           <p className="mt-2 text-mu">Your polling unit, the count, and the things you hear, checked.</p>
         </section>
 
-        <div id="my-unit" />
+        <MyUnit />
 
         <Link href="/count" className="card pop block text-tx no-underline">
           <div className="flex items-center justify-between">
