@@ -137,7 +137,6 @@ export function Simulator() {
     queueRef.current = [...queueRef.current, p];
     save(QUEUE_KEY, queueRef.current);
     setText("");
-    setPhoto(false);
     void flush();
   }
 
