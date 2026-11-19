@@ -8,13 +8,11 @@ interface Msg {
   who: "me" | "tally";
   text: string;
   status?: Status;
-  photo?: boolean;
 }
 interface Pending {
   id: string;
   from: string;
   text: string;
-  hasPhoto: boolean;
 }
 
 const SENDER_KEY = "tally.sim.sender";
@@ -49,7 +47,6 @@ export function Simulator() {
   const [sender, setSender] = useState<string>("");
   const [msgs, setMsgs] = useState<Msg[]>([WELCOME]);
   const [text, setText] = useState("");
-  const [photo, setPhoto] = useState(false);
   const [online, setOnline] = useState(true);
   const [busy, setBusy] = useState(false);
   const logRef = useRef<HTMLDivElement>(null);
@@ -67,7 +64,7 @@ export function Simulator() {
     if (queueRef.current.length) {
       setMsgs((m) => [
         ...m,
-        ...queueRef.current.map((p) => ({ id: p.id, who: "me" as const, text: p.text, status: "queued" as Status, photo: p.hasPhoto })),
+        ...queueRef.current.map((p) => ({ id: p.id, who: "me" as const, text: p.text, status: "queued" as Status })),
       ]);
     }
     setOnline(navigator.onLine);
@@ -84,7 +81,7 @@ export function Simulator() {
       const res = await fetch("/api/whatsapp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ from: p.from, text: p.text, hasPhoto: p.hasPhoto }),
+        body: JSON.stringify({ from: p.from, text: p.text }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
@@ -135,8 +132,8 @@ export function Simulator() {
   function submit(raw: string) {
     const t = raw.trim();
     if (!t || !sender) return;
-    const p: Pending = { id: uid(), from: sender, text: t.slice(0, 500), hasPhoto: photo };
-    setMsgs((m) => [...m, { id: p.id, who: "me", text: p.text, status: "queued", photo: p.hasPhoto }]);
+    const p: Pending = { id: uid(), from: sender, text: t.slice(0, 500) };
+    setMsgs((m) => [...m, { id: p.id, who: "me", text: p.text, status: "queued" }]);
     queueRef.current = [...queueRef.current, p];
     save(QUEUE_KEY, queueRef.current);
     setText("");
@@ -175,11 +172,10 @@ export function Simulator() {
             <div
               key={m.id}
               className={`pop my-2 max-w-[86%] whitespace-pre-line rounded-2xl px-3.5 py-2 text-[15px] leading-snug ${
-                m.who === "me" ? "ml-auto rounded-br-md bg-gr text-bg" : "rounded-bl-md bg-sf"
+                m.who === "me" ? "ml-auto rounded-br-md bg-tx text-sf" : "rounded-bl-md bg-sf"
               }`}
             >
               <span className="sr-only">{m.who === "me" ? "You: " : "Tally: "}</span>
-              {m.photo && <span className="mb-1 block text-xs opacity-80">📷 photo</span>}
               {m.text}
               {m.who === "me" && m.status && m.status !== "sent" && (
                 <span className="mt-1 block text-xs opacity-80">{m.status === "queued" ? "⏳ queued" : "not sent"}</span>
@@ -195,16 +191,6 @@ export function Simulator() {
             submit(text);
           }}
         >
-          <button
-            type="button"
-            onClick={() => setPhoto((p) => !p)}
-            aria-pressed={photo}
-            title="Attach a photo of the result sheet"
-            aria-label="Attach a photo of the result sheet"
-            className={`grid size-10 shrink-0 place-items-center rounded-full ${photo ? "bg-gr text-bg" : "text-mu hover:bg-gl"}`}
-          >
-            📷
-          </button>
           <label htmlFor="sim-input" className="sr-only">
             Message
           </label>
