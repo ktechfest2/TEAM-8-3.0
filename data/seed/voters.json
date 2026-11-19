@@ -1,0 +1,9 @@
+{
+  "_note": "MOCK. Fictional card records keyed by last 4 digits. Any other 4 digits get a deterministic made-up answer (see lib/providers/voterLookup.ts).",
+  "cards": [
+    { "last4": "4821", "ready": true, "assignedUnit": "LA03-007", "previousUnit": "LA03-004", "note": "Same ward, about 400 m from your old unit." },
+    { "last4": "1234", "ready": false, "assignedUnit": "LA05-012", "previousUnit": null, "note": null },
+    { "last4": "5555", "ready": true, "assignedUnit": "KN02-031", "previousUnit": null, "note": null },
+    { "last4": "2027", "ready": true, "assignedUnit": "KN02-018", "previousUnit": null, "note": null }
+  ]
+}

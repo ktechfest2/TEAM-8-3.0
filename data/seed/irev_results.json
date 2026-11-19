@@ -1,0 +1,11 @@
+{
+  "_note": "MOCK published results, standing in for IReV. Party names are placeholders. null = not yet published.",
+  "results": {
+    "LA03-004": { "A": 140, "B": 120, "C": 22, "D": 9, "rejected": 5, "accredited": 301 },
+    "LA03-007": { "A": 112, "B": 98, "C": 41, "D": 7, "rejected": 6, "accredited": 264 },
+    "LA05-012": { "A": 90, "B": 120, "C": 30, "D": 5, "rejected": 4, "accredited": 249 },
+    "KN02-018": { "A": 150, "B": 133, "C": 12, "D": 3, "rejected": 8, "accredited": 306 },
+    "KN02-031": null,
+    "EN01-002": null
+  }
+}

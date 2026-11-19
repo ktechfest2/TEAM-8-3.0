@@ -1,0 +1,28 @@
+{
+  "_note": "MOCK reports from other voters, so the demo is not empty. Senders are made-up ids, hashed with the salt like real numbers.",
+  "signals": [
+    { "unit": "LA03-007", "signal": "arrived", "sender": "demo-voter-01", "minutesAfter8": 5 },
+    { "unit": "LA03-007", "signal": "arrived", "sender": "demo-voter-02", "minutesAfter8": 9 },
+    { "unit": "LA03-007", "signal": "accred", "sender": "demo-voter-01", "minutesAfter8": 41 },
+    { "unit": "LA03-007", "signal": "queue", "sender": "demo-voter-02", "minutesAfter8": 44 },
+    { "unit": "LA03-007", "signal": "queue", "sender": "demo-voter-03", "minutesAfter8": 52 },
+    { "unit": "LA03-007", "signal": "queue", "sender": "demo-voter-04", "minutesAfter8": 63 },
+    { "unit": "LA05-012", "signal": "arrived", "sender": "demo-voter-11", "minutesAfter8": 70 },
+    { "unit": "KN02-031", "signal": "arrived", "sender": "demo-voter-21", "minutesAfter8": 2 },
+    { "unit": "KN02-031", "signal": "arrived", "sender": "demo-voter-22", "minutesAfter8": 3 },
+    { "unit": "KN02-031", "signal": "arrived", "sender": "demo-voter-23", "minutesAfter8": 6 },
+    { "unit": "KN02-031", "signal": "arrived", "sender": "demo-voter-24", "minutesAfter8": 8 },
+    { "unit": "KN02-031", "signal": "accred", "sender": "demo-voter-21", "minutesAfter8": 15 },
+    { "unit": "KN02-031", "signal": "accred", "sender": "demo-voter-22", "minutesAfter8": 17 },
+    { "unit": "KN02-018", "signal": "arrived", "sender": "demo-voter-31", "minutesAfter8": 30 }
+  ],
+  "results": [
+    { "unit": "LA03-007", "sender": "demo-voter-01", "hasPhoto": true, "minutesAfter8": 600, "figures": { "A": 112, "B": 98, "C": 41, "D": 7, "rejected": 6, "accredited": 264 } },
+    { "unit": "LA03-007", "sender": "demo-voter-03", "hasPhoto": false, "minutesAfter8": 612, "figures": { "A": 112, "B": 98, "C": 41, "D": 7, "rejected": 6, "accredited": 264 } },
+    { "unit": "LA05-012", "sender": "demo-voter-11", "hasPhoto": true, "minutesAfter8": 615, "figures": { "A": 90, "B": 102, "C": 30, "D": 5, "rejected": 4, "accredited": 249 } },
+    { "unit": "LA05-012", "sender": "demo-voter-12", "hasPhoto": false, "minutesAfter8": 630, "figures": { "A": 90, "B": 102, "C": 30, "D": 5, "rejected": 4, "accredited": 249 } },
+    { "unit": "KN02-031", "sender": "demo-voter-21", "hasPhoto": true, "minutesAfter8": 590, "figures": { "A": 201, "B": 177, "C": 20, "D": 4, "rejected": 9, "accredited": 415 } },
+    { "unit": "KN02-018", "sender": "demo-voter-31", "hasPhoto": false, "minutesAfter8": 640, "figures": { "A": 150, "B": 133, "C": 12, "D": 3, "rejected": 8, "accredited": 306 } },
+    { "unit": "KN02-018", "sender": "demo-voter-32", "hasPhoto": false, "minutesAfter8": 655, "figures": { "A": 150, "B": 128, "C": 12, "D": 3, "rejected": 8, "accredited": 306 } }
+  ]
+}
