@@ -5,6 +5,7 @@
  *   npx tsx scripts/record-note.ts "Was voting extended in Rivers State in 2023?"
  *   npx tsx scripts/record-note.ts --about 32/15
  *   npx tsx scripts/record-note.ts --about 32/15 --langs pcm,ha,yo,ig
+ *   npx tsx scripts/record-note.ts --translate mismatch-32-15.en --langs pcm,yo
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -18,12 +19,14 @@ const flag = (name: string) => {
   return i === -1 ? undefined : args.splice(i, 2)[1];
 };
 const about = flag("about");
+/** Translate a note that is already recorded, without researching again. */
+const translateOnly = flag("translate");
 const langs = (flag("langs") ?? "")
   .split(",")
   .map((s) => s.trim())
   .filter((s): s is Lang => (LANGS as string[]).includes(s) && s !== "en");
 const question = args.join(" ").trim();
-if (!question && !about) {
+if (!question && !about && !translateOnly) {
   console.error('Give a question, or --about <area code>. Example: npx tsx scripts/record-note.ts "Is it true that ...?"');
   process.exit(1);
 }
@@ -38,6 +41,15 @@ const save = (note: Note) => {
 
 async function main() {
   const researcher = new LocalAgentResearcher();
+  if (translateOnly) {
+    const existing = (JSON.parse(readFileSync(file, "utf8")) as Note[]).find((n) => n.id === translateOnly);
+    if (!existing) throw new Error(`No recorded note with id ${translateOnly}`);
+    for (const lang of langs) {
+      console.log(`Translating into ${lang}...`);
+      save(await researcher.translate(existing, lang));
+    }
+    return;
+  }
   console.log("Researching (this takes a few minutes)...");
   const note = await researcher.research({ question, lang: "en", about });
   if (!note) throw new Error("No note came back");
