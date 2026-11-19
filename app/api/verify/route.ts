@@ -1,16 +1,13 @@
-import { verifyChain } from "@/lib/chain/hash";
-import { getDeps } from "@/lib/context";
+import { RIVERS_2023_SEAL, verifyRivers2023 } from "@/lib/log/rivers2023";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** GET /api/verify: recompute the whole hash chain from genesis. */
+/** GET /api/verify: recompute the Log from the published results and check it against the seal. */
 export async function GET() {
-  const deps = await getDeps();
-  const rows = await deps.store.listResults();
-  const report = verifyChain(rows);
+  const report = verifyRivers2023();
   return Response.json(
-    { ...report, checkedAt: new Date().toISOString(), firstBreakSeq: report.breaks[0] ? rows[report.breaks[0].index].seq : null },
+    { ...report, sealedAt: RIVERS_2023_SEAL.sealedAt, checkedAt: new Date().toISOString() },
     { headers: { "Cache-Control": "no-store" } },
   );
 }

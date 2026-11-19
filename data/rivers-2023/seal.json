@@ -1,0 +1,145 @@
+{
+ "sealedAt": "2026-11-19T21:05:45.267Z",
+ "length": 6866,
+ "head": "a5459930f311f0867ea4a67bf0122311ede5e3318552618951bc7bb82ea73653",
+ "checkpoints": [
+  {
+   "areaCode": "32/01",
+   "name": "Abua-Odual",
+   "units": 214,
+   "hash": "fbafc57bc657a6d631876c05fe3b2e2fb07b58cb82899c62abb54fc337ef5ca4"
+  },
+  {
+   "areaCode": "32/02",
+   "name": "Ahoada East",
+   "units": 176,
+   "hash": "97f7830ec2c281e2406919c3e6b1d150ec4b5a9ace7b06a8dfc5a139604c09a4"
+  },
+  {
+   "areaCode": "32/03",
+   "name": "Ahoada West",
+   "units": 171,
+   "hash": "b5a1b4227ead8a186371c25c0d5f836ef18ae3ec7a44e9a7ea281386046dbbac"
+  },
+  {
+   "areaCode": "32/04",
+   "name": "Akuku Toru",
+   "units": 244,
+   "hash": "95e6ff497a8a130e801f9ddd1f298afedcc04f9e845195893d0ad15389a1815b"
+  },
+  {
+   "areaCode": "32/05",
+   "name": "Andoni",
+   "units": 265,
+   "hash": "bfb267bfc23b44211989c4e0c84aa6a9914fb519566bde8452ede96c50b1d282"
+  },
+  {
+   "areaCode": "32/06",
+   "name": "Asari-Toru",
+   "units": 251,
+   "hash": "442164079dd6b237564fabf0aabb0506bb44202fa9fa9dbca0d54aeebcfb78e6"
+  },
+  {
+   "areaCode": "32/07",
+   "name": "Bonny",
+   "units": 165,
+   "hash": "6d4c5692a30d5aef6d02a53f371b615d9a65bb760fb7edc132327b205c4f74b7"
+  },
+  {
+   "areaCode": "32/08",
+   "name": "Degema",
+   "units": 178,
+   "hash": "ce6c0e08e9968f6545c78490d2b3827d7d2fa9f9c84793bed195805eab33186d"
+  },
+  {
+   "areaCode": "32/09",
+   "name": "Eleme",
+   "units": 233,
+   "hash": "d413f784dd5b88f0e230c7d7fe18354d75ab4f81a450352156761dfb3e4ff2c0"
+  },
+  {
+   "areaCode": "32/10",
+   "name": "Emohua",
+   "units": 280,
+   "hash": "36422a971d97b59e1cf3b89bc008d1b33bf82019cccc257eb7a67840b3becb85"
+  },
+  {
+   "areaCode": "32/11",
+   "name": "Etche",
+   "units": 271,
+   "hash": "d8f92bbf35a1a7daae75bc00f5b968a33c2918efa20507ec974ab3b87754c439"
+  },
+  {
+   "areaCode": "32/12",
+   "name": "Gokana",
+   "units": 260,
+   "hash": "12931ddcc8d34e2ce9b407139bc965f91225b160ae351af1b2d590f81f8c9888"
+  },
+  {
+   "areaCode": "32/13",
+   "name": "Ikwerre",
+   "units": 312,
+   "hash": "105121b9035889ed9d0257c2f13ee8d1bcf41c4336111c441bb80af957d07830"
+  },
+  {
+   "areaCode": "32/14",
+   "name": "Khana",
+   "units": 359,
+   "hash": "6d4972cd3d15341a0704f8eaa528807d2d00d62ca96c2f372b66a019dbfded75"
+  },
+  {
+   "areaCode": "32/15",
+   "name": "Obio/Akpor",
+   "units": 1211,
+   "hash": "b38ef1020c2406b44c5c7756a76dc410081138173e62cd667a9abc52d86c0ef8"
+  },
+  {
+   "areaCode": "32/16",
+   "name": "Ogba/Egbema/Ndoni",
+   "units": 335,
+   "hash": "b040dc3211458eea863ca43f4c5caab8385ed932bebf237578dabb5bfc377010"
+  },
+  {
+   "areaCode": "32/17",
+   "name": "Ogu/Bolo",
+   "units": 131,
+   "hash": "3ab8312c937c1d06097d9661bc46a7069cb82c071f403fa50b35797501cc8408"
+  },
+  {
+   "areaCode": "32/18",
+   "name": "Okrika",
+   "units": 170,
+   "hash": "a5d4b40fa529cedf7e0fc0e4288679b15f705cf9ce2a1efe1499d12449c6119c"
+  },
+  {
+   "areaCode": "32/19",
+   "name": "Omuma",
+   "units": 167,
+   "hash": "92224b661bdcd2559930291a1d7aafd002e03dafc611d41be1c1ac9165356545"
+  },
+  {
+   "areaCode": "32/20",
+   "name": "Opobo/Nkoro",
+   "units": 154,
+   "hash": "9421229cc0d3e0d3ffd30b470565bbff00336b94a6a8cbca6cb72858cd3722aa"
+  },
+  {
+   "areaCode": "32/21",
+   "name": "Oyigbo",
+   "units": 217,
+   "hash": "b2617d587cf0f9171d19c1e3bb61d00df6a12630c55216878a60643b4f2b3a67"
+  },
+  {
+   "areaCode": "32/22",
+   "name": "Port Harcourt",
+   "units": 961,
+   "hash": "42d55619c6fedc04adfe6294663e7da1cc4b1796237e10f9254965fac6735f8e"
+  },
+  {
+   "areaCode": "32/23",
+   "name": "Tai",
+   "units": 141,
+   "hash": "a5459930f311f0867ea4a67bf0122311ede5e3318552618951bc7bb82ea73653"
+  }
+ ]
+}
