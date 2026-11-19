@@ -69,7 +69,7 @@ async function run(deps: Deps, sender: Sender, cmd: Command, hasPhoto: boolean):
 
   switch (cmd.kind) {
     case "help":
-      return [m.help(), m.mockNote()];
+      return [m.help()];
 
     case "error":
       return [m.parseError(cmd.error)];
@@ -89,7 +89,6 @@ async function run(deps: Deps, sender: Sender, cmd: Command, hasPhoto: boolean):
         m.cardReady(card.ready),
         card.previousUnit ? m.unitMoved(unit, card.note) : m.unitSame(unit),
         m.readyNext(),
-        m.mockNote(),
       ];
     }
 
@@ -138,7 +137,7 @@ async function run(deps: Deps, sender: Sender, cmd: Command, hasPhoto: boolean):
       } else {
         crowd = m.resultFirst();
       }
-      return [m.resultLogged(shortHash(row.hash)), own, crowd, m.mockNote()];
+      return [m.resultLogged(shortHash(row.hash)), own, crowd];
     }
   }
 }

@@ -16,44 +16,34 @@ export default async function VerifyPage() {
   const recent = rows.map((r, i) => ({ r, i })).slice(-25).reverse();
 
   return (
-    <div className="py-8">
-      <h1 className="text-[clamp(30px,5vw,44px)] font-extrabold">Verify the log</h1>
-      <p className="mt-3 max-w-[40em] text-mu">
-        Every result submission is chained to the one before it: each entry stores{" "}
-        <code className="mono">SHA-256(previous hash + canonical JSON of the entry)</code>. This page recomputes the whole chain
-        from the start. If anyone edits, deletes or reorders an entry in the database, the chain breaks at that point.
+    <div className="py-10">
+      <h1 className="text-[clamp(30px,5vw,42px)] font-extrabold">Verify the log</h1>
+      <p className="mt-2 max-w-[36em] text-mu">
+        Each result is chained to the one before it. Edit, delete or reorder any entry and the chain breaks.
       </p>
 
-      <div className={`mt-6 text-[17px] ${report.ok ? "card-ok" : "card-warn"}`} role="status">
+      <div className={`mt-8 flex items-center gap-3 text-lg ${report.ok ? "card-ok" : "card-warn"}`} role="status">
+        <span aria-hidden>{report.ok ? "✓" : "!"}</span>
         {report.ok ? (
-          <>
-            <b>Chain intact.</b> {report.length} entr{report.length === 1 ? "y" : "ies"} recomputed, no breaks. Head:{" "}
-            <span className="mono">{report.head}</span>
-          </>
+          <span>
+            <b>Chain intact.</b> {report.length} entr{report.length === 1 ? "y" : "ies"} checked.
+          </span>
         ) : (
-          <>
-            <b>Chain break found, needs review.</b> {report.breaks.length} problem{report.breaks.length === 1 ? "" : "s"}, first at
-            log entry #{rows[report.breaks[0].index].seq} ({report.breaks[0].kind === "hash_mismatch" ? "contents changed" : "link to previous entry changed"}).
-          </>
+          <span>
+            <b>Break found at entry #{rows[report.breaks[0].index].seq}</b>, needs review.
+          </span>
         )}
       </div>
 
-      <p className="mt-3 text-sm text-mu">
-        Machine-readable: <a className="text-gr underline" href="/api/verify">/api/verify</a>. The chain is appended under a database
-        lock, and each hash can have only one successor, so concurrent writes cannot fork it.
-      </p>
-
-      <h2 className="mt-8 text-2xl font-semibold">Latest entries</h2>
-      <div className="mt-3 overflow-x-auto">
-        <table className="w-full min-w-[640px] border-collapse text-left text-[15px]">
+      <div className="mt-8 overflow-x-auto">
+        <table className="w-full border-collapse text-left text-[15px]">
           <thead className="text-sm text-mu">
             <tr className="border-b border-ln">
               <th className="py-2 pr-3 font-semibold">#</th>
               <th className="py-2 pr-3 font-semibold">Unit</th>
-              <th className="py-2 pr-3 font-semibold">Figures (A, B, C, D, rej, acc)</th>
-              <th className="py-2 pr-3 font-semibold">Previous</th>
-              <th className="py-2 pr-3 font-semibold">Hash</th>
-              <th className="py-2 font-semibold">Check</th>
+              <th className="py-2 pr-3 font-semibold">A · B · C · D · rej · acc</th>
+              <th className="hidden py-2 pr-3 font-semibold sm:table-cell">Hash</th>
+              <th className="py-2 font-semibold"><span className="sr-only">Check</span></th>
             </tr>
           </thead>
           <tbody>
@@ -61,23 +51,21 @@ export default async function VerifyPage() {
               <tr key={r.seq} className="border-b border-ln">
                 <td className="py-2 pr-3">{r.seq}</td>
                 <td className="py-2 pr-3">{r.unitCode}</td>
-                <td className="py-2 pr-3 font-mono text-[13px]">{FIGURE_KEYS.map((k) => r.figures[k]).join(", ")}</td>
-                <td className="mono py-2 pr-3">{short(r.prevHash)}</td>
-                <td className="mono py-2 pr-3">{short(r.hash)}</td>
-                <td className={`py-2 font-semibold ${brokenAt.has(i) ? "text-am" : "text-gr"}`}>{brokenAt.has(i) ? "Break" : "OK"}</td>
+                <td className="py-2 pr-3 font-mono text-[13px]">{FIGURE_KEYS.map((k) => r.figures[k]).join(" · ")}</td>
+                <td className="mono hidden py-2 pr-3 sm:table-cell">{short(r.hash)}</td>
+                <td className={`py-2 font-semibold ${brokenAt.has(i) ? "text-am" : "text-gr"}`}>{brokenAt.has(i) ? "Break" : "✓"}</td>
               </tr>
             ))}
             {recent.length === 0 && (
               <tr>
-                <td colSpan={6} className="py-4 text-mu">
-                  No entries yet. Send a RESULT from the <a className="text-gr underline" href="/simulator">simulator</a>.
+                <td colSpan={5} className="py-4 text-mu">
+                  No entries yet.
                 </td>
               </tr>
             )}
           </tbody>
         </table>
       </div>
-      <p className="mt-3 text-sm text-mu">Sender ids are salted hashes and are not shown. Figures are demo data.</p>
     </div>
   );
 }

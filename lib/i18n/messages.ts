@@ -34,7 +34,6 @@ export interface Messages {
   resultOthersDiffer(n: number): string;
   resultConflicting(): string;
   resultStatus(s: ResultStatus, agreeing: number, diffs: FieldDiff[]): string;
-  mockNote(): string;
 }
 
 const diffList = (diffs: FieldDiff[], you: string, pub: string) =>
@@ -130,7 +129,6 @@ const en: Messages = {
         return `${n} voters agree on the figures. No published result yet.`;
     }
   },
-  mockNote: () => "(Demo: card, unit and published result data are mocked.)",
 };
 
 const pcm: Messages = {
@@ -208,7 +206,6 @@ const pcm: Messages = {
   resultAgree: (n) => `${n} voters don send the same figures.`,
   resultOthersDiffer: (n) => `${n} other voters agree on different figures. Abeg check the wall again.`,
   resultConflicting: () => "Voters for this unit send different figures, so e need review.",
-  mockNote: () => "(Demo: card, unit and published result data na mock.)",
 };
 
 /**

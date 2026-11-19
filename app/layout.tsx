@@ -36,25 +36,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 btn">
           Skip to content
         </a>
-        <header className="sticky top-0 z-40 border-b border-ln bg-bg/90 backdrop-blur">
-          <nav aria-label="Main" className="mx-auto flex max-w-[1040px] flex-wrap items-center gap-x-5 gap-y-1 px-4 py-3 sm:px-5">
-            <Link href="/" className="font-display text-xl font-extrabold text-tx no-underline">
+        <header className="sticky top-0 z-40 bg-bg/85 backdrop-blur">
+          <nav aria-label="Main" className="mx-auto flex max-w-[1040px] items-center gap-5 px-4 py-4 sm:px-5">
+            <Link href="/" className="mr-auto flex items-center gap-2 font-display text-xl font-extrabold text-tx no-underline">
+              <span className="grid size-7 place-items-center rounded-full bg-gr text-[13px] text-bg">T</span>
               Tally
             </Link>
-            <div className="flex flex-1 flex-wrap items-center gap-x-4 gap-y-1 text-[15px] font-semibold">
-              <Link className="text-tx hover:text-gr" href="/simulator">Simulator</Link>
-              <Link className="text-tx hover:text-gr" href="/newsroom">Newsroom</Link>
-              <Link className="text-tx hover:text-gr" href="/verify">Verify log</Link>
-            </div>
+            <Link className="text-[15px] font-semibold text-mu hover:text-tx" href="/simulator">Try it</Link>
+            <Link className="text-[15px] font-semibold text-mu hover:text-tx" href="/newsroom">Newsroom</Link>
+            <Link className="hidden text-[15px] font-semibold text-mu hover:text-tx sm:inline" href="/verify">Verify</Link>
             <ThemeToggle />
           </nav>
         </header>
         <main id="main" className="mx-auto max-w-[1040px] px-4 sm:px-5">
           {children}
         </main>
-        <footer className="mx-auto max-w-[1040px] px-4 pb-12 pt-8 text-[15px] text-mu sm:px-5">
-          Built for the Every Vote, Every Voice hackathon. Party names, polling units and published results in this demo are
-          placeholders. Built with an AI coding assistant (Claude).
+        <footer className="mx-auto mt-8 flex max-w-[1040px] flex-wrap justify-between gap-2 border-t border-ln px-4 py-8 text-sm text-mu sm:px-5">
+          <span>Prototype for Every Vote, Every Voice. Data, units and parties are simulated.</span>
+          <span>Built with Claude.</span>
         </footer>
       </body>
     </html>
