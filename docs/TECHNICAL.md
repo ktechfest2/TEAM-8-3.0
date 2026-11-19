@@ -1,176 +1,135 @@
 # Tally: technical notes
 
-The short version is in the [README](../README.md). This page has the detail.
+The short version is in the [README](../README.md). Words in **bold** below are defined in the [glossary](../GLOSSARY.md).
 
-Hackathon prototype for **Every Vote, Every Voice**. Tally is a WhatsApp and SMS companion that walks a first-time
-voter through election day:
+One Next.js app (App Router, TypeScript, Tailwind). Server logic lives in `lib/`; pages and Route Handlers in `app/` are thin.
 
-1. **Am I ready?** Is my card ready, and did my polling unit move?
-2. **Live at my unit.** Count-based reports from other voters: officials arrived, accreditation started, long queue.
-3. **Check the wall.** Send the figures from the result sheet; Tally checks the arithmetic and compares them with the
-   published result.
-4. **Journalist view.** The same reports, filterable by state and polling unit, with counts, photo flags, timestamps
-   and CSV export.
-
-One Next.js app (App Router, TypeScript, Tailwind), API logic in Route Handlers, Neon Postgres, deploys to Vercel.
-
-## What is real and what is mocked
-
-**No access to INEC data was assumed.** We have not confirmed that INEC offers a public lookup for PVC status or
-polling-unit changes, or machine-readable access to IReV. Every data source we cannot actually reach sits behind an
-adapter interface ([lib/providers/types.ts](../lib/providers/types.ts)) with a mock implementation driven by seed JSON.
+## What is real and what is simulated
 
 | Part | Status |
 | --- | --- |
-| Command parser, replies (English, Pidgin) | Real |
-| Result validation: party votes + rejected ≤ accredited ≤ registered | Real ([lib/rules/validate.ts](../lib/rules/validate.ts)) |
-| One vote per sender per signal per unit; "unverified" for a single reporter | Real (DB unique constraint + [lib/rules/signals.ts](../lib/rules/signals.ts)) |
-| Consensus (2+ identical submissions) and "matches" / "unmatched, needs review" | Real ([lib/rules/consensus.ts](../lib/rules/consensus.ts), [compare.ts](../lib/rules/compare.ts)) |
-| Hash-chained, append-only log and `/verify` | Real ([lib/chain](../lib/chain), [migration](../db/migrations/0001_init.sql)) |
-| Card readiness and polling-unit lookup (`VoterLookupProvider`) | **Mock**: [data/seed/voters.json](../data/seed/voters.json). Uses the last 4 digits of the card, which a real lookup could never rely on. Any other 4 digits get a made-up but stable answer. |
-| Published results (`IRevProvider`) | **Mock**: [data/seed/irev_results.json](../data/seed/irev_results.json) |
-| Other voters' reports | **Mock**: [data/seed/demo_reports.json](../data/seed/demo_reports.json), sent through the same code as live messages |
-| WhatsApp and SMS delivery (`MessagingProvider`) | **Console / in-app by default.** Optional Twilio implementation behind `MESSAGING_PROVIDER=twilio`. |
-| Polling units, places, "Party A to D" | **Fictional** |
-| Hausa, Yorùbá, Igbo replies | **Stubs** that fall back to English and say so. Flagged "needs native review" in [lib/i18n/messages.ts](../lib/i18n/messages.ts). The Pidgin copy should also be reviewed by a native speaker. |
-| Photos | Only a "photo attached" flag is recorded. Images are never downloaded, stored or shown, because face and voter-detail blurring is not built. |
+| **Published results** per polling unit, Rivers State 2023 | **Real.** Read from result sheets on INEC's portal by CCIJ. [Source and caveats](../data/rivers-2023/SOURCE.md) |
+| **Announced results** per local government, Rivers State 2023 | **Real.** Released by INEC under a freedom-of-information request, via CCIJ |
+| Polling units, wards, local governments | **Real** names and codes, from the same dataset |
+| **Count trail**, **portal sums**, **coverage**, **mismatch** rules | Real ([lib/count/trail.ts](../lib/count/trail.ts)) |
+| **Notes** from live research | Real when run locally ([lib/notes](../lib/notes)); the hosted site replays **recorded notes** |
+| **Log** sealing the published results | Real ([lib/log](../lib/log)) |
+| **Readiness check** (`VoterLookupProvider`) | **Simulated**: [data/seed/voters.json](../data/seed/voters.json). Uses the last 4 digits of a card, which a real lookup could never rely on |
+| **Live reports** from other voters | **Simulated** seed data, sent through the same code as real ones |
+| WhatsApp and SMS delivery | In-app simulator by default; optional Twilio |
+| Hausa, Yorùbá, Igbo chat replies | Fall back to English. Notes in those languages are machine-translated and not reviewed by native speakers |
 
-The UI labels mocked data on every page that shows it.
+## Modules
 
-## Quick start (no accounts needed)
+| Module | Interface | What sits behind it |
+| --- | --- | --- |
+| `lib/count` | `buildCountTrail(input)`, `findArea`, `unitsIn` | Sums by ward, local government and state; coverage; the two tests for an unexplained mismatch; reading-noise allowance. Pure |
+| `lib/count/explain.ts` | `explainComparison`, `headlineComparison`, `unexplainedAreas` | Plain-language wording for a comparison |
+| `lib/notes` | `ask(request)` | Chooses live or recorded research, falls back when a live run fails. Two adapters behind the `Researcher` seam: `LocalAgentResearcher` and `RecordedResearcher` |
+| `lib/myUnit.ts` | `voterFrom`, `checkReadiness`, `sendLiveReport` | The voter and their polling unit. Used by both the chat handler and the app |
+| `lib/log` | `sealLog(units)`, `verifyLog(units, seal)` | Hash chain over the published results, with a checkpoint per local government |
+| `lib/commands` | `handleMessage(deps, inbound)` | Parser and replies for the text channel |
+| `lib/store` | `Store` | Two adapters: in-memory and Postgres |
 
-Requires Node 20 or newer.
+## The count trail
 
-```bash
-npm install
-npm run dev
-```
+For each area Tally computes a **portal sum** per party from the polling units whose sheet could be read, and the **coverage**: units read, units that exist, and the registered voters in the units not read.
 
-Open http://localhost:3000 and go to **/simulator**. Without `DATABASE_URL` the app uses an in-memory store,
-seeded with the demo data on start, and resets when the server restarts.
+Where an **announced result** exists (local governments, and the state when every local government has one), each party gets one of three findings:
 
-Demo script: `READY 4821` (card ready, unit moved) → `UNIT` (live counts) → `REPORT ARRIVED` →
-`RESULT A112 B98 C41 D7 REJ6 ACC264` (matches) → press **New voter** and send the same `RESULT` to see two voters
-agree → try `RESULT A90 B102 C30 D5 REJ4 ACC249 LA05-012` to see "unmatched, needs review" → open **/newsroom**
-and **/verify**.
+- **Unexplained**, if the portal sum is above the announced figure by more than reading noise. Unread units can only add votes.
+- **Unexplained**, if the announced figure is above the portal sum by more than the registered voters in the unread units, plus reading noise.
+- **Consistent**, if the two are within reading noise.
+- **Open** otherwise: they differ, but the unread units could account for it.
 
-## Commands
+Reading noise is `max(100, 10% of the announced figure, one vote per four sheets read)`. It is deliberately generous, because the figures were machine-read from photographs.
 
-The same parser serves WhatsApp, SMS and the simulator ([lib/commands/parse.ts](../lib/commands/parse.ts)).
-Commands are case-insensitive, and any command can carry a unit code such as `LA03-007`.
+Wards have no announced result, so they have a portal sum and nothing to compare it with.
+
+## Notes and the research agent
+
+`ask()` takes a question, a language, and optionally the area a mismatch is in.
+
+- With `TALLY_RESEARCH=live`, `LocalAgentResearcher` starts Claude Code headless (`claude -p`) in an empty temporary folder, with an allow-list of read-only search commands and a deny-list covering every file tool. The prompt is in [lib/notes/prompt.ts](../lib/notes/prompt.ts). The reply is parsed by `parseResearch`, which drops malformed sources and refuses to grade a note above "nothing found" if it has no sources.
+- Otherwise `RecordedResearcher` looks for a recorded note: by area for a mismatch, by word overlap for a rumour, preferring the voter's language and falling back to English.
+
+Setup is in [SETUP.md](SETUP.md). The reason for the split is in [ADR 0003](adr/0003-research-runs-locally-hosted-site-shows-recorded-notes.md).
+
+## The log
+
+`sealLog` chains every polling unit's published result: `hash = SHA-256(previous hash + canonical JSON of { unitCode, sheet, figures, registered, accredited })`. It records the head and one checkpoint per local government in `data/rivers-2023/seal.json`.
+
+`/verify` and `/api/verify` recompute the chain from the data and compare. Changing, removing or reordering any polling unit breaks its local government's checkpoint and every later one.
+
+Reseal after changing the data: `npx tsx scripts/seal-log.ts`.
+
+## The text channel
+
+One parser serves WhatsApp, SMS and the simulator. Commands are case-insensitive and can carry a unit code.
 
 | Command | What it does |
 | --- | --- |
-| `READY 4821` | Card readiness and whether the unit moved (last 4 digits of the card). Remembers the unit, not the digits. |
-| `UNIT` / `UNIT LA03-007` | Live report counts and the result status for your unit |
-| `REPORT ARRIVED` / `REPORT ACCRED` / `REPORT QUEUE` | Add your report. One per voter per signal per unit. |
-| `RESULT A112 B98 C41 D7 REJ6 ACC264` | Check and log the wall figures (`A 112`, `a=112` and any order also work) |
-| `LANG PIDGIN` / `LANG EN` / `LANG HAUSA` / `LANG YORUBA` / `LANG IGBO` | Change language |
+| `READY 4821` | Readiness check. Remembers the polling unit, not the digits |
+| `UNIT` / `UNIT 32/15/04/012` | Live report counts for a polling unit |
+| `REPORT ARRIVED` / `REPORT ACCRED` / `REPORT QUEUE` | Add a live report. One per voter per kind per unit |
+| `LANG PIDGIN` / `EN` / `HAUSA` / `YORUBA` / `IGBO` | Change language |
 | `HELP` | List commands |
-
-## Set up Neon
-
-1. Create a Neon project (free tier is fine) and copy its connection string from **Connection details**.
-2. Copy `.env.example` to `.env.local` and set `DATABASE_URL` and `PHONE_HASH_SALT`.
-3. `npm run db:migrate` applies [db/migrations](../db/migrations) in order and records them in `schema_migrations`.
-   (You can also paste the SQL into the Neon SQL editor.)
-4. `npm run seed` adds the fictional polling units and the mock demo reports. It is safe to re-run.
-5. `npm run dev`.
-
-The app talks to Neon over its HTTP driver ([lib/db/neon.ts](../lib/db/neon.ts)): one statement per request, no
-connection pool to manage, which suits Vercel functions. Only the server holds `DATABASE_URL`; there is no public
-API in front of the database. The migration script uses Neon's WebSocket pool because it runs multi-statement SQL
-in a transaction.
-
-On the free tier Neon suspends an idle database, so the first request after a quiet spell is slower. Send a
-message or two before a live demo.
-
-To reset the demo data, run this in the Neon SQL editor (the log refuses row deletes, by design):
-
-```sql
-truncate result_submissions, signals, senders restart identity;
-```
-
-## How the tamper-evident log works
-
-Every valid result submission is appended to one chain. Each entry stores `prev_hash` and
-`hash = SHA-256(prev_hash + canonical JSON of {unitCode, senderHash, figures, hasPhoto, createdAt})`, where canonical
-JSON has sorted keys and no whitespace ([lib/chain](../lib/chain)).
-
-- **No forks under concurrent writes.** The app reads the head, computes the hash and calls the Postgres function
-  `append_result_submission`, which runs in one transaction under an advisory lock and refuses if the head has
-  moved. The app then re-reads the head and retries. A unique index on `prev_hash` is a second guard: no entry can
-  have two successors.
-- **Append-only.** A trigger blocks `UPDATE` and `DELETE` on `result_submissions`.
-- **Checkable.** `/verify` (and `/api/verify`) recomputes the chain from genesis and reports the first break.
-
-Live signals (arrived, accreditation, queue) are protected by the one-vote-per-sender constraint but are not in the
-hash chain. Adding them is a straightforward extension.
 
 ## Privacy
 
-- Phone numbers are never stored or logged. Senders are identified by a salted SHA-256 of the number
-  ([lib/senders.ts](../lib/senders.ts)); WhatsApp and SMS from the same number hash the same.
-- Card digits are used only for the lookup and never stored.
-- Simulator senders must look like `sim:<id>`, so the open demo endpoint cannot pose as a real phone number.
+- Phone numbers are never stored or logged. A voter is a salted SHA-256 of the number ([lib/senders.ts](../lib/senders.ts)).
+- Card digits are used for the lookup and never stored.
+- The app identifies a voter by a random id it keeps on the phone, namespaced so it cannot collide with a phone number.
+- The research agent cannot read local files, and its X session is passed to the child process only.
+
+## Database (optional)
+
+Without `DATABASE_URL` the app uses a seeded in-memory store. For a shared deployment use Neon Postgres:
+
+1. Copy `.env.example` to `.env.local`; set `DATABASE_URL` and `PHONE_HASH_SALT`.
+2. `npm run db:migrate`, then `npm run seed`.
+
+Only voters and live reports are stored. The count trail and notes are read from files in `data/`.
 
 ## Twilio (optional)
 
-1. Set `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN` and `PUBLIC_BASE_URL` (the URL Twilio calls).
-2. Point the WhatsApp sandbox "when a message comes in" webhook to `https://<your-app>/api/whatsapp`, and an SMS
-   number's webhook to `https://<your-app>/api/sms` (both HTTP POST).
-3. Every webhook must carry a valid `X-Twilio-Signature`; unsigned or wrongly signed requests get 403.
-4. By default the reply goes back inline as TwiML. With `MESSAGING_PROVIDER=twilio` (plus `TWILIO_WHATSAPP_FROM` and
-   `TWILIO_SMS_FROM`) replies are sent through the REST API instead.
+1. Set `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN` and `PUBLIC_BASE_URL`.
+2. Point the WhatsApp sandbox webhook at `/api/whatsapp` and an SMS number's webhook at `/api/sms`.
+3. Every webhook must carry a valid `X-Twilio-Signature`.
 
 ## Tests
 
 ```bash
-npm test          # Vitest: rules, parser, hash chain, handler, concurrency, Twilio signature,
-                  # and the real migration + Postgres store on PGlite (embedded Postgres)
+npm test          # count trail (fixtures and real data), notes, log, parser, handler, store on embedded Postgres
 npm run typecheck
 ```
 
-## Deploy to Vercel
+## Deploy
 
-1. Push this repo to GitHub and import it in Vercel (framework preset: Next.js, no build settings to change).
-2. Add Neon from the Vercel Marketplace (Storage tab), which creates the database and sets `DATABASE_URL`, or set
-   `DATABASE_URL` yourself. Add the other variables from `.env.example`. **Use Neon for any shared deployment.**
-   The in-memory store is per server instance, so on Vercel different requests can see different data.
-3. Run `npm run db:migrate` and `npm run seed` against that database from your machine, with `.env.local`
-   pointing at it.
-4. Deploy. Check `/verify` shows "Chain intact" and `/simulator` replies.
-5. For a public demo, consider `SIMULATOR_ENABLED=false` once Twilio is set up, since the simulator endpoint has no
-   rate limiting.
+Import the repository in Vercel (preset: Next.js). No environment variables are required for the demo. Leave `TALLY_RESEARCH` unset: the hosted site serves recorded notes. Add Neon and the variables in `.env.example` if live reports must be shared between visitors.
 
-## Project layout
+## Layout
 
 ```
-app/                    pages (/, /simulator, /newsroom, /verify) and Route Handlers under app/api
-components/             Simulator chat, theme toggle
-lib/rules/              pure validation, consensus, comparison and summary rules (unit tested)
-lib/chain/              canonical JSON, SHA-256 chain, verification, append-with-retry
-lib/commands/           shared command parser and message handler
-lib/providers/          VoterLookup, IRev and Messaging interfaces, mock and Twilio implementations
-lib/store/              Postgres (Neon) store and in-memory store behind one interface
-lib/db/                 Neon HTTP driver connection
-lib/i18n/               English, Pidgin, and flagged Hausa/Yorùbá/Igbo stubs
-data/seed/              mock JSON: polling units, cards, published results, demo reports
-db/migrations/          SQL migrations
-scripts/migrate.ts      applies migrations to DATABASE_URL
-scripts/seed.ts         seeds the database
-design/tally.html       the landing page/demo used as the design and copy reference
-tests/                  Vitest
+app/(app)/        the phone app: Home (my unit), Count, Ask, More
+app/(site)/       text-channel simulator, Newsroom, Verify
+app/api/          ask, app/unit, whatsapp, sms, newsroom, verify
+components/app/   app screens' client components
+lib/count/        count trail and its wording
+lib/notes/        notes, the research agent, recorded notes
+lib/log/          the sealed log
+lib/commands/     text-channel parser and handler
+lib/store/        in-memory and Postgres stores
+data/rivers-2023/ real published and announced results, the seal, and their source
+data/notes/       recorded notes
+data/seed/        simulated cards and live reports
+docs/adr/         decisions
+scripts/          build-rivers, seal-log, record-note, migrate, seed
 ```
 
 ## Known limits
 
-- No rate limiting or abuse controls beyond one vote per sender per signal.
-- The mock readiness lookup uses only 4 digits; a real one needs INEC's cooperation and much stronger identification.
-- Deterministic rules only: no ML, no OCR. Photos are flagged, not read.
-- Times are shown in West Africa Time (Africa/Lagos).
-
-## AI assistance
-
-AI coding assistants were used to build this project, as the hackathon rules require us to state: Claude (Anthropic)
-helped write the code, tests and documentation. The team is responsible for reviewing what it produced.
+- One state, one election, four parties.
+- No rate limiting on the open endpoints.
+- A live research run takes minutes and is not streamed.
+- Times are shown in West Africa Time.

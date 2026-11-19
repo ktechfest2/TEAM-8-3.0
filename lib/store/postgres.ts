@@ -1,5 +1,4 @@
-import { GENESIS_HASH } from "@/lib/chain/hash";
-import type { ChainEntry, Lang, PollingUnit, ResultRow, Sender, Signal, SignalRow } from "@/lib/types";
+import type { Lang, LiveReport, LiveReportKind, PollingUnit, Sender } from "@/lib/types";
 import type { Store, UnitFilter } from "./types";
 
 /**
@@ -21,28 +20,12 @@ const toUnit = (r: Row): PollingUnit => ({
   registeredVoters: Number(r.registered_voters),
 });
 
-const toResult = (r: Row): ResultRow => ({
-  seq: Number(r.seq),
-  unitCode: r.unit_code as string,
-  senderHash: r.sender_hash as string,
-  figures: {
-    A: Number(r.party_a),
-    B: Number(r.party_b),
-    C: Number(r.party_c),
-    D: Number(r.party_d),
-    rejected: Number(r.rejected),
-    accredited: Number(r.accredited),
-  },
-  hasPhoto: Boolean(r.has_photo),
-  createdAt: iso(r.created_at),
-  prevHash: r.prev_hash as string,
-  hash: r.hash as string,
-});
+const UNIT_BATCH = 500;
 
-const pgCode = (e: unknown) => (e as { code?: string })?.code;
-const pgMessage = (e: unknown) => String((e as { message?: string })?.message ?? "");
-
-/** Plain Postgres store (Neon in production). Parameterised SQL only. */
+/**
+ * Plain Postgres store (Neon in production). Parameterised SQL only.
+ * Live reports live in the `signals` table: the table predates the term "live report".
+ */
 export class PostgresStore implements Store {
   readonly kind = "postgres" as const;
 
@@ -56,16 +39,18 @@ export class PostgresStore implements Store {
   async listUnits(filter: UnitFilter = {}) {
     const rows = await this.sql(
       `select * from polling_units
-        where ($1::text is null or state = $1) and ($2::text is null or code = $2)
-        order by state, code`,
-      [filter.state ?? null, filter.unitCode ?? null],
+        where ($1::text is null or lga = $1)
+          and ($2::text is null or code = $2)
+          and ($3::text[] is null or code = any($3::text[]))
+        order by code`,
+      [filter.lga ?? null, filter.unitCode ?? null, filter.codes ?? null],
     );
     return rows.map(toUnit);
   }
 
-  async listStates() {
-    const rows = await this.sql("select distinct state from polling_units order by state");
-    return rows.map((r) => r.state as string);
+  async listLgas() {
+    const rows = await this.sql("select distinct lga from polling_units order by lga");
+    return rows.map((r) => r.lga as string);
   }
 
   async getSender(senderHash: string) {
@@ -90,81 +75,49 @@ export class PostgresStore implements Store {
     );
   }
 
-  async addSignal(unitCode: string, signal: Signal, senderHash: string, createdAt?: string) {
+  async addLiveReport(unitCode: string, kind: LiveReportKind, senderHash: string, createdAt?: string) {
     // unique(unit_code, signal, sender_hash): a repeat inserts nothing and returns no row.
     const rows = await this.sql(
       `insert into signals (unit_code, signal, sender_hash, created_at) values ($1, $2, $3, coalesce($4::timestamptz, now()))
        on conflict (unit_code, signal, sender_hash) do nothing
        returning id`,
-      [unitCode, signal, senderHash, createdAt ?? null],
+      [unitCode, kind, senderHash, createdAt ?? null],
     );
     return rows.length > 0;
   }
 
-  async listSignals(unitCodes: string[]): Promise<SignalRow[]> {
-    if (unitCodes.length === 0) return [];
-    const rows = await this.sql(
-      "select unit_code, signal, sender_hash, created_at from signals where unit_code = any($1::text[]) order by id",
-      [unitCodes],
-    );
+  async listLiveReports(unitCodes?: string[]): Promise<LiveReport[]> {
+    if (unitCodes && unitCodes.length === 0) return [];
+    const rows = unitCodes
+      ? await this.sql("select unit_code, signal, sender_hash, created_at from signals where unit_code = any($1::text[]) order by id", [
+          unitCodes,
+        ])
+      : await this.sql("select unit_code, signal, sender_hash, created_at from signals order by id");
     return rows.map((r) => ({
       unitCode: r.unit_code as string,
-      signal: r.signal as Signal,
+      kind: r.signal as LiveReportKind,
       senderHash: r.sender_hash as string,
       createdAt: iso(r.created_at),
     }));
   }
 
-  async chainHead() {
-    const rows = await this.sql("select hash from result_submissions order by seq desc limit 1");
-    return (rows[0]?.hash as string) ?? GENESIS_HASH;
-  }
-
-  async appendResult(e: ChainEntry) {
-    try {
-      // One statement = one transaction. The function takes an advisory lock and refuses if the head moved.
-      const rows = await this.sql(
-        "select * from append_result_submission($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::timestamptz, $11, $12)",
-        [
-          e.unitCode,
-          e.senderHash,
-          e.figures.A,
-          e.figures.B,
-          e.figures.C,
-          e.figures.D,
-          e.figures.rejected,
-          e.figures.accredited,
-          e.hasPhoto,
-          e.createdAt,
-          e.prevHash,
-          e.hash,
-        ],
-      );
-      return { ok: true as const, row: toResult(rows[0]) };
-    } catch (err) {
-      if (pgMessage(err).includes("chain_head_moved") || pgCode(err) === "23505") {
-        return { ok: false as const, reason: "head_moved" as const };
-      }
-      throw err;
-    }
-  }
-
-  async listResults(unitCodes?: string[]) {
-    if (unitCodes && unitCodes.length === 0) return [];
-    const rows = unitCodes
-      ? await this.sql("select * from result_submissions where unit_code = any($1::text[]) order by seq", [unitCodes])
-      : await this.sql("select * from result_submissions order by seq");
-    return rows.map(toResult);
-  }
-
-  /** Used by the seed script. */
+  /** Used by the seed script. One statement per batch, so thousands of units take a handful of round trips. */
   async upsertUnits(units: PollingUnit[]) {
-    for (const u of units) {
+    for (let i = 0; i < units.length; i += UNIT_BATCH) {
+      const batch = units.slice(i, i + UNIT_BATCH);
       await this.sql(
-        `insert into polling_units (code, name, ward, lga, state, registered_voters) values ($1, $2, $3, $4, $5, $6)
+        `insert into polling_units (code, name, ward, lga, state, registered_voters)
+         select * from unnest($1::text[], $2::text[], $3::text[], $4::text[], $5::text[], $6::int[])
          on conflict (code) do update set name = excluded.name, ward = excluded.ward, lga = excluded.lga,
            state = excluded.state, registered_voters = excluded.registered_voters`,
-        [u.code, u.name, u.ward, u.lga, u.state, u.registeredVoters],
+        [
+          batch.map((u) => u.code),
+          batch.map((u) => u.name),
+          batch.map((u) => u.ward),
+          batch.map((u) => u.lga),
+          batch.map((u) => u.state),
+          batch.map((u) => u.registeredVoters),
+        ],
       );
     }
   }

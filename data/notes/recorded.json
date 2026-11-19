@@ -1,0 +1,884 @@
+[
+  {
+    "id": "mismatch-32-15.en",
+    "kind": "mismatch",
+    "asked": "Why do the announced results for Obio/Akpor differ from the result sheets on the portal?",
+    "lang": "en",
+    "found": [
+      "The announced Obio/Akpor figures were 80,239 for APC, 3,829 for LP, 368 for PDP and 161 for NNPP. Leadership and NewsOnline reported these numbers.",
+      "Several outlets added up the polling unit sheets on INEC's portal (IReV) and said the sums did not match the announcement. The BBC counted far fewer APC votes and far more LP votes from the sheets than were announced. NewsOnline, which carried a Premium Times report, reached the same kind of gap. Both said sheets that were blurred, missing or not yet uploaded could only add votes, so they would not explain the LP drop.",
+      "Earlier, CDD's fact-check looked at a tweet that claimed a mismatch. CDD said many Obio/Akpor sheets were not visible or were uploaded badly. It said nobody could reliably add up the portal figures, and it rated the tweet's specific numbers unverifiable. This is a caution about any total, including ones from this count.",
+      "Reporters also found problems on some sheets themselves. NewsOnline and a CCIJ investigation, published on TheCable, described figures overwritten or whited out, and digits that did not match the words written beside them. They also reported some sheets from the wrong election. The BBC said INEC's Port Harcourt spokesperson blamed time and staff shortages for some collation problems. INEC's headquarters would not comment because of court cases, and Leadership reported INEC called the Premium Times report prejudicial for the same reason."
+    ],
+    "questions": [
+      "Which sheets or collation records explain the gap between the announced figures and the portal sheets? The reporting does not settle this.",
+      "Did the overwritten sheets reflect changes made at the polling unit, or were they altered later? The reporting describes them but does not say.",
+      "Has any court or INEC review given a final finding on the Obio/Akpor figures? The sources I read do not say."
+    ],
+    "sources": [
+      {
+        "title": "Nigeria election: The mystery of the altered results in disputed poll",
+        "url": "https://www.bbc.com/news/65163713",
+        "publisher": "BBC News",
+        "date": "2023-05-16"
+      },
+      {
+        "title": "INEC Faults Report On Rivers Presidential Results, Says It's Prejudicial",
+        "url": "https://leadership.ng/inec-faults-report-on-rivers-presidential-results-says-its-prejudicial/",
+        "publisher": "Leadership",
+        "date": "2023-04-17"
+      },
+      {
+        "title": "FACT CHECK: Does Obio Akpor LGA result on INEC portal differ from what was announced?",
+        "url": "https://cddfactcheck.org/fact-check-does-obio-akpor-lga-result-on-inec-portal-differ-from-what-was-announced/",
+        "publisher": "CDD Fact Check",
+        "date": "2023-03-08"
+      },
+      {
+        "title": "Official Results On INEC Portal Show Peter Obi, Not Tinubu, Won In Rivers",
+        "url": "https://newsonlineng.com/official-results-on-inec-portal-show-peter-obi-not-tinubu-won-in-rivers/",
+        "publisher": "NewsOnline Nigeria (carrying a Premium Times report)",
+        "date": "2023-04-26"
+      },
+      {
+        "title": "INEC's broken promises, altered voting tallies, poor electoral oversight casts doubt over Nigeria's presidential election",
+        "url": "https://www.thecable.ng/inecs-broken-promises-altered-voting-tallies-poor-electoral-oversight-casts-doubt-over-nigerias-presidential-election/",
+        "publisher": "TheCable (CCIJ investigation)",
+        "date": "2024-12-22"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Several established outlets report a gap between the announced figures and the portal sheets, but none explains it, and INEC has not answered on the merits.",
+    "steps": [
+      "Searched the web for Obio/Akpor 2023 presidential results against the portal sheets.",
+      "Read the long excerpts of the BBC investigation and the Leadership report on INEC's response.",
+      "Read the CDD fact-check, the NewsOnline/Premium Times report and the CCIJ investigation on TheCable.",
+      "Did not open pages in full or search X. I relied on the excerpts the search returned.",
+      "Skipped the Mundx page because it is not an official source."
+    ],
+    "researchedAt": "2026-11-19T21:10:33.926Z",
+    "recorded": true,
+    "about": "32/15"
+  },
+  {
+    "id": "mismatch-32-15.pcm",
+    "kind": "mismatch",
+    "asked": "Why di results wey dem announce for Obio/Akpor no match di result sheets wey dey for di portal?",
+    "lang": "pcm",
+    "found": [
+      "Di figures wey dem announce for Obio/Akpor na 80,239 for APC, 3,829 for LP, 368 for PDP and 161 for NNPP. Leadership and NewsOnline report dis numbers.",
+      "Plenty news organisation add di polling unit sheets wey dey INEC portal (IReV) and dem talk say di total no match wetin dem announce. BBC count far less APC votes and far more LP votes from di sheets than wetin dem announce. NewsOnline, wey carry one Premium Times report, see di same kind gap. Both of dem talk say sheets wey blur, wey miss or wey dem never upload fit only add votes, so dem no fit explain why LP votes drop.",
+      "Before dis one, CDD fact-check look one tweet wey claim say mismatch dey. CDD talk say plenty Obio/Akpor sheets no dey visible or dem upload dem anyhow. E talk say nobody fit add di portal figures well well, and e rate di tweet specific numbers as something wey dem no fit verify. Dis na warning about any total, including di ones from dis count.",
+      "Reporters also find wahala for some of di sheets themselves. NewsOnline and one CCIJ investigation, wey dem publish for TheCable, describe figures wey dem write over or wey dem whiten, and digits wey no match di words wey dem write beside dem. Dem also report say some sheets na from di wrong election. BBC talk say INEC spokesperson for Port Harcourt blame small time and shortage of staff for some collation problems. INEC headquarters no gree comment because of court cases, and Leadership report say INEC call di Premium Times report prejudicial for di same reason."
+    ],
+    "questions": [
+      "Which sheets or collation records fit explain di gap between di figures wey dem announce and di sheets for di portal? Di reporting no settle dis one.",
+      "Di sheets wey dem write over, na changes wey dem make for di polling unit, or dem change dem later? Di reporting describe dem but e no talk.",
+      "Any court or INEC review don give final finding on di Obio/Akpor figures? Di sources wey I read no talk."
+    ],
+    "sources": [
+      {
+        "title": "Nigeria election: The mystery of the altered results in disputed poll",
+        "url": "https://www.bbc.com/news/65163713",
+        "publisher": "BBC News",
+        "date": "2023-05-16"
+      },
+      {
+        "title": "INEC Faults Report On Rivers Presidential Results, Says It's Prejudicial",
+        "url": "https://leadership.ng/inec-faults-report-on-rivers-presidential-results-says-its-prejudicial/",
+        "publisher": "Leadership",
+        "date": "2023-04-17"
+      },
+      {
+        "title": "FACT CHECK: Does Obio Akpor LGA result on INEC portal differ from what was announced?",
+        "url": "https://cddfactcheck.org/fact-check-does-obio-akpor-lga-result-on-inec-portal-differ-from-what-was-announced/",
+        "publisher": "CDD Fact Check",
+        "date": "2023-03-08"
+      },
+      {
+        "title": "Official Results On INEC Portal Show Peter Obi, Not Tinubu, Won In Rivers",
+        "url": "https://newsonlineng.com/official-results-on-inec-portal-show-peter-obi-not-tinubu-won-in-rivers/",
+        "publisher": "NewsOnline Nigeria (carrying a Premium Times report)",
+        "date": "2023-04-26"
+      },
+      {
+        "title": "INEC's broken promises, altered voting tallies, poor electoral oversight casts doubt over Nigeria's presidential election",
+        "url": "https://www.thecable.ng/inecs-broken-promises-altered-voting-tallies-poor-electoral-oversight-casts-doubt-over-nigerias-presidential-election/",
+        "publisher": "TheCable (CCIJ investigation)",
+        "date": "2024-12-22"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Plenty well-known news organisation report say gap dey between di figures wey dem announce and di sheets for di portal, but none of dem explain am, and INEC never answer on di main matter.",
+    "steps": [
+      "I search di web for Obio/Akpor 2023 presidential results against di sheets for di portal.",
+      "I read di long excerpts of di BBC investigation and di Leadership report on INEC response.",
+      "I read di CDD fact-check, di NewsOnline/Premium Times report and di CCIJ investigation for TheCable.",
+      "I no open di pages in full and I no search X. I rely on di excerpts wey di search return.",
+      "I skip di Mundx page because e no be official source."
+    ],
+    "researchedAt": "2026-11-19T21:10:33.926Z",
+    "recorded": true,
+    "about": "32/15"
+  },
+  {
+    "id": "mismatch-32-15.ha",
+    "kind": "mismatch",
+    "asked": "Me yasa sakamakon da aka sanar na Obio/Akpor ya bambanta da takardun sakamako da ke kan portal?",
+    "lang": "ha",
+    "found": [
+      "Alkaluman Obio/Akpor da aka sanar su ne 80,239 na APC, 3,829 na LP, 368 na PDP da kuma 161 na NNPP. Leadership da NewsOnline ne suka bayar da rahoton waɗannan lambobi.",
+      "Kafafen yaɗa labarai da dama sun haɗa takardun sakamako na rumfunan zaɓe da ke kan portal na INEC (IReV), suka ce jimillar ba ta yi daidai da abin da aka sanar ba. BBC ta ƙidaya ƙuri'un APC da suka yi ƙasa da yawa, da kuma ƙuri'un LP da suka fi yawa sosai daga takardun, idan aka kwatanta da abin da aka sanar. NewsOnline, wadda ta ɗauki rahoton Premium Times, ta samu irin wannan giɓi. Dukansu sun ce takardun da suka yi duhu, ko suka ɓace, ko ba a riga an ɗora su ba za su iya ƙara ƙuri'u ne kawai, don haka ba za su bayyana raguwar LP ba.",
+      "A baya, binciken gaskiya na CDD ya duba wani tweet da ya yi iƙirarin cewa akwai rashin daidaito. CDD ta ce takardun Obio/Akpor da yawa ba a iya ganinsu ba ko kuma an ɗora su ba yadda ya kamata ba. Ta ce babu wanda zai iya haɗa alkaluman portal da cikakken tabbaci, kuma ta kimanta takamaiman lambobin tweet ɗin a matsayin waɗanda ba za a iya tabbatarwa ba. Wannan gargaɗi ne ga duk wata jimilla, har da waɗanda suka fito daga wannan ƙidaya.",
+      "’Yan jarida sun kuma gano matsaloli a kan wasu takardun da kansu. NewsOnline da wani bincike na CCIJ, wanda aka wallafa a TheCable, sun bayyana lambobi da aka rubuta a kansu ko aka goge da farin fenti, da kuma lambobi da ba su yi daidai da kalmomin da aka rubuta kusa da su ba. Sun kuma ba da rahoton wasu takardu daga zaɓen da ba shi ba ne. BBC ta ce mai magana da yawun INEC a Port Harcourt ya zargi ƙarancin lokaci da ƙarancin ma'aikata da haddasa wasu matsaloli na tattara sakamako. Hedikwatar INEC ba ta yi tsokaci ba saboda shari'o'in kotu, kuma Leadership ta ruwaito cewa INEC ta kira rahoton Premium Times da cewa yana da son kai ga shari'a saboda wannan dalili."
+    ],
+    "questions": [
+      "Waɗanne takardu ko bayanan tattara sakamako ne ke bayyana giɓin da ke tsakanin alkaluman da aka sanar da takardun portal? Rahotannin ba su warware wannan ba.",
+      "Shin takardun da aka rubuta a kansu sun nuna sauye-sauyen da aka yi a rumfar zaɓe ne, ko kuwa an sauya su daga baya? Rahotannin sun bayyana su amma ba su faɗi hakan ba.",
+      "Shin wata kotu ko bitar INEC ta yanke hukunci na ƙarshe kan alkaluman Obio/Akpor? Majiyoyin da na karanta ba su faɗi hakan ba."
+    ],
+    "sources": [
+      {
+        "title": "Nigeria election: The mystery of the altered results in disputed poll",
+        "url": "https://www.bbc.com/news/65163713",
+        "publisher": "BBC News",
+        "date": "2023-05-16"
+      },
+      {
+        "title": "INEC Faults Report On Rivers Presidential Results, Says It's Prejudicial",
+        "url": "https://leadership.ng/inec-faults-report-on-rivers-presidential-results-says-its-prejudicial/",
+        "publisher": "Leadership",
+        "date": "2023-04-17"
+      },
+      {
+        "title": "FACT CHECK: Does Obio Akpor LGA result on INEC portal differ from what was announced?",
+        "url": "https://cddfactcheck.org/fact-check-does-obio-akpor-lga-result-on-inec-portal-differ-from-what-was-announced/",
+        "publisher": "CDD Fact Check",
+        "date": "2023-03-08"
+      },
+      {
+        "title": "Official Results On INEC Portal Show Peter Obi, Not Tinubu, Won In Rivers",
+        "url": "https://newsonlineng.com/official-results-on-inec-portal-show-peter-obi-not-tinubu-won-in-rivers/",
+        "publisher": "NewsOnline Nigeria (carrying a Premium Times report)",
+        "date": "2023-04-26"
+      },
+      {
+        "title": "INEC's broken promises, altered voting tallies, poor electoral oversight casts doubt over Nigeria's presidential election",
+        "url": "https://www.thecable.ng/inecs-broken-promises-altered-voting-tallies-poor-electoral-oversight-casts-doubt-over-nigerias-presidential-election/",
+        "publisher": "TheCable (CCIJ investigation)",
+        "date": "2024-12-22"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Kafafen yaɗa labarai da dama da aka sani sun ba da rahoton giɓi tsakanin alkaluman da aka sanar da takardun portal, amma babu wanda ya bayyana dalilinsa, kuma INEC ba ta amsa kan ainihin batun ba.",
+    "steps": [
+      "Na bincika yanar gizo don neman sakamakon shugaban ƙasa na Obio/Akpor na 2023 da takardun portal.",
+      "Na karanta dogayen ɓangarorin binciken BBC da rahoton Leadership kan martanin INEC.",
+      "Na karanta binciken gaskiya na CDD, rahoton NewsOnline/Premium Times da binciken CCIJ a TheCable.",
+      "Ban buɗe shafukan gaba ɗaya ba, kuma ban bincika X ba. Na dogara ne da ɓangarorin da bincike ya dawo da su.",
+      "Na tsallake shafin Mundx saboda ba tushen hukuma ba ne."
+    ],
+    "researchedAt": "2026-11-19T21:10:33.926Z",
+    "recorded": true,
+    "about": "32/15"
+  },
+  {
+    "id": "mismatch-32-15.yo",
+    "kind": "mismatch",
+    "asked": "Kí ló dé tí àbájáde tí a kéde fún Obio/Akpor fi yàtọ̀ sí àwọn ìwé àbájáde lórí pọ́tálì?",
+    "lang": "yo",
+    "found": [
+      "Àwọn nọ́ńbà Obio/Akpor tí a kéde jẹ́ 80,239 fún APC, 3,829 fún LP, 368 fún PDP àti 161 fún NNPP. Leadership àti NewsOnline ló ròyìn àwọn nọ́ńbà wọ̀nyí.",
+      "Àwọn ilé-iṣẹ́ ìròyìn kan ṣe àròpọ̀ àwọn ìwé àbájáde ibùdó ìdìbò lórí pọ́tálì INEC (IReV), wọ́n sì sọ pé àròpọ̀ náà kò bá ohun tí a kéde mu. BBC ka ìbò APC tí ó kéré púpọ̀ àti ìbò LP tí ó pọ̀ púpọ̀ láti inú àwọn ìwé náà ju èyí tí a kéde lọ. NewsOnline, tí ó gbé ìròyìn Premium Times, rí irú àlàfo kan náà. Àwọn méjèèjì sọ pé àwọn ìwé tí ó bàjẹ́ tàbí tí kò sí tàbí tí a kò tíì gbé sórí pọ́tálì lè fi kún ìbò nìkan ni, nítorí náà wọn kò lè ṣàlàyé ìdínkù ìbò LP.",
+      "Ṣáájú èyí, àyẹ̀wò òtítọ́ CDD wo ìkànnì tweet kan tí ó sọ pé àìbáramu wà. CDD sọ pé ọ̀pọ̀ ìwé Obio/Akpor kò hàn kedere tàbí a gbé wọn sórí pọ́tálì lọ́nà tí kò dára. Ó sọ pé ẹnikẹ́ni kò lè ṣe àròpọ̀ àwọn nọ́ńbà pọ́tálì náà lọ́nà tí a lè gbẹ́kẹ̀lé, ó sì pe àwọn nọ́ńbà pàtó inú tweet náà ní èyí tí a kò lè jẹ́rìí sí. Èyí jẹ́ ìkìlọ̀ nípa àròpọ̀ èyíkéyìí, pẹ̀lú àwọn tí ó wá láti ìkà yìí.",
+      "Àwọn oníròyìn tún rí ìṣòro lórí àwọn ìwé kan fúnra wọn. NewsOnline àti ìwádìí CCIJ kan, tí a tẹ̀ jáde lórí TheCable, ṣàpèjúwe àwọn nọ́ńbà tí a kọ òmíràn bò tàbí tí a fi funfun bò, àti àwọn díjítì tí kò bá àwọn ọ̀rọ̀ tí a kọ sí ẹ̀gbẹ́ wọn mu. Wọ́n tún ròyìn pé àwọn ìwé kan wà láti ìdìbò tí kì í ṣe ti èyí. BBC sọ pé agbẹnusọ INEC ní Port Harcourt di ẹ̀bi lé àìtó àkókò àti òṣìṣẹ́ fún àwọn ìṣòro kan nínú ìkójọpọ̀ àbájáde. Olú-ilé-iṣẹ́ INEC kọ̀ láti sọ̀rọ̀ nítorí àwọn ẹjọ́ tó wà ní ilé-ẹjọ́, Leadership sì ròyìn pé INEC pe ìròyìn Premium Times ní èyí tí ó lè ṣe ègbè nítorí ìdí kan náà."
+    ],
+    "questions": [
+      "Àwọn ìwé tàbí àkọsílẹ̀ ìkójọpọ̀ wo ni ó ṣàlàyé àlàfo tó wà láàrin àwọn nọ́ńbà tí a kéde àti àwọn ìwé pọ́tálì? Ìròyìn náà kò parí ọ̀rọ̀ yìí.",
+      "Ǹjẹ́ àwọn ìwé tí a kọ òmíràn bò fi àwọn àyípadà tí a ṣe ní ibùdó ìdìbò hàn, tàbí a yí wọn padà lẹ́yìn náà? Ìròyìn náà ṣàpèjúwe wọn ṣùgbọ́n kò sọ.",
+      "Ǹjẹ́ ilé-ẹjọ́ kankan tàbí àtúnyẹ̀wò INEC ti ṣe ìpinnu ìkẹyìn lórí àwọn nọ́ńbà Obio/Akpor? Àwọn orísun tí mo kà kò sọ."
+    ],
+    "sources": [
+      {
+        "title": "Nigeria election: The mystery of the altered results in disputed poll",
+        "url": "https://www.bbc.com/news/65163713",
+        "publisher": "BBC News",
+        "date": "2023-05-16"
+      },
+      {
+        "title": "INEC Faults Report On Rivers Presidential Results, Says It's Prejudicial",
+        "url": "https://leadership.ng/inec-faults-report-on-rivers-presidential-results-says-its-prejudicial/",
+        "publisher": "Leadership",
+        "date": "2023-04-17"
+      },
+      {
+        "title": "FACT CHECK: Does Obio Akpor LGA result on INEC portal differ from what was announced?",
+        "url": "https://cddfactcheck.org/fact-check-does-obio-akpor-lga-result-on-inec-portal-differ-from-what-was-announced/",
+        "publisher": "CDD Fact Check",
+        "date": "2023-03-08"
+      },
+      {
+        "title": "Official Results On INEC Portal Show Peter Obi, Not Tinubu, Won In Rivers",
+        "url": "https://newsonlineng.com/official-results-on-inec-portal-show-peter-obi-not-tinubu-won-in-rivers/",
+        "publisher": "NewsOnline Nigeria (carrying a Premium Times report)",
+        "date": "2023-04-26"
+      },
+      {
+        "title": "INEC's broken promises, altered voting tallies, poor electoral oversight casts doubt over Nigeria's presidential election",
+        "url": "https://www.thecable.ng/inecs-broken-promises-altered-voting-tallies-poor-electoral-oversight-casts-doubt-over-nigerias-presidential-election/",
+        "publisher": "TheCable (CCIJ investigation)",
+        "date": "2024-12-22"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Àwọn ilé-iṣẹ́ ìròyìn tó lókìkí púpọ̀ ròyìn àlàfo láàrin àwọn nọ́ńbà tí a kéde àti àwọn ìwé pọ́tálì, ṣùgbọ́n kò sí èyí tí ó ṣàlàyé rẹ̀, INEC kò sì tíì dáhùn lórí òtítọ́ ọ̀rọ̀ náà.",
+    "steps": [
+      "Wá lórí ìkànnì àgbáyé fún àbájáde ìdìbò ààrẹ 2023 ti Obio/Akpor lòdì sí àwọn ìwé pọ́tálì.",
+      "Ka àwọn àyọkà gígùn ti ìwádìí BBC àti ìròyìn Leadership lórí ìdáhùn INEC.",
+      "Ka àyẹ̀wò òtítọ́ CDD, ìròyìn NewsOnline/Premium Times àti ìwádìí CCIJ lórí TheCable.",
+      "Kò ṣí àwọn ojú-ìwé ní kíkún, kò sì wá lórí X. Gbékẹ̀lé àwọn àyọkà tí ìwádìí náà mú wá.",
+      "Fo ojú-ìwé Mundx sílẹ̀ nítorí kì í ṣe orísun ìjọba."
+    ],
+    "researchedAt": "2026-11-19T21:10:33.926Z",
+    "recorded": true,
+    "about": "32/15"
+  },
+  {
+    "id": "mismatch-32-15.ig",
+    "kind": "mismatch",
+    "asked": "Gịnị mere nsonaazụ e kwupụtara maka Obio/Akporji dị iche na mpempe akwụkwọ nsonaazụ ndị dị na portal?",
+    "lang": "ig",
+    "found": [
+      "Ọnụọgụgụ e kwupụtara maka Obio/Akpor bụ 80,239 maka APC, 3,829 maka LP, 368 maka PDP na 161 maka NNPP. Leadership na NewsOnline kọrọ ọnụọgụgụ ndị a.",
+      "Ọtụtụ ụlọ ọrụ akụkọ gbakọtara mpempe akwụkwọ nsonaazụ ebe a na-eme ntuli aka dị na portal INEC (IReV) ma kwuo na ngụkọta ha adabaghị n'ihe e kwupụtara. BBC gụrụ votu APC dị ntakịrị karịa nke ukwuu, na votu LP dị ukwuu karịa nke ukwuu, site na mpempe akwụkwọ ndị ahụ, ma e jiri ya tụnyere ihe e kwupụtara. NewsOnline, nke weputara akụkọ Premium Times, rutere otu ụdị ọdịiche ahụ. Ha abụọ kwuru na mpempe akwụkwọ ndị na-adịghị ọcha, ndị na-efu efu ma ọ bụ ndị e bubeghị n'ịntanet ka, nwere ike ịgbakwunye votu naanị, ya mere ha agaghị akọwa ọdịda LP.",
+      "Na mbụ, nyocha eziokwu CDD lere tweet nke kwuru na e nwere ọdịiche. CDD kwuru na ọtụtụ mpempe akwụkwọ Obio/Akpor adịghị ahụ anya ma ọ bụ e bubere ha n'ụzọ na-adịghị mma. Ọ kwuru na ọ dịghị onye pụrụ ịgbakọ ọnụọgụgụ portal ahụ n'ụzọ a pụrụ ịtụkwasị obi, ma kpee ọnụọgụgụ pụrụ iche tweet ahụ kwuru ọkwa na a pụghị ịkwado ha. Nke a bụ ịdọ aka ná ntị gbasara ngụkọta ọ bụla, gụnyere ndị si na ọgụgụ a.",
+      "Ndị nta akụkọ chọtakwara nsogbu na ụfọdụ mpempe akwụkwọ n'onwe ha. NewsOnline na nyocha CCIJ, nke e bipụtara na TheCable, kọwara ọnụọgụgụ e dere n'elu ma ọ bụ e fesara ọcha, na ọnụọgụgụ ndị na-adabaghị n'okwu e dere n'akụkụ ha. Ha kọkwara na e nwere mpempe akwụkwọ ụfọdụ sitere na ntuli aka ọzọ. BBC kwuru na onye na-ekwu okwu INEC na Port Harcourt boro oge na ụkọ ndị ọrụ ebubo maka ụfọdụ nsogbu nchịkọta. Isi ụlọ ọrụ INEC jụrụ ikwu okwu n'ihi ikpe ndị dị na kọọtụ, Leadership kọkwara na INEC kpọrọ akụkọ Premium Times ihe nwere ike imetụta ikpe n'ụzọ na-adịghị mma n'ihi otu ihe ahụ."
+    ],
+    "questions": [
+      "Mpempe akwụkwọ ọ bụla ma ọ bụ ndekọ nchịkọta ọ bụla na-akọwa ọdịiche dị n'etiti ọnụọgụgụ e kwupụtara na mpempe akwụkwọ dị na portal? Akụkọ ndị a agbasaghị nke a.",
+      "Mpempe akwụkwọ ndị e dere n'elu ọ bụ mgbanwe e mere n'ebe a na-eme ntuli aka ka e mechara gbanwee ha? Akụkọ ndị ahụ kọwara ha ma ha ekwughị nke a.",
+      "Ọ dịla kọọtụ ọ bụla ma ọ bụ nyocha INEC ọ bụla nyere nchọpụta ikpeazụ gbasara ọnụọgụgụ Obio/Akpor? Isi mmalite m gụrụ ekwughị nke a."
+    ],
+    "sources": [
+      {
+        "title": "Nigeria election: The mystery of the altered results in disputed poll",
+        "url": "https://www.bbc.com/news/65163713",
+        "publisher": "BBC News",
+        "date": "2023-05-16"
+      },
+      {
+        "title": "INEC Faults Report On Rivers Presidential Results, Says It's Prejudicial",
+        "url": "https://leadership.ng/inec-faults-report-on-rivers-presidential-results-says-its-prejudicial/",
+        "publisher": "Leadership",
+        "date": "2023-04-17"
+      },
+      {
+        "title": "FACT CHECK: Does Obio Akpor LGA result on INEC portal differ from what was announced?",
+        "url": "https://cddfactcheck.org/fact-check-does-obio-akpor-lga-result-on-inec-portal-differ-from-what-was-announced/",
+        "publisher": "CDD Fact Check",
+        "date": "2023-03-08"
+      },
+      {
+        "title": "Official Results On INEC Portal Show Peter Obi, Not Tinubu, Won In Rivers",
+        "url": "https://newsonlineng.com/official-results-on-inec-portal-show-peter-obi-not-tinubu-won-in-rivers/",
+        "publisher": "NewsOnline Nigeria (carrying a Premium Times report)",
+        "date": "2023-04-26"
+      },
+      {
+        "title": "INEC's broken promises, altered voting tallies, poor electoral oversight casts doubt over Nigeria's presidential election",
+        "url": "https://www.thecable.ng/inecs-broken-promises-altered-voting-tallies-poor-electoral-oversight-casts-doubt-over-nigerias-presidential-election/",
+        "publisher": "TheCable (CCIJ investigation)",
+        "date": "2024-12-22"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Ọtụtụ ụlọ ọrụ akụkọ a maara nke ọma kọrọ ọdịiche dị n'etiti ọnụọgụgụ e kwupụtara na mpempe akwụkwọ dị na portal, ma ọ dịghị nke kọwara ya, INEC ejikwa azịza gbasara isi okwu ahụ.",
+    "steps": [
+      "Chọọ na ịntanet maka nsonaazụ ntuli aka onye isi ala 2023 nke Obio/Akpor megide mpempe akwụkwọ dị na portal.",
+      "Gụọ ogologo ihe e wepụtara site na nyocha BBC na akụkọ Leadership gbasara azịza INEC.",
+      "Gụọ nyocha eziokwu CDD, akụkọ NewsOnline/Premium Times na nyocha CCIJ dị na TheCable.",
+      "Emeghị peeji ndị ahụ n'ụzọ zuru oke ma ọ bụ chọọ na X. Ejiri m ihe e wepụtara nke nchọgharị ahụ weghachitere.",
+      "Hapụrụ peeji Mundx n'ihi na ọ bụghị isi mmalite gọọmenti ma ọ bụ nke ọkwa."
+    ],
+    "researchedAt": "2026-11-19T21:10:33.926Z",
+    "recorded": true,
+    "about": "32/15"
+  },
+  {
+    "id": "mismatch-32-21.en",
+    "kind": "mismatch",
+    "asked": "Why do the announced results for Oyigbo differ from the result sheets on the portal?",
+    "lang": "en",
+    "found": [
+      "The BBC looked at this in a May 2023 investigation. It added up the result sheets that INEC put online for Rivers State. It named Oyigbo as one of two areas with the biggest gaps between those sheets and the announced result.",
+      "The BBC also found a signed collation sheet for Oyigbo, photographed and shared on social media. It says the figures on that sheet closely matched its own sheet-by-sheet count for the two leading parties.",
+      "The BBC says an official named Dr Dickson Ariaga read out the Oyigbo result at the state declaration on 27 February. It says he read the smaller parties' figures as they were on the collation sheet. For APC, it says he read 16,630 where the sheet showed 2,731. For LP, it says he read 10,784 where the sheet showed 22,289. These announced figures are the same ones in your question.",
+      "The BBC also reports that the Federal College of Education in Omoku, where he said he worked, told it that it had no record of anyone by that name. An INEC spokesman in Port Harcourt said that, because of a shortage of time and staff, some people had been taken on without their identity documents being checked. He said that if the man had misdescribed himself, he was dishonest. INEC headquarters told the BBC it could not comment because of court cases. Dr Ariaga did not respond to the BBC.",
+      "On sheets that are missing or unreadable, the BBC says they would have added votes to each party's total, not taken them away. That is why it says they cannot explain LP's lower announced figure. Separately, Yiaga Africa said in March 2023 that the Rivers state results were inconsistent with its own sample-based estimates. It asked INEC to explain. The Yiaga statement I read does not mention Oyigbo."
+    ],
+    "questions": [
+      "Has INEC or a court ever explained why the figures read out for Oyigbo differ from the signed collation sheet?",
+      "Who was Dr Dickson Ariaga, and what role did he officially hold in the Oyigbo collation?",
+      "Why do the BBC's sheet totals and Tally's sheet totals for Oyigbo differ slightly?"
+    ],
+    "sources": [
+      {
+        "title": "Nigeria election: The mystery of the altered results in disputed poll",
+        "url": "https://www.bbc.com/news/65163713",
+        "publisher": "BBC News",
+        "date": "2023-05-16"
+      },
+      {
+        "title": "The 2023 Presidential Elections Are Once Again a Missed Opportunity: INEC Must Be Fundamentally Reformed (Post-Election Statement)",
+        "url": "https://wilanglobal.org/wp-content/uploads/2023/08/Yiaga-Africa-Post-Election-Statement-on-2023-Presidential-Election.pdf",
+        "publisher": "Yiaga Africa (hosted by WILAN)",
+        "date": "2023-03-01"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "One major outlet, the BBC, reported the Oyigbo gap in detail and INEC gave only a partial response. I found no court ruling or INEC explanation in the pages I read.",
+    "steps": [
+      "Searched the web for Oyigbo 2023 presidential results, INEC and Rivers discrepancies.",
+      "Read the BBC investigation of altered results in Rivers State, which covers Oyigbo.",
+      "Searched again for an INEC, tribunal or observer response on Oyigbo.",
+      "Read Yiaga Africa's post-election statement on Rivers and the results portal.",
+      "Did not rely on the secondary news sites and the Mundx and 247ureports pages that surfaced in search, because I did not open them in full."
+    ],
+    "researchedAt": "2026-11-19T21:16:03.787Z",
+    "recorded": true,
+    "about": "32/21"
+  },
+  {
+    "id": "mismatch-32-21.pcm",
+    "kind": "mismatch",
+    "asked": "Why na so the results wey dem announce for Oyigbo no match the result sheets wey dey for the portal?",
+    "lang": "pcm",
+    "found": [
+      "The BBC look this matter for one investigation for May 2023. E add up the result sheets wey INEC put online for Rivers State. E name Oyigbo as one of the two areas wey get the biggest gap between those sheets and the result wey dem announce.",
+      "The BBC also find one signed collation sheet for Oyigbo, wey person snap and share for social media. E talk say the figures for that sheet near match the BBC own sheet-by-sheet count for the two parties wey dey lead.",
+      "The BBC talk say one official wey dem call Dr Dickson Ariaga read out the Oyigbo result for the state declaration on 27 February. E talk say he read the figures of the smaller parties just as dem dey for the collation sheet. For APC, e talk say he read 16,630 where the sheet show 2,731. For LP, e talk say he read 10,784 where the sheet show 22,289. Na these same announced figures dey your question.",
+      "The BBC also report say the Federal College of Education for Omoku, where he talk say he dey work, tell am say dem no get any record of anybody wey carry that name. One INEC spokesman for Port Harcourt talk say, because time and staff no plenty, dem take some people without checking their identity documents. He talk say if the man lie about who he be, then he no honest. INEC headquarters tell the BBC say e no fit talk because of court cases. Dr Ariaga no reply the BBC.",
+      "About sheets wey miss or wey person no fit read, the BBC talk say dem for add votes to each party total, dem no for take any away. Na why e talk say dem no fit explain why LP announced figure low. Apart from that, Yiaga Africa talk for March 2023 say the Rivers state results no match its own estimates wey e make from samples. E ask INEC to explain. The Yiaga statement wey I read no mention Oyigbo."
+    ],
+    "questions": [
+      "INEC or any court don ever explain why the figures wey dem read out for Oyigbo no match the signed collation sheet?",
+      "Who be Dr Dickson Ariaga, and which work he officially get for the Oyigbo collation?",
+      "Why the BBC sheet totals and Tally sheet totals for Oyigbo no exactly match, even if the difference small?"
+    ],
+    "sources": [
+      {
+        "title": "Nigeria election: The mystery of the altered results in disputed poll",
+        "url": "https://www.bbc.com/news/65163713",
+        "publisher": "BBC News",
+        "date": "2023-05-16"
+      },
+      {
+        "title": "The 2023 Presidential Elections Are Once Again a Missed Opportunity: INEC Must Be Fundamentally Reformed (Post-Election Statement)",
+        "url": "https://wilanglobal.org/wp-content/uploads/2023/08/Yiaga-Africa-Post-Election-Statement-on-2023-Presidential-Election.pdf",
+        "publisher": "Yiaga Africa (hosted by WILAN)",
+        "date": "2023-03-01"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "One big outlet, the BBC, report the Oyigbo gap well well, and INEC give only part answer. I no see any court ruling or INEC explanation for the pages wey I read.",
+    "steps": [
+      "I search the web for Oyigbo 2023 presidential results, INEC and Rivers discrepancies.",
+      "I read the BBC investigation of altered results for Rivers State, wey cover Oyigbo.",
+      "I search again for INEC, tribunal or observer response on Oyigbo.",
+      "I read Yiaga Africa post-election statement on Rivers and the results portal.",
+      "I no rely on the secondary news sites and the Mundx and 247ureports pages wey show for search, because I no open dem fully."
+    ],
+    "researchedAt": "2026-11-19T21:16:03.787Z",
+    "recorded": true,
+    "about": "32/21"
+  },
+  {
+    "id": "mismatch-32-21.ha",
+    "kind": "mismatch",
+    "asked": "Me ya sa sakamakon da aka sanar na Oyigbo ya bambanta da takardun sakamako da ke kan portal?",
+    "lang": "ha",
+    "found": [
+      "BBC ta duba wannan batu a wani bincike da ta yi a watan Mayu 2023. Ta tara takardun sakamako da INEC ta saka a intanet na Jihar Rivers. Ta ambaci Oyigbo a matsayin ɗaya daga cikin yankuna biyu da suka fi samun gibi tsakanin waɗannan takardu da sakamakon da aka sanar.",
+      "BBC ta kuma samu wata takardar tattara sakamako (collation sheet) ta Oyigbo mai sa hannu, wadda aka ɗauki hotonta aka raba a shafukan sada zumunta. Ta ce alkaluman da ke jikin takardar sun kusan yin daidai da ƙidayar da ita kanta ta yi takarda bayan takarda, ga manyan jam'iyyun biyu da ke kan gaba.",
+      "BBC ta ce wani jami'i mai suna Dr Dickson Ariaga ne ya karanta sakamakon Oyigbo a wajen bayyana sakamakon jiha a ranar 27 ga Fabrairu. Ta ce ya karanta alkaluman ƙananan jam'iyyu yadda suke a takardar tattara sakamako. Ta ce ga APC, ya karanta 16,630 inda takardar ta nuna 2,731. Ga LP kuwa, ta ce ya karanta 10,784 inda takardar ta nuna 22,289. Waɗannan alkaluman da aka sanar su ne waɗanda ke cikin tambayarka.",
+      "BBC ta kuma ruwaito cewa Kwalejin Ilimi ta Tarayya da ke Omoku, inda ya ce yana aiki, ta gaya mata cewa ba ta da wani bayani game da wani mutum mai wannan suna. Wani mai magana da yawun INEC a Port Harcourt ya ce, saboda ƙarancin lokaci da ma'aikata, an ɗauki wasu mutane aiki ba tare da an duba takardun shaidar su ba. Ya ce idan mutumin ya bayyana kansa ta hanyar da ba gaskiya ba, to ba shi da gaskiya. Hedkwatar INEC ta gaya wa BBC cewa ba za ta iya yin sharhi ba saboda shari'o'in da ke kotu. Dr Ariaga bai amsa wa BBC ba.",
+      "Game da takardun da suka ɓace ko waɗanda ba za a iya karantawa ba, BBC ta ce da sun ƙara ƙuri'u ga jimillar kowace jam'iyya, ba su rage ba. Shi ya sa ta ce ba za su iya bayyana ƙaramin alkaluman LP da aka sanar ba. Daban da haka, Yiaga Africa ta ce a watan Maris 2023 cewa sakamakon jihar Rivers bai yi daidai da ƙiyasin da ita ta yi ta hanyar ɗaukar samfur ba. Ta nemi INEC ta yi bayani. Sanarwar Yiaga da na karanta ba ta ambaci Oyigbo ba."
+    ],
+    "questions": [
+      "Shin INEC ko wata kotu ta taɓa yin bayanin dalilin da ya sa alkaluman da aka karanta na Oyigbo suka bambanta da takardar tattara sakamako mai sa hannu?",
+      "Wane ne Dr Dickson Ariaga, kuma wane matsayi ne ya riƙe a hukumance a tattara sakamakon Oyigbo?",
+      "Me ya sa jimillar takardun sakamako na BBC da na Tally game da Oyigbo suka ɗan bambanta?"
+    ],
+    "sources": [
+      {
+        "title": "Nigeria election: The mystery of the altered results in disputed poll",
+        "url": "https://www.bbc.com/news/65163713",
+        "publisher": "BBC News",
+        "date": "2023-05-16"
+      },
+      {
+        "title": "The 2023 Presidential Elections Are Once Again a Missed Opportunity: INEC Must Be Fundamentally Reformed (Post-Election Statement)",
+        "url": "https://wilanglobal.org/wp-content/uploads/2023/08/Yiaga-Africa-Post-Election-Statement-on-2023-Presidential-Election.pdf",
+        "publisher": "Yiaga Africa (hosted by WILAN)",
+        "date": "2023-03-01"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Babbar kafar yaɗa labarai ɗaya, BBC, ta ruwaito gibin Oyigbo dalla-dalla, kuma INEC ta ba da amsa ce kawai a ɓangare. Ban sami wani hukunci na kotu ko bayani daga INEC ba a shafukan da na karanta.",
+    "steps": [
+      "Na nemi sakamakon zaɓen shugaban ƙasa na 2023 na Oyigbo, da bambance-bambancen INEC da Rivers a intanet.",
+      "Na karanta binciken BBC game da sauya sakamako a Jihar Rivers, wanda ya ƙunshi Oyigbo.",
+      "Na sake bincike don neman martanin INEC, kotun sauraron ƙarar zaɓe ko masu sa ido game da Oyigbo.",
+      "Na karanta sanarwar Yiaga Africa ta bayan zaɓe game da Rivers da portal ɗin sakamako.",
+      "Ban dogara da shafukan labarai na biyu da shafukan Mundx da 247ureports da suka fito a bincike ba, saboda ban buɗe su gaba ɗaya ba."
+    ],
+    "researchedAt": "2026-11-19T21:16:03.787Z",
+    "recorded": true,
+    "about": "32/21"
+  },
+  {
+    "id": "mismatch-32-21.yo",
+    "kind": "mismatch",
+    "asked": "Kí ló fà á tí àbájáde tí a kéde fún Oyigbo fi yàtọ̀ sí àwọn ìwé àbájáde tó wà lórí ojú-òpó ìkànnì (portal)?",
+    "lang": "yo",
+    "found": [
+      "BBC ṣe àyẹ̀wò ọ̀rọ̀ yìí nínú ìwádìí kan ní oṣù Karùn-ún ọdún 2023. Ó ṣe àkópọ̀ àwọn ìwé àbájáde tí INEC gbé sórí ayélujára fún Ìpínlẹ̀ Rivers. Ó dárúkọ Oyigbo gẹ́gẹ́ bí ọ̀kan nínú agbègbè méjì tí àlàfo tó tóbi jùlọ wà láàárín àwọn ìwé wọ̀nyẹn àti àbájáde tí a kéde.",
+      "BBC tún rí ìwé ìkójọpọ̀ (collation sheet) tí a buwọ́lù fún Oyigbo, tí a yà fọ́tò rẹ̀ tí a sì pín lórí ìkànnì àjọlò. Ó sọ pé àwọn nọ́ńbà tó wà lórí ìwé yẹn bá ìkà ìwé-sí-ìwé tirẹ̀ mu gan-an fún àwọn ẹgbẹ́ òṣèlú méjì tó ń léwájú.",
+      "BBC sọ pé òṣìṣẹ́ kan tí orúkọ rẹ̀ ń jẹ́ Dr Dickson Ariaga ló ka àbájáde Oyigbo síta níbi ìkéde ìpínlẹ̀ ní ọjọ́ 27 oṣù Kejì. Ó sọ pé ó ka àwọn nọ́ńbà àwọn ẹgbẹ́ òṣèlú kéékèèké bí wọ́n ṣe wà lórí ìwé ìkójọpọ̀. Fún APC, ó sọ pé ó ka 16,630 níbi tí ìwé ti fi 2,731 hàn. Fún LP, ó sọ pé ó ka 10,784 níbi tí ìwé ti fi 22,289 hàn. Àwọn nọ́ńbà tí a kéde yìí ni kannáà pẹ̀lú àwọn tó wà nínú ìbéèrè rẹ.",
+      "BBC tún ròyìn pé Federal College of Education ní Omoku, níbi tí ó sọ pé òun ti ń ṣiṣẹ́, sọ fún un pé àwọn kò ní àkọsílẹ̀ ẹnikẹ́ni tó ń jẹ́ orúkọ yẹn. Agbẹnusọ INEC kan ní Port Harcourt sọ pé, nítorí àìtó àkókò àti òṣìṣẹ́, a ti gba àwọn ènìyàn kan síṣẹ́ láì ṣàyẹ̀wò àwọn ìwé ìdánimọ̀ wọn. Ó sọ pé tí ọkùnrin náà bá ṣe àpèjúwe ara rẹ̀ lọ́nà tí kò tọ̀nà, aláìṣòótọ́ ni. Olú-ilé-iṣẹ́ INEC sọ fún BBC pé àwọn kò lè sọ̀rọ̀ nítorí ẹjọ́ tó wà nílé-ẹjọ́. Dr Ariaga kò fèsì sí BBC.",
+      "Lórí àwọn ìwé tó sọnù tàbí tí a kò lè kà, BBC sọ pé wọn ìbá ti fi kún ìbò àpapọ̀ ẹgbẹ́ òṣèlú kọ̀ọ̀kan, wọn kò ní yọ kúrò. Ìdí nìyẹn tó fi sọ pé wọn kò lè ṣàlàyé nọ́ńbà LP tí a kéde tó kéré jù. Lọ́tọ̀ọ̀tọ̀, Yiaga Africa sọ ní oṣù Kẹta ọdún 2023 pé àbájáde ìpínlẹ̀ Rivers kò bá àwọn ìṣirò rẹ̀ tí ó dá lórí àyẹ̀wò àyẹ̀wò àpẹẹrẹ mu. Ó béèrè lọ́wọ́ INEC láti ṣàlàyé. Ọ̀rọ̀ Yiaga tí mo kà kò dárúkọ Oyigbo."
+    ],
+    "questions": [
+      "Ṣé INEC tàbí ilé-ẹjọ́ kan ti ṣàlàyé rí ìdí tí àwọn nọ́ńbà tí a kà síta fún Oyigbo fi yàtọ̀ sí ìwé ìkójọpọ̀ tí a buwọ́lù?",
+      "Ta ni Dr Dickson Ariaga, ipò wo ni ó sì di ní ọ̀nà àṣẹ nínú ìkójọpọ̀ àbájáde Oyigbo?",
+      "Kí ló fà á tí àkópọ̀ ìwé àbájáde BBC àti ti Tally fún Oyigbo fi yàtọ̀ díẹ̀?"
+    ],
+    "sources": [
+      {
+        "title": "Nigeria election: The mystery of the altered results in disputed poll",
+        "url": "https://www.bbc.com/news/65163713",
+        "publisher": "BBC News",
+        "date": "2023-05-16"
+      },
+      {
+        "title": "The 2023 Presidential Elections Are Once Again a Missed Opportunity: INEC Must Be Fundamentally Reformed (Post-Election Statement)",
+        "url": "https://wilanglobal.org/wp-content/uploads/2023/08/Yiaga-Africa-Post-Election-Statement-on-2023-Presidential-Election.pdf",
+        "publisher": "Yiaga Africa (hosted by WILAN)",
+        "date": "2023-03-01"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Ilé-iṣẹ́ ìròyìn ńlá kan, BBC, ló ròyìn àlàfo Oyigbo ní kíkún, INEC sì fèsì ní apá kan péré. N kò rí ìdájọ́ ilé-ẹjọ́ kankan tàbí àlàyé INEC kankan nínú àwọn ojú-ewé tí mo kà.",
+    "steps": [
+      "Mo wá lórí ayélujára fún àbájáde ìdìbò ààrẹ 2023 ti Oyigbo, àti àwọn àìbáramu INEC àti Rivers.",
+      "Mo ka ìwádìí BBC lórí àbájáde tí a yí padà ní Ìpínlẹ̀ Rivers, èyí tó kan Oyigbo.",
+      "Mo tún wá fún ìfèsì láti ọ̀dọ̀ INEC, ilé-ẹjọ́ ìdìbò tàbí àwọn olùṣàkíyèsí lórí Oyigbo.",
+      "Mo ka ọ̀rọ̀ tí Yiaga Africa sọ lẹ́yìn ìdìbò lórí Rivers àti ojú-òpó àbájáde.",
+      "Èmi kò gbára lé àwọn ojú-òpó ìròyìn kejì àti àwọn ojú-ewé Mundx àti 247ureports tó jáde nínú ìwádìí, nítorí pé n kò ṣí wọn ní kíkún."
+    ],
+    "researchedAt": "2026-11-19T21:16:03.787Z",
+    "recorded": true,
+    "about": "32/21"
+  },
+  {
+    "id": "mismatch-32-21.ig",
+    "kind": "mismatch",
+    "asked": "Gịnị mere nsonaazụ e kwupụtara maka Oyigboji dị iche na mpempe akwụkwọ nsonaazụ ndị dị na portal?",
+    "lang": "ig",
+    "found": [
+      "BBC lere nke a anya n'nyocha o mere n'ọnwa Mee 2023. O gbakọtara mpempe akwụkwọ nsonaazụ ndị INEC tinyere n'ịntanetị maka Steeti Rivers. O kpọrọ Oyigbo dị ka otu n'ime ebe abụọ nwere oghere kachasị ukwuu n'etiti mpempe akwụkwọ ndị ahụ na nsonaazụ e kwupụtara.",
+      "BBC hụkwara mpempe akwụkwọ nchịkọta (collation sheet) nke e binyere aka maka Oyigbo, bụ nke e foturu ma kekọrịta na mgbasa ozi nkeonwe. O kwuru na ọnụọgụgụ dị na mpempe akwụkwọ ahụ dabara nke ọma na nke ya n'ịgbakọ mpempe akwụkwọ otu otu maka ndị otu abụọ na-edu ndú.",
+      "BBC na-ekwu na onye ọrụ aha ya bụ Dr Dickson Ariaga gụrụ nsonaazụ Oyigbo n'oge nkwupụta steeti na 27 February. O na-ekwu na ọ gụrụ ọnụọgụgụ ndị otu pere mpe dị ka ha dị na mpempe akwụkwọ nchịkọta. Maka APC, o na-ekwu na ọ gụrụ 16,630 ebe mpempe akwụkwọ ahụ gosiri 2,731. Maka LP, o na-ekwu na ọ gụrụ 10,784 ebe mpempe akwụkwọ ahụ gosiri 22,289. Ọnụọgụgụ ndị e kwupụtara a bụ otu ndị dị n'ajụjụ gị.",
+      "BBC kwukwara na Federal College of Education dị n'Omoku, ebe o kwuru na ya na-arụ ọrụ, gwara ya na enweghị ndekọ nke onye aha ya bụ nke ahụ. Onye na-ekwu okwu nke INEC n'Port Harcourt kwuru na, n'ihi ọnụghara oge na ndị ọrụ, e were ụfọdụ ndị n'ọrụ n'ebe a na-enyeghị akwụkwọ njirimara ha nyocha. O kwuru na ọ bụrụ na nwoke ahụ kọwapụtara onwe ya n'ụzọ ezighị ezi, na ọ bụ onye aghụghọ. Isi ụlọ ọrụ INEC gwara BBC na ọ pụghị ikwu okwu n'ihi okwu ụlọ ikpe. Dr Ariaga azaghị BBC.",
+      "Maka mpempe akwụkwọ ndị na-efu efu ma ọ bụ ndị a pụghị ịgụ, BBC na-ekwu na ha gaara agbakwunye votu n'ọnụọgụgụ ndị otu ọ bụla, ọ bụghị iwepụ ya. Nke ahụ bụ ihe mere o ji kwuo na ha apụghị ịkọwa ọnụọgụgụ LP e kwupụtara nke dị ala. N'akụkụ ọzọ, Yiaga Africa kwuru n'ọnwa Maachị 2023 na nsonaazụ Steeti Rivers adabaghị n'atụmatụ ya e si n'ihe atụ weta. O rịọrọ INEC ka o kọwaa. Nkwupụta Yiaga m gụrụ ekwughị Oyigbo."
+    ],
+    "questions": [
+      "INEC ma ọ bụ ụlọ ikpe ọ kọwawo ihe mere ọnụọgụgụ e gụrụ maka Oyigbo ji dị iche na mpempe akwụkwọ nchịkọta e binyere aka?",
+      "Who bụ Dr Dickson Ariaga, gịnịkwa bụ ọrụ o jiri n'ezie n'nchịkọta Oyigbo?",
+      "Gịnị mere ọnụọgụgụ mpempe akwụkwọ BBC na nke Tally maka Oyigbo ji dị iche obere?"
+    ],
+    "sources": [
+      {
+        "title": "Nigeria election: The mystery of the altered results in disputed poll",
+        "url": "https://www.bbc.com/news/65163713",
+        "publisher": "BBC News",
+        "date": "2023-05-16"
+      },
+      {
+        "title": "The 2023 Presidential Elections Are Once Again a Missed Opportunity: INEC Must Be Fundamentally Reformed (Post-Election Statement)",
+        "url": "https://wilanglobal.org/wp-content/uploads/2023/08/Yiaga-Africa-Post-Election-Statement-on-2023-Presidential-Election.pdf",
+        "publisher": "Yiaga Africa (hosted by WILAN)",
+        "date": "2023-03-01"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Otu ụlọ ọrụ mgbasa ozi buru ibu, BBC, kọrọ oghere Oyigbo n'nkọwa zuru ezu, INEC wee zaa naanị akụkụ. Ahụghị m mkpebi ụlọ ikpe ma ọ bụ nkọwa INEC n'peeji ndị m gụrụ.",
+    "steps": [
+      "Chọọ n'ịntanetị maka nsonaazụ ntuli aka onyeisiala 2023 Oyigbo, INEC na esemokwu Rivers.",
+      "Gụrụ nyocha BBC banyere nsonaazụ e gbanwere na Steeti Rivers, nke gụnyere Oyigbo.",
+      "Chọkwaa ọzọ maka mmeghachi omume INEC, ụlọ ikpe nkwuwa okwu ma ọ bụ ndị nlere anya maka Oyigbo.",
+      "Gụrụ nkwupụta Yiaga Africa mgbe ntuli aka maka Rivers na portal nsonaazụ.",
+      "Ejighị m ebe ozi nke abụọ na peeji Mundx na 247ureports pụtara n'ọchụchọ tụkwasị obi, n'ihi na emeghị m ha n'ụzọ zuru ezu."
+    ],
+    "researchedAt": "2026-11-19T21:16:03.787Z",
+    "recorded": true,
+    "about": "32/21"
+  },
+  {
+    "id": "rumour-eedbffe570.en",
+    "kind": "rumour",
+    "asked": "Is it true that INEC's results portal was hacked during the 2023 presidential election?",
+    "lang": "en",
+    "found": [
+      "No public report shows that INEC's results portal (IReV) was hacked during the 2023 presidential election. INEC says it was not. Its spokesperson told Africa Check that neither the INEC website nor the portal was hacked \"before, during or after\" the election. On 26 Feb 2023, INEC also said the upload problems were \"not due to any intrusion or sabotage\".",
+      "On election morning, an influencer claimed the portal had been breached. The BBC checked the claim. It found the site shown was a phishing site pretending to be INEC's. Later, a viral Facebook post said a \"Russian hacker\" had released the real results. Africa Check found no evidence for this. The photo was of a Russian student from 2017.",
+      "Uploads of presidential results did fail on election day. In a report released on 23 Feb 2024, INEC said this was a configuration error. It said the presidential race was a nationwide contest, not tied to any state, so the system could not store the uploads. INEC said it fixed this with software updates. The first presidential result sheet went up at 8:55pm. Heavy traffic and switched-off devices caused further delays. INEC also said it added security checks because of the real threat of cyberattacks.",
+      "Some people have made other claims. An APC campaign official said on TV that opposition parties brought in hackers, but that none succeeded. This was an assertion from an official, with no evidence given. Former INEC chairman Attahiru Jega said in Jan 2024 that he believed some politicians \"may have infiltrated\" the portal. Opposition parties said INEC either colluded or its system was down. Separately, the communications minister said there were about 13 million attacks on government websites on election day. A Galaxy Backbone attack figure was reported, then disowned by the company. None of these said the portal was successfully hacked."
+    ],
+    "questions": [
+      "Jega said he believed the portal may have been infiltrated. Has he or anyone else given evidence for this?",
+      "Has any independent technical audit of the IReV system in 2023 been published?",
+      "Did the reported attacks on government websites actually target the IReV portal?"
+    ],
+    "sources": [
+      {
+        "title": "No, Nigeria's electoral commission website was not hacked by a 'Russian boy' who has released the 'authentic' election results",
+        "url": "https://africacheck.org/fact-checks/meta-programme-fact-checks/no-nigerias-electoral-commission-website-was-not-hacked",
+        "publisher": "Africa Check",
+        "date": "2023-03-31"
+      },
+      {
+        "title": "Bola Tinubu's Nigeria election win: The rigging claims of Peter Obi and Atiku Abubakar",
+        "url": "https://www.bbc.com/news/world-africa-64802490",
+        "publisher": "BBC News",
+        "date": "2023-03-01"
+      },
+      {
+        "title": "IReV portal experienced challenges during presidential election",
+        "url": "https://punchng.com/inec-admits-irev-portal-experienced-challenges-during-2023-presidential-election/",
+        "publisher": "Punch",
+        "date": "2024-02-23"
+      },
+      {
+        "title": "FACT CHECK: Did Galaxy Backbone say IReV was attacked during presidential election?",
+        "url": "https://cddfactcheck.org/fact-check-did-galaxy-backbone-say-irev-was-attacked-during-presidential-election/",
+        "publisher": "CDD Election War Room",
+        "date": "2023-03-17"
+      },
+      {
+        "title": "2023: IReV's portal was hacked by politicians- Former INEC Chairman, Jega alleges",
+        "url": "https://dailypost.ng/2024/01/27/2023-irevs-portal-was-hacked-by-politicians-former-inec-chairman-jega-alleges/",
+        "publisher": "Daily Post Nigeria",
+        "date": "2024-01-27"
+      },
+      {
+        "title": "APC says INEC did not transmit election results because opposition planned to hack its server",
+        "url": "https://nairametrics.com/2023/03/03/apc-says-inec-did-not-transmit-election-results-because-opposition-planned-to-hack-its-server/",
+        "publisher": "Nairametrics",
+        "date": "2023-03-03"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Fact-checkers and the BBC found no evidence of a hack and INEC denies one, but a few people allege interference without proof, and no independent technical audit was found.",
+    "steps": [
+      "Searched the web for claims that INEC's IReV portal was hacked in 2023.",
+      "Read the Africa Check fact-check on the 'Russian hacker' post.",
+      "Read the BBC report on the rigging claims and the phishing-site finding.",
+      "Read Punch's report on INEC's 2024 election report and its explanation of the upload failure.",
+      "Read the CDD fact-check on the reported attack figures, and reports of the Jega and APC claims."
+    ],
+    "researchedAt": "2026-11-19T21:18:51.653Z",
+    "recorded": true
+  },
+  {
+    "id": "rumour-eedbffe570.pcm",
+    "kind": "rumour",
+    "asked": "Na true say INEC results portal don get hack for 2023 presidential election?",
+    "lang": "pcm",
+    "found": [
+      "No public report show say INEC results portal (IReV) don get hack for 2023 presidential election. INEC talk say e no happen. Dem spokesperson tell Africa Check say nobody hack INEC website or the portal \"before, during or after\" the election. For 26 Feb 2023, INEC still talk say the upload wahala \"no be because of any intrusion or sabotage\".",
+      "For election morning, one influencer claim say dem don break into the portal. BBC check the claim. Dem see say the site wey dem show na phishing site wey dey pretend say na INEC own. Later, one viral Facebook post talk say \"Russian hacker\" don release the real results. Africa Check no see any evidence for this one. The photo na for one Russian student from 2017.",
+      "Upload of presidential results really fail for election day. For one report wey dem release on 23 Feb 2024, INEC talk say na configuration error cause am. Dem talk say the presidential race na contest for the whole country, e no tie to any state, so the system no fit store the uploads. INEC talk say dem fix am with software updates. Dem upload the first presidential result sheet by 8:55pm. Plenty traffic and devices wey dem switch off cause more delay. INEC still talk say dem add security checks because the threat of cyberattacks dey real.",
+      "Some people don make other claims. One APC campaign official talk for TV say opposition parties bring hackers come, but say none of dem succeed. Na just wetin official talk be this, dem no give any evidence. Former INEC chairman Attahiru Jega talk for Jan 2024 say him believe say some politicians \"may have infiltrated\" the portal. Opposition parties talk say either INEC join hand with dem or their system don down. Another thing, the communications minister talk say about 13 million attacks dey on government websites for election day. Dem report one Galaxy Backbone attack figure, then the company reject am. None of these ones talk say dem successfully hack the portal."
+    ],
+    "questions": [
+      "Jega talk say him believe say dem may don infiltrate the portal. Im or anybody else don give evidence for this?",
+      "Dem don publish any independent technical audit of the IReV system for 2023?",
+      "The attacks wey dem report on government websites, dem really target the IReV portal?"
+    ],
+    "sources": [
+      {
+        "title": "No, Nigeria's electoral commission website was not hacked by a 'Russian boy' who has released the 'authentic' election results",
+        "url": "https://africacheck.org/fact-checks/meta-programme-fact-checks/no-nigerias-electoral-commission-website-was-not-hacked",
+        "publisher": "Africa Check",
+        "date": "2023-03-31"
+      },
+      {
+        "title": "Bola Tinubu's Nigeria election win: The rigging claims of Peter Obi and Atiku Abubakar",
+        "url": "https://www.bbc.com/news/world-africa-64802490",
+        "publisher": "BBC News",
+        "date": "2023-03-01"
+      },
+      {
+        "title": "IReV portal experienced challenges during presidential election",
+        "url": "https://punchng.com/inec-admits-irev-portal-experienced-challenges-during-2023-presidential-election/",
+        "publisher": "Punch",
+        "date": "2024-02-23"
+      },
+      {
+        "title": "FACT CHECK: Did Galaxy Backbone say IReV was attacked during presidential election?",
+        "url": "https://cddfactcheck.org/fact-check-did-galaxy-backbone-say-irev-was-attacked-during-presidential-election/",
+        "publisher": "CDD Election War Room",
+        "date": "2023-03-17"
+      },
+      {
+        "title": "2023: IReV's portal was hacked by politicians- Former INEC Chairman, Jega alleges",
+        "url": "https://dailypost.ng/2024/01/27/2023-irevs-portal-was-hacked-by-politicians-former-inec-chairman-jega-alleges/",
+        "publisher": "Daily Post Nigeria",
+        "date": "2024-01-27"
+      },
+      {
+        "title": "APC says INEC did not transmit election results because opposition planned to hack its server",
+        "url": "https://nairametrics.com/2023/03/03/apc-says-inec-did-not-transmit-election-results-because-opposition-planned-to-hack-its-server/",
+        "publisher": "Nairametrics",
+        "date": "2023-03-03"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Fact-checkers and the BBC no see evidence of any hack and INEC deny say e happen, but small number of people allege say dem interfere without proof, and we no see any independent technical audit.",
+    "steps": [
+      "Search the web for claims say dem hack INEC IReV portal for 2023.",
+      "Read the Africa Check fact-check on the 'Russian hacker' post.",
+      "Read the BBC report on the rigging claims and the phishing-site finding.",
+      "Read Punch report on INEC 2024 election report and how dem explain the upload failure.",
+      "Read the CDD fact-check on the attack figures wey dem report, and reports of the Jega and APC claims."
+    ],
+    "researchedAt": "2026-11-19T21:18:51.653Z",
+    "recorded": true
+  },
+  {
+    "id": "rumour-eedbffe570.yo",
+    "kind": "rumour",
+    "asked": "Ṣé òótọ́ ni pé wọ́n gbọ́ ìkànnì àbájáde ìdìbò INEC ní àkókò ìdìbò ààrẹ ọdún 2023?",
+    "lang": "yo",
+    "found": [
+      "Kò sí ìròyìn gbangba kankan tó fi hàn pé wọ́n gbọ́ ìkànnì àbájáde ìdìbò INEC (IReV) ní àkókò ìdìbò ààrẹ ọdún 2023. INEC sọ pé wọn kò gbọ́ ọ. Agbẹnusọ rẹ̀ sọ fún Africa Check pé wọn kò gbọ́ ojú-òpó wẹ́ẹ̀bù INEC tàbí ìkànnì àbájáde náà \"ṣáájú, ní àkókò tàbí lẹ́yìn\" ìdìbò náà. Ní ọjọ́ 26 Oṣù Kejì ọdún 2023, INEC tún sọ pé ìṣòro ìgbésókè àbájáde náà \"kò wáyé nítorí ìwọlé tàbí ìbàjẹ́ àmọ̀ọ́mọ̀ṣe kankan\".",
+      "Ní òwúrọ̀ ọjọ́ ìdìbò, ònítàn-ọ̀rọ̀ kan (influencer) sọ pé wọ́n ti wọ inú ìkànnì àbájáde náà. BBC ṣàyẹ̀wò ẹ̀sùn yìí. Ó rí i pé ojú-òpó tí wọ́n fihàn jẹ́ ojú-òpó ẹ̀tàn (phishing) tó ń díbọ́n bí ti INEC. Lẹ́yìn náà, àkọsílẹ̀ kan tó gbilẹ̀ lórí Facebook sọ pé \"ọ̀daràn orí ayélujára ọmọ ilẹ̀ Rọ́ṣíà\" ti tú àbájáde òtítọ́ jáde. Africa Check kò rí ẹ̀rí kankan fún èyí. Fọ́tò náà jẹ́ ti akẹ́kọ̀ọ́ ọmọ ilẹ̀ Rọ́ṣíà kan ní ọdún 2017.",
+      "Ìgbésókè àbájáde ìdìbò ààrẹ kò yọrí ní ọjọ́ ìdìbò. Nínú ìròyìn kan tí INEC tẹ̀ jáde ní ọjọ́ 23 Oṣù Kejì ọdún 2024, INEC sọ pé àṣìṣe ìṣètò (configuration) ni ó fà á. Ó sọ pé ìdíje ààrẹ jẹ́ ìdíje jákèjádò orílẹ̀-èdè, kò so mọ́ ìpínlẹ̀ kankan, nítorí náà ẹ̀rọ náà kò lè tọ́jú àwọn ohun tí wọ́n gbé sókè. INEC sọ pé òun ti tún èyí ṣe pẹ̀lú àtúnṣe sọ́fítíwẹ́ẹ̀. Fọ́ọ̀mù àbájáde ìdìbò ààrẹ àkọ́kọ́ lọ sókè ní aago mẹ́jọ àti ìṣẹ́jú márùn-dín-nígba (8:55pm) alẹ́. Ọ̀pọ̀lọpọ̀ èrò lórí ayélujára àti àwọn ẹ̀rọ tí wọ́n pa fa ìdádúró síwájú sí i. INEC tún sọ pé òun fi àwọn àyẹ̀wò ààbò kún un nítorí ewu gidi ti ìkọlù orí ayélujára.",
+      "Àwọn kan ti sọ àwọn ohun mìíràn. Òṣìṣẹ́ ìpolongo APC kan sọ lórí tẹlifíṣọ̀n pé àwọn ẹgbẹ́ alátakò mú àwọn adigunjalè orí ayélujára wá, ṣùgbọ́n ẹnikẹ́ni kò yege. Èyí jẹ́ àfẹnusọ láti ọ̀dọ̀ òṣìṣẹ́ kan, láìsí ẹ̀rí tí wọ́n fi lélẹ̀. Ọ̀gá àgbà INEC tẹ́lẹ̀ rí, Attahiru Jega, sọ ní Oṣù Kínní ọdún 2024 pé òun gbàgbọ́ pé àwọn òṣèlú kan \"lè ti wọ inú\" ìkànnì náà. Àwọn ẹgbẹ́ alátakò sọ pé yálà INEC dìtẹ̀ mọ́ wọn ni, tàbí ẹ̀rọ rẹ̀ ti bàjẹ́. Lọ́tọ̀, mínísítà ìbánisọ̀rọ̀ sọ pé nǹkan bí mílíọ̀nù mẹ́tàlá (13 million) ìkọlù ló wáyé lórí àwọn ojú-òpó wẹ́ẹ̀bù ìjọba ní ọjọ́ ìdìbò. Wọ́n ròyìn iye ìkọlù kan lòdì sí Galaxy Backbone, lẹ́yìn náà ilé-iṣẹ́ náà sẹ́ ẹ. Kò sí èyíkéyìí nínú wọn tó sọ pé wọ́n gbọ́ ìkànnì àbájáde náà ní àgbẹ́yọ."
+    ],
+    "questions": [
+      "Jega sọ pé òun gbàgbọ́ pé wọ́n lè ti wọ inú ìkànnì náà. Ǹjẹ́ òun tàbí ẹnikẹ́ni mìíràn ti fi ẹ̀rí kankan lélẹ̀ fún èyí?",
+      "Ǹjẹ́ wọ́n ti tẹ àyẹ̀wò ìmọ̀ ẹ̀rọ aláìṣègbè kankan jáde lórí ẹ̀rọ IReV ní ọdún 2023?",
+      "Ǹjẹ́ àwọn ìkọlù tí wọ́n ròyìn lórí àwọn ojú-òpó wẹ́ẹ̀bù ìjọba fojú sùn ìkànnì IReV ní gidi?"
+    ],
+    "sources": [
+      {
+        "title": "No, Nigeria's electoral commission website was not hacked by a 'Russian boy' who has released the 'authentic' election results",
+        "url": "https://africacheck.org/fact-checks/meta-programme-fact-checks/no-nigerias-electoral-commission-website-was-not-hacked",
+        "publisher": "Africa Check",
+        "date": "2023-03-31"
+      },
+      {
+        "title": "Bola Tinubu's Nigeria election win: The rigging claims of Peter Obi and Atiku Abubakar",
+        "url": "https://www.bbc.com/news/world-africa-64802490",
+        "publisher": "BBC News",
+        "date": "2023-03-01"
+      },
+      {
+        "title": "IReV portal experienced challenges during presidential election",
+        "url": "https://punchng.com/inec-admits-irev-portal-experienced-challenges-during-2023-presidential-election/",
+        "publisher": "Punch",
+        "date": "2024-02-23"
+      },
+      {
+        "title": "FACT CHECK: Did Galaxy Backbone say IReV was attacked during presidential election?",
+        "url": "https://cddfactcheck.org/fact-check-did-galaxy-backbone-say-irev-was-attacked-during-presidential-election/",
+        "publisher": "CDD Election War Room",
+        "date": "2023-03-17"
+      },
+      {
+        "title": "2023: IReV's portal was hacked by politicians- Former INEC Chairman, Jega alleges",
+        "url": "https://dailypost.ng/2024/01/27/2023-irevs-portal-was-hacked-by-politicians-former-inec-chairman-jega-alleges/",
+        "publisher": "Daily Post Nigeria",
+        "date": "2024-01-27"
+      },
+      {
+        "title": "APC says INEC did not transmit election results because opposition planned to hack its server",
+        "url": "https://nairametrics.com/2023/03/03/apc-says-inec-did-not-transmit-election-results-because-opposition-planned-to-hack-its-server/",
+        "publisher": "Nairametrics",
+        "date": "2023-03-03"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Àwọn tó ń ṣàyẹ̀wò òtítọ́ àti BBC kò rí ẹ̀rí ìgbọ́kọ́ kankan, INEC sì sẹ́ ẹ, ṣùgbọ́n àwọn èèyàn díẹ̀ ń fẹ̀sùn kan ìdásí láìsí ẹ̀rí, a kò sì rí àyẹ̀wò ìmọ̀ ẹ̀rọ aláìṣègbè kankan.",
+    "steps": [
+      "Wá lórí ayélujára fún àwọn ẹ̀sùn pé wọ́n gbọ́ ìkànnì IReV ti INEC ní ọdún 2023.",
+      "Ka àyẹ̀wò òtítọ́ Africa Check lórí àkọsílẹ̀ 'ọ̀daràn orí ayélujára ọmọ ilẹ̀ Rọ́ṣíà'.",
+      "Ka ìròyìn BBC lórí àwọn ẹ̀sùn magbòdìwọ̀n àti ohun tí wọ́n rí nípa ojú-òpó ẹ̀tàn (phishing).",
+      "Ka ìròyìn Punch lórí ìròyìn ìdìbò INEC ti ọdún 2024 àti àlàyé rẹ̀ lórí ìkùnà ìgbésókè náà.",
+      "Ka àyẹ̀wò òtítọ́ CDD lórí iye ìkọlù tí wọ́n ròyìn, àti àwọn ìròyìn lórí ẹ̀sùn Jega àti APC."
+    ],
+    "researchedAt": "2026-11-19T21:18:51.653Z",
+    "recorded": true
+  },
+  {
+    "id": "rumour-5eccfaad89.en",
+    "kind": "rumour",
+    "asked": "I heard INEC will not publish ward collation results for the 2027 election. Is that true?",
+    "lang": "en",
+    "found": [
+      "Partly true, but the wording matters. On 17 November 2026, INEC's ICT Director, Lawrence Bayode, said INEC cannot put ward, local government and state collation results on its online portal (IReV) for the 2027 elections. He said: \"We have not built the system; we have not tested the system.\" Premium Times reported this from a Yiaga Africa roundtable in Abuja.",
+      "This is about publishing results online. The reports do not say INEC will keep these results secret. IReV currently shows only polling unit results (Form EC8A). Ward, local government and state results are on Forms EC8B, EC8C and EC8D, and those forms would not be on the portal.",
+      "The Electoral Act 2026 has a rule on copies of these forms. As summarised by The Sun, Section 71 says copies of completed result forms at ward, local government, state and national levels must be given to polling agents and police officers where available. Section 62 lets any person or party get certified copies from INEC's result register for a fee. I did not read the Act itself.",
+      "Reactions have followed. Yiaga Africa had earlier asked INEC to upload ward and local government results (The Guardian, July 2026). The ADC presidential campaign council said the decision was unacceptable and asked for publication at every collation level (Prime Times, 19 November 2026)."
+    ],
+    "questions": [
+      "Will INEC give ward, local government and state result forms to the public in some other way, such as a website or printed copies?",
+      "Will INEC change its position before the election, given the calls from Yiaga Africa and the ADC?",
+      "How much of the Section 71 rule on copies of result forms will voters, as opposed to party agents, be able to use in practice?"
+    ],
+    "sources": [
+      {
+        "title": "2027: Why we can't upload ward, LG results – INEC",
+        "url": "https://www.premiumtimesng.com/news/top-news/926086-2027-why-we-cant-upload-ward-lg-results-inec.html",
+        "publisher": "Premium Times",
+        "date": "2026-11-18"
+      },
+      {
+        "title": "ADC Demands Online Publication Of Election Results At All Collation Levels",
+        "url": "https://primetimes.com.ng/2026/11/adc-demands-online-publication-of-election-results-at-all-collation-levels/",
+        "publisher": "Prime Times",
+        "date": "2026-11-19"
+      },
+      {
+        "title": "2027: CSOs flag gaps as INEC assures 2023 technical glitches fixed",
+        "url": "https://guardian.ng/news/2027-csos-flag-gaps-as-inec-assures-2023-technical-glitches-fixed/",
+        "publisher": "The Guardian Nigeria",
+        "date": "2026-07-24"
+      },
+      {
+        "title": "2027: ADC dares INEC, vows to collate, publish results",
+        "url": "https://thesun.ng/2027-adc-dares-inec-vows-to-collate-publish-results/",
+        "publisher": "The Sun",
+        "date": "2026-10-09"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Several outlets report INEC's statement on online publication, but I opened only one full article (Premium Times) and the rest came from search excerpts, and INEC's formal position and the final rules on access are not yet clear.",
+    "steps": [
+      "Searched the web for INEC, ward collation results, 2027 and the Electoral Act.",
+      "Read the Premium Times report on INEC's statement at the Yiaga Africa roundtable.",
+      "Read search excerpts from The Guardian, The Sun and Prime Times on Yiaga's earlier request, the Electoral Act sections and the ADC reaction.",
+      "Found no written INEC statement or Electoral Act text to check against."
+    ],
+    "researchedAt": "2026-11-19T21:20:27.437Z",
+    "recorded": true
+  },
+  {
+    "id": "rumour-5eccfaad89.pcm",
+    "kind": "rumour",
+    "asked": "I hear say INEC no go publish ward collation results for 2027 election. Na true?",
+    "lang": "pcm",
+    "found": [
+      "E partly true, but the way dem talk am matter. On 17 November 2026, INEC's ICT Director, Lawrence Bayode, talk say INEC no fit put ward, local government and state collation results for im online portal (IReV) for the 2027 elections. He talk say: \"We have not built the system; we have not tested the system.\" Premium Times report this one from Yiaga Africa roundtable for Abuja.",
+      "Dis one na about to publish results online. The reports no talk say INEC go keep these results secret. For now, IReV dey show only polling unit results (Form EC8A). Ward, local government and state results dey for Forms EC8B, EC8C and EC8D, and dem no go put those forms for the portal.",
+      "The Electoral Act 2026 get rule about copies of these forms. As The Sun summarise am, Section 71 talk say dem must give copies of completed result forms for ward, local government, state and national levels to polling agents and police officers where dem dey. Section 62 allow any person or party to get certified copies from INEC's result register if dem pay fee. I never read the Act itself.",
+      "People don react. Yiaga Africa don ask INEC before to upload ward and local government results (The Guardian, July 2026). The ADC presidential campaign council talk say the decision no dey acceptable and dem ask make dem publish for every collation level (Prime Times, 19 November 2026)."
+    ],
+    "questions": [
+      "INEC go give the public ward, local government and state result forms another way, like website or printed copies?",
+      "INEC go change im position before the election, because of how Yiaga Africa and the ADC dey call for am?",
+      "How much of the Section 71 rule about copies of result forms go dey useful for voters, no be only party agents, for real life?"
+    ],
+    "sources": [
+      {
+        "title": "2027: Why we can't upload ward, LG results – INEC",
+        "url": "https://www.premiumtimesng.com/news/top-news/926086-2027-why-we-cant-upload-ward-lg-results-inec.html",
+        "publisher": "Premium Times",
+        "date": "2026-11-18"
+      },
+      {
+        "title": "ADC Demands Online Publication Of Election Results At All Collation Levels",
+        "url": "https://primetimes.com.ng/2026/11/adc-demands-online-publication-of-election-results-at-all-collation-levels/",
+        "publisher": "Prime Times",
+        "date": "2026-11-19"
+      },
+      {
+        "title": "2027: CSOs flag gaps as INEC assures 2023 technical glitches fixed",
+        "url": "https://guardian.ng/news/2027-csos-flag-gaps-as-inec-assures-2023-technical-glitches-fixed/",
+        "publisher": "The Guardian Nigeria",
+        "date": "2026-07-24"
+      },
+      {
+        "title": "2027: ADC dares INEC, vows to collate, publish results",
+        "url": "https://thesun.ng/2027-adc-dares-inec-vows-to-collate-publish-results/",
+        "publisher": "The Sun",
+        "date": "2026-10-09"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Plenty outlets report INEC's statement about online publication, but I open only one full article (Premium Times) and the rest come from search excerpts, and INEC's formal position and the final rules on how person fit get am never clear.",
+    "steps": [
+      "I search the web for INEC, ward collation results, 2027 and the Electoral Act.",
+      "I read the Premium Times report on INEC's statement for the Yiaga Africa roundtable.",
+      "I read search excerpts from The Guardian, The Sun and Prime Times on Yiaga's earlier request, the Electoral Act sections and the ADC reaction.",
+      "I no see any written INEC statement or Electoral Act text to check am against."
+    ],
+    "researchedAt": "2026-11-19T21:20:27.437Z",
+    "recorded": true
+  },
+  {
+    "id": "rumour-5eccfaad89.ha",
+    "kind": "rumour",
+    "asked": "Na ji cewa INEC ba za ta wallafa sakamakon tattara kuri'u na mazaba (ward) na zaben 2027 ba. Shin gaskiya ne?",
+    "lang": "ha",
+    "found": [
+      "Gaskiya ne a wani bangare, amma kalmomin da aka yi amfani da su suna da muhimmanci. A ranar 17 ga Nuwamba, 2026, Daraktan ICT na INEC, Lawrence Bayode, ya ce INEC ba za ta iya sanya sakamakon tattara kuri'u na mazaba, na ƙaramar hukuma da na jiha a shafinta na intanet (IReV) ba a zabukan 2027. Ya ce: \"Ba mu gina tsarin ba; ba mu gwada tsarin ba.\" Premium Times ne ya ruwaito wannan daga wani taron tattaunawa na Yiaga Africa a Abuja.",
+      "Wannan yana game da wallafa sakamako ne a intanet. Rahotannin ba su ce INEC za ta ɓoye waɗannan sakamakon ba. A yanzu IReV yana nuna sakamakon rumfunan zabe (polling unit) kawai (Form EC8A). Sakamakon mazaba, na ƙaramar hukuma da na jiha suna cikin fom din EC8B, EC8C da EC8D, kuma waɗannan fom din ba za su kasance a shafin ba.",
+      "Dokar Zabe ta 2026 tana da ka'ida kan kwafin waɗannan fom. Kamar yadda The Sun ya taƙaita, Sashe na 71 ya ce dole a ba wa wakilan jam'iyyu a rumfunan zabe da jami'an 'yan sanda, inda suke, kwafin fom din sakamako da aka cike a matakin mazaba, ƙaramar hukuma, jiha da ƙasa. Sashe na 62 yana bai wa kowane mutum ko jam'iyya damar samun kwafi da aka tabbatar daga rajistar sakamako ta INEC a kan biyan kuɗi. Ban karanta Dokar da kanta ba.",
+      "An fara mayar da martani. Yiaga Africa ta riga ta nemi INEC ta ɗora sakamakon mazaba da na ƙaramar hukuma (The Guardian, Yuli 2026). Majalisar yakin neman zaben shugaban ƙasa na ADC ta ce wannan shawara ba abar karɓa ba ce, kuma ta nemi a wallafa sakamako a kowane matakin tattara kuri'u (Prime Times, 19 ga Nuwamba, 2026)."
+    ],
+    "questions": [
+      "Shin INEC za ta ba jama'a fom din sakamakon mazaba, na ƙaramar hukuma da na jiha ta wata hanya dabam, kamar shafin intanet ko kwafi da aka buga?",
+      "Shin INEC za ta canza matsayinta kafin zaben, bisa kiraye-kirayen Yiaga Africa da ADC?",
+      "Har zuwa wane mataki ne masu zabe, ba wakilan jam'iyyu ba, za su iya amfani da ka'idar Sashe na 71 kan kwafin fom din sakamako a aikace?"
+    ],
+    "sources": [
+      {
+        "title": "2027: Why we can't upload ward, LG results – INEC",
+        "url": "https://www.premiumtimesng.com/news/top-news/926086-2027-why-we-cant-upload-ward-lg-results-inec.html",
+        "publisher": "Premium Times",
+        "date": "2026-11-18"
+      },
+      {
+        "title": "ADC Demands Online Publication Of Election Results At All Collation Levels",
+        "url": "https://primetimes.com.ng/2026/11/adc-demands-online-publication-of-election-results-at-all-collation-levels/",
+        "publisher": "Prime Times",
+        "date": "2026-11-19"
+      },
+      {
+        "title": "2027: CSOs flag gaps as INEC assures 2023 technical glitches fixed",
+        "url": "https://guardian.ng/news/2027-csos-flag-gaps-as-inec-assures-2023-technical-glitches-fixed/",
+        "publisher": "The Guardian Nigeria",
+        "date": "2026-07-24"
+      },
+      {
+        "title": "2027: ADC dares INEC, vows to collate, publish results",
+        "url": "https://thesun.ng/2027-adc-dares-inec-vows-to-collate-publish-results/",
+        "publisher": "The Sun",
+        "date": "2026-10-09"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Kafafen yada labarai da dama sun ruwaito maganar INEC kan wallafa sakamako a intanet, amma na buɗe cikakken labari ɗaya kawai (Premium Times), sauran kuma sun fito ne daga ɗan guntun rubutun sakamakon bincike, kuma matsayin INEC na hukuma da ƙa'idojin ƙarshe kan samun damar ba a bayyana sosai ba tukuna.",
+    "steps": [
+      "Na binciki intanet kan INEC, sakamakon tattara kuri'u na mazaba, 2027 da Dokar Zabe.",
+      "Na karanta rahoton Premium Times kan maganar INEC a taron tattaunawa na Yiaga Africa.",
+      "Na karanta guntayen rubutun sakamakon bincike daga The Guardian, The Sun da Prime Times kan buƙatar Yiaga ta farko, sassan Dokar Zabe da martanin ADC.",
+      "Ban samu wata sanarwa ta INEC a rubuce ko rubutun Dokar Zabe da zan tantance su da shi ba."
+    ],
+    "researchedAt": "2026-11-19T21:20:27.437Z",
+    "recorded": true
+  }
+]

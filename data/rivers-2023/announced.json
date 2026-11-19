@@ -1,0 +1,232 @@
+[
+ {
+  "code": "32/01",
+  "name": "Abua-Odual",
+  "figures": {
+   "APC": 5653,
+   "LP": 1663,
+   "PDP": 4685,
+   "NNPP": 9
+  }
+ },
+ {
+  "code": "32/02",
+  "name": "Ahoada East",
+  "figures": {
+   "APC": 8066,
+   "LP": 5379,
+   "PDP": 2358,
+   "NNPP": 58
+  }
+ },
+ {
+  "code": "32/03",
+  "name": "Ahoada West",
+  "figures": {
+   "APC": 3443,
+   "LP": 4634,
+   "PDP": 2582,
+   "NNPP": 11
+  }
+ },
+ {
+  "code": "32/04",
+  "name": "Akuku Toru",
+  "figures": {
+   "APC": 3182,
+   "LP": 1700,
+   "PDP": 3131,
+   "NNPP": 14
+  }
+ },
+ {
+  "code": "32/05",
+  "name": "Andoni",
+  "figures": {
+   "APC": 3306,
+   "LP": 2324,
+   "PDP": 4614,
+   "NNPP": 18
+  }
+ },
+ {
+  "code": "32/06",
+  "name": "Asari-Toru",
+  "figures": {
+   "APC": 14483,
+   "LP": 2094,
+   "PDP": 4476,
+   "NNPP": 9
+  }
+ },
+ {
+  "code": "32/07",
+  "name": "Bonny",
+  "figures": {
+   "APC": 2708,
+   "LP": 10488,
+   "PDP": 2406,
+   "NNPP": 87
+  }
+ },
+ {
+  "code": "32/08",
+  "name": "Degema",
+  "figures": {
+   "APC": 2375,
+   "LP": 2212,
+   "PDP": 3108,
+   "NNPP": 44
+  }
+ },
+ {
+  "code": "32/09",
+  "name": "Eleme",
+  "figures": {
+   "APC": 8368,
+   "LP": 7529,
+   "PDP": 2391,
+   "NNPP": 82
+  }
+ },
+ {
+  "code": "32/10",
+  "name": "Emohua",
+  "figures": {
+   "APC": 9145,
+   "LP": 4239,
+   "PDP": 5242,
+   "NNPP": 18
+  }
+ },
+ {
+  "code": "32/11",
+  "name": "Etche",
+  "figures": {
+   "APC": 8366,
+   "LP": 11232,
+   "PDP": 5919,
+   "NNPP": 78
+  }
+ },
+ {
+  "code": "32/12",
+  "name": "Gokana",
+  "figures": {
+   "APC": 10122,
+   "LP": 2215,
+   "PDP": 8484,
+   "NNPP": 31
+  }
+ },
+ {
+  "code": "32/13",
+  "name": "Ikwerre",
+  "figures": {
+   "APC": 9609,
+   "LP": 8752,
+   "PDP": 4869,
+   "NNPP": 58
+  }
+ },
+ {
+  "code": "32/14",
+  "name": "Khana",
+  "figures": {
+   "APC": 7649,
+   "LP": 1704,
+   "PDP": 5483,
+   "NNPP": 47
+  }
+ },
+ {
+  "code": "32/15",
+  "name": "Obio/Akpor",
+  "figures": {
+   "APC": 80239,
+   "LP": 3829,
+   "PDP": 368,
+   "NNPP": 161
+  }
+ },
+ {
+  "code": "32/16",
+  "name": "Ogba/Egbema/Ndoni",
+  "figures": {
+   "APC": 6057,
+   "LP": 21883,
+   "PDP": 4099,
+   "NNPP": 109
+  }
+ },
+ {
+  "code": "32/17",
+  "name": "Ogu/Bolo",
+  "figures": {
+   "APC": 2428,
+   "LP": 1209,
+   "PDP": 3187,
+   "NNPP": 7
+  }
+ },
+ {
+  "code": "32/18",
+  "name": "Okrika",
+  "figures": {
+   "APC": 2729,
+   "LP": 4018,
+   "PDP": 8476,
+   "NNPP": 34
+  }
+ },
+ {
+  "code": "32/19",
+  "name": "Omuma",
+  "figures": {
+   "APC": 6328,
+   "LP": 2154,
+   "PDP": 1293,
+   "NNPP": 15
+  }
+ },
+ {
+  "code": "32/20",
+  "name": "Opobo/Nkoro",
+  "figures": {
+   "APC": 5701,
+   "LP": 2093,
+   "PDP": 1542,
+   "NNPP": 6
+  }
+ },
+ {
+  "code": "32/21",
+  "name": "Oyigbo",
+  "figures": {
+   "APC": 16630,
+   "LP": 10784,
+   "PDP": 1046,
+   "NNPP": 107
+  }
+ },
+ {
+  "code": "32/22",
+  "name": "Port Harcourt",
+  "figures": {
+   "APC": 5562,
+   "LP": 62451,
+   "PDP": 7203,
+   "NNPP": 301
+  }
+ },
+ {
+  "code": "32/23",
+  "name": "Tai",
+  "figures": {
+   "APC": 9442,
+   "LP": 485,
+   "PDP": 1506,
+   "NNPP": 18
+  }
+ }
+]

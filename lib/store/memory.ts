@@ -1,5 +1,4 @@
-import { GENESIS_HASH } from "@/lib/chain/hash";
-import type { ChainEntry, Lang, PollingUnit, ResultRow, Sender, Signal, SignalRow } from "@/lib/types";
+import type { Lang, LiveReport, LiveReportKind, PollingUnit, Sender } from "@/lib/types";
 import type { Store, UnitFilter } from "./types";
 
 /**
@@ -10,8 +9,7 @@ export class MemoryStore implements Store {
   readonly kind = "memory" as const;
   private units = new Map<string, PollingUnit>();
   private senders = new Map<string, Sender>();
-  private signals: SignalRow[] = [];
-  private results: ResultRow[] = [];
+  private liveReports: LiveReport[] = [];
 
   constructor(units: PollingUnit[] = []) {
     for (const u of units) this.units.set(u.code, { ...u });
@@ -23,14 +21,15 @@ export class MemoryStore implements Store {
   }
 
   async listUnits(filter: UnitFilter = {}) {
+    const codes = filter.codes ? new Set(filter.codes) : null;
     return [...this.units.values()]
-      .filter((u) => (!filter.state || u.state === filter.state) && (!filter.unitCode || u.code === filter.unitCode))
-      .sort((a, b) => a.state.localeCompare(b.state) || a.code.localeCompare(b.code))
+      .filter((u) => (!filter.lga || u.lga === filter.lga) && (!filter.unitCode || u.code === filter.unitCode) && (!codes || codes.has(u.code)))
+      .sort((a, b) => a.code.localeCompare(b.code))
       .map((u) => ({ ...u }));
   }
 
-  async listStates() {
-    return [...new Set([...this.units.values()].map((u) => u.state))].sort();
+  async listLgas() {
+    return [...new Set([...this.units.values()].map((u) => u.lga))].sort();
   }
 
   async getSender(senderHash: string) {
@@ -47,41 +46,16 @@ export class MemoryStore implements Store {
     this.senders.set(senderHash, { ...s, lang });
   }
 
-  async addSignal(unitCode: string, signal: Signal, senderHash: string, createdAt = new Date().toISOString()) {
+  async addLiveReport(unitCode: string, kind: LiveReportKind, senderHash: string, createdAt = new Date().toISOString()) {
     if (!this.units.has(unitCode)) throw new Error(`Unknown unit ${unitCode}`);
-    const dup = this.signals.some((s) => s.unitCode === unitCode && s.signal === signal && s.senderHash === senderHash);
+    const dup = this.liveReports.some((r) => r.unitCode === unitCode && r.kind === kind && r.senderHash === senderHash);
     if (dup) return false;
-    this.signals.push({ unitCode, signal, senderHash, createdAt });
+    this.liveReports.push({ unitCode, kind, senderHash, createdAt });
     return true;
   }
 
-  async listSignals(unitCodes: string[]) {
-    const set = new Set(unitCodes);
-    return this.signals.filter((s) => set.has(s.unitCode)).map((s) => ({ ...s }));
-  }
-
-  async chainHead() {
-    return this.results.length ? this.results[this.results.length - 1].hash : GENESIS_HASH;
-  }
-
-  async appendResult(entry: ChainEntry) {
-    // Synchronous check-and-push: JS runs this block without interleaving, like the SQL advisory lock.
-    const head = this.results.length ? this.results[this.results.length - 1].hash : GENESIS_HASH;
-    if (entry.prevHash !== head) return { ok: false as const, reason: "head_moved" as const };
-    if (!this.units.has(entry.unitCode)) throw new Error(`Unknown unit ${entry.unitCode}`);
-    const row: ResultRow = { ...entry, figures: { ...entry.figures }, seq: this.results.length + 1 };
-    this.results.push(row);
-    return { ok: true as const, row: { ...row } };
-  }
-
-  async listResults(unitCodes?: string[]) {
+  async listLiveReports(unitCodes?: string[]) {
     const set = unitCodes ? new Set(unitCodes) : null;
-    return this.results.filter((r) => !set || set.has(r.unitCode)).map((r) => ({ ...r, figures: { ...r.figures } }));
-  }
-
-  /** Test helper: simulate someone editing the database directly. */
-  _tamper(seq: number, patch: Partial<ResultRow>) {
-    const i = this.results.findIndex((r) => r.seq === seq);
-    if (i >= 0) this.results[i] = { ...this.results[i], ...patch };
+    return this.liveReports.filter((r) => !set || set.has(r.unitCode)).map((r) => ({ ...r }));
   }
 }

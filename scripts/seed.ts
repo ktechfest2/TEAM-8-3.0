@@ -1,10 +1,8 @@
 /**
- * Seeds the database in DATABASE_URL with the fictional polling units and the MOCK demo reports.
+ * Seeds the database in DATABASE_URL with the Rivers State polling units and the MOCK demo live reports.
  *   npm run seed
- * Run `npm run db:migrate` first. Safe to re-run: units are upserted, duplicate signals are ignored,
- * and demo results are only added when the log is empty (the log is append-only).
+ * Run `npm run db:migrate` first. Safe to re-run: units are upserted and repeated live reports are ignored.
  */
-import { verifyChain } from "@/lib/chain/hash";
 import { neonSql } from "@/lib/db/neon";
 import { SEED_UNITS, seedDemoReports } from "@/lib/seed";
 import { PostgresStore } from "@/lib/store/postgres";
@@ -34,11 +32,7 @@ async function main() {
   console.log(`Polling units: ${SEED_UNITS.length} upserted.`);
 
   const r = await seedDemoReports(store, salt);
-  console.log(`Demo signals: ${r.signals} added.`);
-  console.log(r.skippedResults ? "Demo results: skipped, the log already has entries." : `Demo results: ${r.results} appended.`);
-
-  const report = verifyChain(await store.listResults());
-  console.log(`Hash chain: ${report.ok ? "intact" : "BROKEN"}, ${report.length} entries.`);
+  console.log(`Demo live reports: ${r.liveReports} added.`);
 }
 
 main().catch((e) => {
