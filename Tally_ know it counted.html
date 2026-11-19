@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tally: know it counted</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f9f6;--sf:#fff;--tx:#10231c;--mu:#51635a;--gr:#0b7a4b;--gl:#dff3e8;--am:#9a4a05;--al:#fdecd6;--ln:#d5dfd8;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0d1511;--sf:#16201b;--tx:#e8f0eb;--mu:#9bb0a4;--gr:#3ddc97;--gl:#163a29;--am:#f2b36b;--al:#3a2a12;--ln:#2a3a31;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0d1511;--sf:#16201b;--tx:#e8f0eb;--mu:#9bb0a4;--gr:#3ddc97;--gl:#163a29;--am:#f2b36b;--al:#3a2a12;--ln:#2a3a31;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.55 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:56px 0 40px}
+h1{font-size:clamp(38px,6vw,64px);font-weight:800;letter-spacing:-.02em}
+.sub{color:var(--mu);font-size:19px;max-width:34em;margin:18px 0 24px}
+.btn{background:var(--gr);color:var(--bg);border:0;border-radius:10px;padding:12px 20px;font:600 16px inherit;font-family:inherit;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.o{background:none;color:var(--tx);border:1.5px solid var(--ln)}
+:focus-visible{outline:3px solid var(--gr);outline-offset:2px}
+.ph{background:var(--sf);border:1.5px solid var(--ln);border-radius:28px;padding:16px;max-width:340px;margin:auto}
+.ph .top{font-weight:600;border-bottom:1px solid var(--ln);padding-bottom:10px;margin-bottom:12px}
+.m{max-width:85%;padding:9px 13px;border-radius:14px;margin:8px 0;font-size:15px}
+.m.u{background:var(--gl);margin-left:auto;border-bottom-right-radius:4px}
+.m.t{background:var(--bg);border:1px solid var(--ln);border-bottom-left-radius:4px}
+section{padding:36px 0}h2{font-size:clamp(26px,4vw,36px);margin-bottom:14px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.g3 h3{font-size:20px;margin-bottom:6px}.g3 p{color:var(--mu);margin:0}
+.demo{background:var(--sf);border:1.5px solid var(--ln);border-radius:16px;padding:20px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.tabs button{border:1.5px solid var(--ln);background:none;color:var(--tx);border-radius:999px;padding:8px 16px;font:600 15px inherit;font-family:inherit;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--gr);color:var(--bg);border-color:var(--gr)}
+.pn{display:none}.pn.on{display:block}
+label{display:block;font-size:14px;color:var(--mu)}
+input,select{font:inherit;color:var(--tx);background:var(--bg);border:1.5px solid var(--ln);border-radius:8px;padding:8px 10px;width:100%}
+.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;margin:12px 0}
+.r{margin-top:14px;display:grid;gap:8px}
+.c{border-radius:10px;padding:10px 14px;background:var(--gl);border-left:5px solid var(--gr)}
+.c.w2{background:var(--al);border-left-color:var(--am)}
+.sg{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+code,.hs{font-family:ui-monospace,monospace;font-size:13px;color:var(--mu);word-break:break-all}
+.ov{overflow-x:auto}
+.mk{background:var(--al);border-radius:14px;padding:18px 22px}.mk ul{margin:8px 0 0;padding-left:20px}
+footer{padding:30px 0 50px;color:var(--mu);font-size:15px}
+@media(max-width:760px){.hero,.g3{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:no-preference){.m{animation:pop .4s both}.m:nth-child(3){animation-delay:.5s}.m:nth-child(4){animation-delay:1s}.m:nth-child(5){animation-delay:1.5s}}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}}
+</style></head><body><div class="w">
+<div class="hero"><div>
+<h1>Know where. Know when. Know it counted.</h1>
+<p class="sub">Tally walks a first-time voter through election day on WhatsApp or SMS: is my card ready, did my polling unit move, is the unit running, and does the number on the wall match what was published?</p>
+<a class="btn" href="#try">Try the demo</a> <a class="btn o" href="#mock">What’s mocked</a></div>
+<div class="ph" aria-label="Example chat"><div class="top">Tally</div>
+<div class="m u">My unit moved?</div>
+<div class="m t">Yes. You now vote at Unit 007, Ward 3. Same ward, 400 m from your old unit.</div>
+<div class="m u">Is it running?</div>
+<div class="m t">3 voters report officials arrived. Accreditation not yet reported.</div></div></div>
+
+<section><h2>Amaka’s day, from her side</h2><div class="g3">
+<div><h3>Before</h3><p>Check that your card is ready and get told if your polling unit moved, before you queue at the wrong place.</p></div>
+<div><h3>During</h3><p>See counted reports from other voters at your unit: officials arrived, accreditation started, queue length.</p></div>
+<div><h3>After</h3><p>Send the numbers from the wall. Tally checks the arithmetic and tells you whether the published result matches.</p></div></div></section>
+
+<section id="try"><h2>Try it</h2><div class="demo">
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="p1">1. Am I ready?</button><button role="tab" aria-selected="false" data-t="p2">2. Live at my unit</button><button role="tab" aria-selected="false" data-t="p3">3. Check the wall</button><button role="tab" aria-selected="false" data-t="p4">4. Journalist view</button></div>
+
+<div class="pn on" id="p1"><label for="pvc">Last 4 digits of your card (any 4 digits work in the demo)</label><input id="pvc" value="4821" inputmode="numeric" maxlength="4"><p><button class="btn" id="b1">Check readiness</button></p><div class="r" id="o1"></div></div>
+
+<div class="pn" id="p2"><p>You’re at Unit 007, Ward 3 (demo unit). Tap what you see; counts update for everyone.</p>
+<div class="sg"><button class="btn o" data-s="arrived">Officials arrived</button><button class="btn o" data-s="accred">Accreditation started</button><button class="btn o" data-s="queue">Long queue</button></div><div class="r" id="o2"></div></div>
+
+<div class="pn" id="p3"><p>Enter the figures from the wall. The published figures below are mock data.</p>
+<div class="f" id="fm"></div><button class="btn" id="b3">Check result</button><div class="r" id="o3"></div></div>
+
+<div class="pn" id="p4"><label for="st">State</label><select id="st"><option>All</option><option>Lagos</option><option>Kano</option></select><div class="r" id="o4"></div></div>
+</div></section>
+
+<section id="mock"><div class="mk"><h2>What’s real and what’s mocked</h2>
+<p>The rules are real. The data feeds are not.</p><ul>
+<li><b>Real:</b> arithmetic validation, count-based reports, match or unmatched logic, hash-chained log.</li>
+<li><b>Mocked:</b> card status and polling-unit lookup, the published IReV figures, other voters’ reports, WhatsApp and SMS delivery.</li>
+<li>We haven’t confirmed that INEC offers public data access for these, so a live version needs their cooperation.</li></ul></div></section>
+<footer>Built for the Every Vote, Every Voice hackathon. Party names in the demo are placeholders. Built with an AI coding assistant (Claude).</footer></div>
+<script>
+const $=s=>document.querySelector(s),sig={arrived:2,accred:1,queue:3};
+const IR={accredited:264,A:112,B:98,C:41,D:7,rejected:6};
+const lab={accredited:"Accredited",A:"Party A",B:"Party B",C:"Party C",D:"Party D",rejected:"Rejected"};
+const card=(t,w)=>`<div class="c${w?" w2":""}">${t}</div>`;
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected",x===b));document.querySelectorAll(".pn").forEach(p=>p.classList.toggle("on",p.id===b.dataset.t));if(b.dataset.t=="p4")feed()});
+$("#b1").onclick=()=>{const n=parseInt($("#pvc").value,10);if(!/^\d{4}$/.test($("#pvc").value)){$("#o1").innerHTML=card("Enter exactly 4 digits.",1);return}
+$("#o1").innerHTML=(n%3?card("Your card is marked ready for collection or use."):card("Your card is not marked ready yet. Ask at your ward collection point.",1))+(n%2?card("Your polling unit has not changed."):card("Your polling unit moved to Unit 007, Ward 3, about 400 m away.",1))};
+const txt=()=>`<b>${sig.arrived}</b> voters report officials arrived, <b>${sig.accred}</b> report accreditation started, <b>${sig.queue}</b> report a long queue.`;
+function r2(){$("#o2").innerHTML=card(txt())+card("These are counts of reports, not confirmed facts. One report alone is shown as unverified.",1)}
+document.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{sig[b.dataset.s]++;r2()});r2();
+for(const k in lab)$("#fm").insertAdjacentHTML("beforeend",`<div><label for="f${k}">${lab[k]}</label><input id="f${k}" type="number" min="0" value="${IR[k]}"></div>`);
+let prev="0000000";const h=s=>{let x=2166136261;for(const c of s){x^=c.charCodeAt(0);x=Math.imul(x,16777619)}return(x>>>0).toString(16).padStart(8,"0")};
+$("#b3").onclick=()=>{const v={};for(const k in lab)v[k]=+$("#f"+k).value;const reg=850,errs=[];
+const tot=v.A+v.B+v.C+v.D+v.rejected;
+if(tot>v.accredited)errs.push(`Votes plus rejected (${tot}) are more than accredited voters (${v.accredited}).`);
+if(v.accredited>reg)errs.push(`Accredited (${v.accredited}) is more than registered voters (${reg}).`);
+let o="";if(errs.length)o=errs.map(e=>card(e,1)).join("")+card("These figures can’t be right. Check the wall again before sending.",1);
+else{const d=Object.keys(lab).filter(k=>v[k]!==IR[k]);
+o=d.length?card("Published, but unmatched, needs review: "+d.map(k=>`${lab[k]} (you: ${v[k]}, published: ${IR[k]})`).join("; ")+". This can be a typo or a correction, not proof of a problem.",1):card("Matches the published result for this unit.");
+const id=h(prev+JSON.stringify(v));o+=`<div class="hs">Log entry ${id}, previous ${prev}</div>`;prev=id}
+$("#o3").innerHTML=o};
+const items=[{s:"Lagos",t:()=>"Unit 007, Ward 3: "+txt(),p:1},{s:"Lagos",t:()=>"Unit 012, Ward 5: 1 voter reports result sheet not yet posted. Unverified.",p:0},{s:"Kano",t:()=>"Unit 031, Ward 2: 4 voters report voting started on time; 2 photos attached.",p:1}];
+function feed(){const f=$("#st").value;$("#o4").innerHTML=items.filter(i=>f=="All"||i.s==f).map(i=>card(`<b>${i.s}</b> · ${i.t()}<br><span class="hs">${i.p?"Photo attached":"No photo"}, timestamped, faces blurred</span>`,!i.p)).join("")}
+$("#st").onchange=feed;feed();
+</script></body></html>
