@@ -22,7 +22,7 @@ function publicUrl(req: Request): string {
 
 /**
  * Shared by /api/whatsapp and /api/sms.
- * - JSON body  = the in-app simulator ({ from: "sim:...", text, hasPhoto }). Reply comes back as JSON.
+ * - JSON body  = the in-app simulator ({ from: "sim:...", text }). Reply comes back as JSON.
  * - Form body  = a Twilio webhook (WhatsApp or SMS). Must carry a valid X-Twilio-Signature.
  */
 export async function handleWebhook(req: Request): Promise<Response> {
@@ -30,7 +30,7 @@ export async function handleWebhook(req: Request): Promise<Response> {
 
   if (type.includes("application/json")) {
     if (process.env.SIMULATOR_ENABLED === "false") return json({ error: "Simulator is disabled" }, 403);
-    let body: { from?: unknown; text?: unknown; hasPhoto?: unknown };
+    let body: { from?: unknown; text?: unknown };
     try {
       body = await req.json();
     } catch {
@@ -41,7 +41,7 @@ export async function handleWebhook(req: Request): Promise<Response> {
     if (!/^sim:[A-Za-z0-9_-]{4,64}$/.test(from)) return json({ error: "from must look like sim:<id>" }, 400);
     if (typeof body.text !== "string") return json({ error: "text is required" }, 400);
     const deps = await getDeps();
-    const out = await handleMessage(deps, { from, text: body.text, hasPhoto: body.hasPhoto === true });
+    const out = await handleMessage(deps, { from, text: body.text });
     await deps.messaging.send(from, out.reply).catch(() => undefined); // console in the simulator
     return json({ ...out, store: deps.store.kind, warnings: deps.warnings });
   }
@@ -61,12 +61,8 @@ export async function handleWebhook(req: Request): Promise<Response> {
     if (!from) return new Response("Missing From", { status: 400 });
 
     const deps = await getDeps();
-    // Photos: we only record that one was attached. Media is never downloaded or stored (no face blurring yet).
-    const out = await handleMessage(deps, {
-      from,
-      text: params.Body ?? "",
-      hasPhoto: Number.parseInt(params.NumMedia ?? "0", 10) > 0,
-    });
+    // Attached media is ignored: it is never downloaded or stored.
+    const out = await handleMessage(deps, { from, text: params.Body ?? "" });
 
     if (deps.messaging.name === "twilio") {
       try {

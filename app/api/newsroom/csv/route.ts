@@ -5,7 +5,7 @@ import { newsroomSummaries } from "@/lib/queries";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** GET /api/newsroom/csv?state=Lagos&unit=LA03-007 */
+/** GET /api/newsroom/csv?lga=Obio/Akpor&unit=32/15/04/012 */
 export async function GET(req: Request) {
   const deps = await getDeps();
   const filter = parseFilter(new URL(req.url).searchParams);

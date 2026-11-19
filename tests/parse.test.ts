@@ -1,8 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { parseCommand } from "@/lib/commands/parse";
 
-const figures = { A: 112, B: 98, C: 41, D: 7, rejected: 6, accredited: 264 };
-
 describe("parseCommand", () => {
   it.each(["HELP", "help", "  Help  ", "hi", "MENU"])("parses %j as help", (text) => {
     expect(parseCommand(text)).toEqual({ kind: "help" });
@@ -21,7 +19,13 @@ describe("parseCommand", () => {
 
   it("parses UNIT with and without a unit code", () => {
     expect(parseCommand("UNIT")).toEqual({ kind: "unit" });
-    expect(parseCommand("unit la03-007")).toEqual({ kind: "unit", unitCode: "LA03-007" });
+    expect(parseCommand("unit 32/15/04/012")).toEqual({ kind: "unit", unitCode: "32/15/04/012" });
+    expect(parseCommand("UNIT 32/15/04/012.")).toEqual({ kind: "unit", unitCode: "32/15/04/012" });
+  });
+
+  it("does not mistake other text for a unit code", () => {
+    expect(parseCommand("UNIT 32/15/04")).toEqual({ kind: "unit" });
+    expect(parseCommand("UNIT LA03-007")).toEqual({ kind: "unit" });
   });
 
   it.each([
@@ -29,55 +33,25 @@ describe("parseCommand", () => {
     ["report accred", "accred"],
     ["Report accreditation", "accred"],
     ["REPORT QUEUE", "queue"],
-  ])("parses %j", (text, signal) => {
-    expect(parseCommand(text)).toEqual({ kind: "report", signal });
+  ])("parses %j", (text, report) => {
+    expect(parseCommand(text)).toEqual({ kind: "report", report });
   });
 
   it("parses REPORT with a unit code in any position", () => {
-    expect(parseCommand("REPORT LA03-007 QUEUE")).toEqual({ kind: "report", signal: "queue", unitCode: "LA03-007" });
+    expect(parseCommand("REPORT 32/21/01/001 QUEUE")).toEqual({ kind: "report", report: "queue", unitCode: "32/21/01/001" });
+    expect(parseCommand("report queue 32/21/01/001")).toEqual({ kind: "report", report: "queue", unitCode: "32/21/01/001" });
   });
 
-  it("asks for a signal when REPORT has none", () => {
-    expect(parseCommand("REPORT")).toEqual({ kind: "error", error: { code: "report_needs_signal" } });
-    expect(parseCommand("REPORT FIGHTING")).toEqual({ kind: "error", error: { code: "report_needs_signal" } });
+  it("asks what was seen when REPORT does not say", () => {
+    expect(parseCommand("REPORT")).toEqual({ kind: "error", error: { code: "report_needs_kind" } });
+    expect(parseCommand("REPORT FIGHTING")).toEqual({ kind: "error", error: { code: "report_needs_kind" } });
   });
 
-  it("parses RESULT in the documented format", () => {
-    expect(parseCommand("RESULT A112 B98 C41 D7 REJ6 ACC264")).toEqual({ kind: "result", figures });
-  });
-
-  it("parses RESULT with spaces, separators, lower case and any order", () => {
-    expect(parseCommand("result acc 264, rej 6, d=7 c:41 b 98 a 112")).toEqual({ kind: "result", figures });
-  });
-
-  it("parses RESULT with a unit code", () => {
-    expect(parseCommand("RESULT A112 B98 C41 D7 REJ6 ACC264 LA03-007")).toEqual({
-      kind: "result",
-      figures,
-      unitCode: "LA03-007",
-    });
-  });
-
-  it("lists missing RESULT fields", () => {
-    expect(parseCommand("RESULT A112 B98")).toEqual({
+  it("no longer accepts figures from voters", () => {
+    expect(parseCommand("RESULT A112 B98 C41 D7 REJ6 ACC264")).toEqual({
       kind: "error",
-      error: { code: "result_missing_fields", missing: ["C", "D", "rejected", "accredited"] },
+      error: { code: "unknown_command", word: "RESULT" },
     });
-  });
-
-  it("rejects a repeated RESULT field", () => {
-    expect(parseCommand("RESULT A1 A2 B98 C41 D7 REJ6 ACC264")).toEqual({
-      kind: "error",
-      error: { code: "result_duplicate_field", field: "A" },
-    });
-  });
-
-  it("rejects an unreadable RESULT token", () => {
-    expect(parseCommand("RESULT A112 E5 B98 C41 D7 REJ6 ACC264")).toEqual({
-      kind: "error",
-      error: { code: "result_bad_token", token: "E5" },
-    });
-    expect(parseCommand("RESULT A-5 B98")).toMatchObject({ kind: "error", error: { code: "result_bad_token" } });
   });
 
   it("parses LANG", () => {

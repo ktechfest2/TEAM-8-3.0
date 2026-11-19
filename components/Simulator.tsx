@@ -20,7 +20,7 @@ interface Pending {
 const SENDER_KEY = "tally.sim.sender";
 const QUEUE_KEY = "tally.sim.queue";
 
-const QUICK = ["READY 4821", "UNIT", "REPORT ARRIVED", "RESULT A112 B98 C41 D7 REJ6 ACC264", "LANG PIDGIN", "HELP"];
+const QUICK = ["READY 4821", "UNIT", "REPORT ARRIVED", "REPORT QUEUE", "UNIT 32/22/05/001", "LANG PIDGIN", "HELP"];
 
 const uid = () =>
   typeof crypto !== "undefined" && "randomUUID" in crypto

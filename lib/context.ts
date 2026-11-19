@@ -1,6 +1,6 @@
 import { ConsoleMessaging, TwilioMessaging } from "@/lib/providers/messaging";
-import { MockIRev, MockVoterLookup } from "@/lib/providers/mock";
-import type { IRevProvider, MessagingProvider, VoterLookupProvider } from "@/lib/providers/types";
+import { MockVoterLookup } from "@/lib/providers/mock";
+import type { MessagingProvider, VoterLookupProvider } from "@/lib/providers/types";
 import { SEED_UNITS, seedDemoReports } from "@/lib/seed";
 import { MemoryStore } from "@/lib/store/memory";
 import { PostgresStore } from "@/lib/store/postgres";
@@ -10,7 +10,6 @@ import type { Store } from "@/lib/store/types";
 export interface Deps {
   store: Store;
   voterLookup: VoterLookupProvider;
-  irev: IRevProvider;
   messaging: MessagingProvider;
   salt: string;
   warnings: string[];
@@ -47,8 +46,8 @@ async function build(): Promise<Deps> {
     await seedDemoReports(store, salt);
   }
 
-  // Only mock providers exist. A real VoterLookup or IRev provider would be selected here.
-  return { store, voterLookup: new MockVoterLookup(), irev: new MockIRev(), messaging: buildMessaging(), salt, warnings };
+  // Only a mock voter lookup exists. A real one would be selected here.
+  return { store, voterLookup: new MockVoterLookup(), messaging: buildMessaging(), salt, warnings };
 }
 
 const g = globalThis as unknown as { __tallyDeps?: Promise<Deps> };

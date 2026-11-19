@@ -1,8 +1,0 @@
-[
-  { "code": "LA03-004", "name": "Unit 004, Ward 3", "ward": "Ward 3", "lga": "Demo LGA North", "state": "Lagos", "registeredVoters": 700 },
-  { "code": "LA03-007", "name": "Unit 007, Ward 3", "ward": "Ward 3", "lga": "Demo LGA North", "state": "Lagos", "registeredVoters": 850 },
-  { "code": "LA05-012", "name": "Unit 012, Ward 5", "ward": "Ward 5", "lga": "Demo LGA South", "state": "Lagos", "registeredVoters": 620 },
-  { "code": "KN02-018", "name": "Unit 018, Ward 2", "ward": "Ward 2", "lga": "Demo LGA East", "state": "Kano", "registeredVoters": 780 },
-  { "code": "KN02-031", "name": "Unit 031, Ward 2", "ward": "Ward 2", "lga": "Demo LGA East", "state": "Kano", "registeredVoters": 910 },
-  { "code": "EN01-002", "name": "Unit 002, Ward 1", "ward": "Ward 1", "lga": "Demo LGA West", "state": "Enugu", "registeredVoters": 540 }
-]

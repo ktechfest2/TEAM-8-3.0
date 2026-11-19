@@ -1,11 +1,11 @@
 import { getDeps } from "@/lib/context";
-import { parseFilter, resultLabel } from "@/lib/newsroom";
+import { parseFilter } from "@/lib/newsroom";
 import { newsroomSummaries } from "@/lib/queries";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** GET /api/newsroom?state=Lagos&unit=LA03-007 */
+/** GET /api/newsroom?lga=Obio/Akpor&unit=32/15/04/012: polling units with at least one live report. */
 export async function GET(req: Request) {
   const deps = await getDeps();
   const filter = parseFilter(new URL(req.url).searchParams);
@@ -13,9 +13,9 @@ export async function GET(req: Request) {
   return Response.json(
     {
       filter,
-      mocked: { publishedResults: deps.irev.mocked, demoReports: deps.store.kind === "memory" },
-      note: "Counts of voter reports, not confirmed facts. One report is unverified.",
-      units: rows.map((s) => ({ ...s, resultLabel: resultLabel(s) })),
+      mocked: { demoReports: deps.store.kind === "memory" },
+      note: "Counts of voters' live reports, not confirmed facts. One report is unverified.",
+      units: rows,
     },
     { headers: { "Cache-Control": "no-store" } },
   );
