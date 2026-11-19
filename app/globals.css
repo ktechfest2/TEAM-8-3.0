@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* Tokens from the tally.html reference. Light by default, dark via system or the toggle. */
+:root {
+  --bg: #f7f9f6;
+  --sf: #ffffff;
+  --tx: #10231c;
+  --mu: #51635a;
+  --gr: #0b7a4b;
+  --gl: #dff3e8;
+  --am: #9a4a05;
+  --al: #fdecd6;
+  --ln: #d5dfd8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1511;
+    --sf: #16201b;
+    --tx: #e8f0eb;
+    --mu: #9bb0a4;
+    --gr: #3ddc97;
+    --gl: #163a29;
+    --am: #f2b36b;
+    --al: #3a2a12;
+    --ln: #2a3a31;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1511;
+  --sf: #16201b;
+  --tx: #e8f0eb;
+  --mu: #9bb0a4;
+  --gr: #3ddc97;
+  --gl: #163a29;
+  --am: #f2b36b;
+  --al: #3a2a12;
+  --ln: #2a3a31;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-sf: var(--sf);
+  --color-tx: var(--tx);
+  --color-mu: var(--mu);
+  --color-gr: var(--gr);
+  --color-gl: var(--gl);
+  --color-am: var(--am);
+  --color-al: var(--al);
+  --color-ln: var(--ln);
+  --font-sans: var(--font-body), "Source Sans 3", system-ui, sans-serif;
+  --font-display: var(--font-head), "Bricolage Grotesque", system-ui, sans-serif;
+}
+
+html {
+  scroll-padding-top: 72px;
+}
+body {
+  background: var(--bg);
+  color: var(--tx);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+}
+:focus-visible {
+  outline: 3px solid var(--gr);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-block cursor-pointer rounded-[10px] border-0 bg-gr px-5 py-3 text-base font-semibold text-bg no-underline disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-o {
+    @apply inline-block cursor-pointer rounded-[10px] border-[1.5px] border-ln bg-transparent px-5 py-3 text-base font-semibold text-tx no-underline hover:border-gr;
+  }
+  .chip {
+    @apply cursor-pointer rounded-full border-[1.5px] border-ln bg-transparent px-3.5 py-1.5 text-sm font-semibold text-tx hover:border-gr;
+  }
+  .card-ok {
+    @apply rounded-[10px] border-l-[5px] border-gr bg-gl px-3.5 py-2.5;
+  }
+  .card-warn {
+    @apply rounded-[10px] border-l-[5px] border-am bg-al px-3.5 py-2.5;
+  }
+  .field {
+    @apply w-full rounded-lg border-[1.5px] border-ln bg-bg px-2.5 py-2 text-tx;
+  }
+  .mono {
+    @apply font-mono text-[13px] break-all text-mu;
+  }
+  .panel {
+    @apply rounded-2xl border-[1.5px] border-ln bg-sf p-5;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pop {
+    animation: pop 0.35s both;
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
