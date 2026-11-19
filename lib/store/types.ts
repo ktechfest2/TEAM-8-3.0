@@ -5,9 +5,9 @@ export interface UnitFilter {
   unitCode?: string;
 }
 
-/** Persistence. Supabase in production; an in-memory store for local demos and tests. */
+/** Persistence. Postgres (Neon) in production; an in-memory store for local demos and tests. */
 export interface Store {
-  readonly kind: "supabase" | "memory";
+  readonly kind: "postgres" | "memory";
 
   getUnit(code: string): Promise<PollingUnit | null>;
   listUnits(filter?: UnitFilter): Promise<PollingUnit[]>;

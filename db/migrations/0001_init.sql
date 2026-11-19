@@ -1,5 +1,5 @@
--- Tally schema. Fictional polling units only; no INEC data is assumed.
--- Run in the Supabase SQL editor or with `supabase db push`.
+-- Tally schema (plain Postgres; runs on Neon). Fictional polling units only; no INEC data is assumed.
+-- Apply with `npm run db:migrate`, or paste into the Neon SQL editor.
 
 create table if not exists polling_units (
   code              text primary key check (code ~ '^[A-Z]{2}[0-9]{2}-[0-9]{3}$'),
@@ -94,10 +94,5 @@ create trigger result_submissions_append_only
   before update or delete on result_submissions
   for each row execute function forbid_result_mutation();
 
--- Row Level Security on, with no policies: only the server (service role key) can read or write.
-alter table polling_units      enable row level security;
-alter table senders            enable row level security;
-alter table signals            enable row level security;
-alter table result_submissions enable row level security;
-
-revoke execute on function append_result_submission(text, text, integer, integer, integer, integer, integer, integer, boolean, timestamptz, text, text) from public, anon, authenticated;
+-- Access: only the server holds DATABASE_URL. There is no public API in front of this database,
+-- so no browser or third party can query it directly.

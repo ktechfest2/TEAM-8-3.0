@@ -1,14 +1,13 @@
 /**
- * Seeds Supabase with the fictional polling units and the MOCK demo reports.
+ * Seeds the database in DATABASE_URL with the fictional polling units and the MOCK demo reports.
  *   npm run seed
- * Reads SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY and PHONE_HASH_SALT from the environment or .env.local.
- * Safe to re-run: units are upserted, duplicate signals are ignored, and demo results are only
- * added when the log is empty (the log is append-only).
+ * Run `npm run db:migrate` first. Safe to re-run: units are upserted, duplicate signals are ignored,
+ * and demo results are only added when the log is empty (the log is append-only).
  */
-import { createClient } from "@supabase/supabase-js";
-import { SEED_UNITS, seedDemoReports } from "@/lib/seed";
-import { SupabaseStore } from "@/lib/store/supabase";
 import { verifyChain } from "@/lib/chain/hash";
+import { neonSql } from "@/lib/db/neon";
+import { SEED_UNITS, seedDemoReports } from "@/lib/seed";
+import { PostgresStore } from "@/lib/store/postgres";
 
 for (const f of [".env.local", ".env"]) {
   try {
@@ -19,29 +18,21 @@ for (const f of [".env.local", ".env"]) {
 }
 
 async function main() {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = process.env.DATABASE_URL;
   const salt = process.env.PHONE_HASH_SALT;
-  if (!url || !key || !salt) {
-    console.error("Set SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY and PHONE_HASH_SALT (see .env.example).");
+  if (!url || !salt) {
+    console.error("Set DATABASE_URL and PHONE_HASH_SALT (see .env.example).");
     process.exit(1);
   }
 
-  const db = createClient(url, key, { auth: { persistSession: false } });
-  const { error } = await db.from("polling_units").upsert(
-    SEED_UNITS.map((u) => ({
-      code: u.code,
-      name: u.name,
-      ward: u.ward,
-      lga: u.lga,
-      state: u.state,
-      registered_voters: u.registeredVoters,
-    })),
-  );
-  if (error) throw new Error(`Upserting polling units failed: ${error.message}. Did you run the migration?`);
+  const store = new PostgresStore(neonSql(url));
+  try {
+    await store.upsertUnits(SEED_UNITS);
+  } catch (e) {
+    throw new Error(`Upserting polling units failed: ${(e as Error).message}. Did you run npm run db:migrate?`);
+  }
   console.log(`Polling units: ${SEED_UNITS.length} upserted.`);
 
-  const store = new SupabaseStore(url, key);
   const r = await seedDemoReports(store, salt);
   console.log(`Demo signals: ${r.signals} added.`);
   console.log(r.skippedResults ? "Demo results: skipped, the log already has entries." : `Demo results: ${r.results} appended.`);

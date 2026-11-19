@@ -3,7 +3,7 @@ import type { ChainEntry, Lang, PollingUnit, ResultRow, Sender, Signal, SignalRo
 import type { Store, UnitFilter } from "./types";
 
 /**
- * In-memory store. Used when Supabase is not configured (local demo) and in tests.
+ * In-memory store. Used when DATABASE_URL is not set (local demo) and in tests.
  * Data is lost on restart and is not shared between serverless instances.
  */
 export class MemoryStore implements Store {

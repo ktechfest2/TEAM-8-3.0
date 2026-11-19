@@ -10,7 +10,7 @@ voter through election day:
 4. **Journalist view.** The same reports, filterable by state and polling unit, with counts, photo flags, timestamps
    and CSV export.
 
-One Next.js app (App Router, TypeScript, Tailwind), API logic in Route Handlers, Supabase Postgres, deploys to Vercel.
+One Next.js app (App Router, TypeScript, Tailwind), API logic in Route Handlers, Neon Postgres, deploys to Vercel.
 
 ## What is real and what is mocked
 
@@ -24,7 +24,7 @@ adapter interface ([lib/providers/types.ts](lib/providers/types.ts)) with a mock
 | Result validation: party votes + rejected ≤ accredited ≤ registered | Real ([lib/rules/validate.ts](lib/rules/validate.ts)) |
 | One vote per sender per signal per unit; "unverified" for a single reporter | Real (DB unique constraint + [lib/rules/signals.ts](lib/rules/signals.ts)) |
 | Consensus (2+ identical submissions) and "matches" / "unmatched, needs review" | Real ([lib/rules/consensus.ts](lib/rules/consensus.ts), [compare.ts](lib/rules/compare.ts)) |
-| Hash-chained, append-only log and `/verify` | Real ([lib/chain](lib/chain), [migration](supabase/migrations/0001_init.sql)) |
+| Hash-chained, append-only log and `/verify` | Real ([lib/chain](lib/chain), [migration](db/migrations/0001_init.sql)) |
 | Card readiness and polling-unit lookup (`VoterLookupProvider`) | **Mock**: [data/seed/voters.json](data/seed/voters.json). Uses the last 4 digits of the card, which a real lookup could never rely on. Any other 4 digits get a made-up but stable answer. |
 | Published results (`IRevProvider`) | **Mock**: [data/seed/irev_results.json](data/seed/irev_results.json) |
 | Other voters' reports | **Mock**: [data/seed/demo_reports.json](data/seed/demo_reports.json), sent through the same code as live messages |
@@ -44,7 +44,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000 and go to **/simulator**. Without Supabase settings the app uses an in-memory store,
+Open http://localhost:3000 and go to **/simulator**. Without `DATABASE_URL` the app uses an in-memory store,
 seeded with the demo data on start, and resets when the server restarts.
 
 Demo script: `READY 4821` (card ready, unit moved) → `UNIT` (live counts) → `REPORT ARRIVED` →
@@ -66,20 +66,24 @@ Commands are case-insensitive, and any command can carry a unit code such as `LA
 | `LANG PIDGIN` / `LANG EN` / `LANG HAUSA` / `LANG YORUBA` / `LANG IGBO` | Change language |
 | `HELP` | List commands |
 
-## Set up Supabase
+## Set up Neon
 
-1. Create a Supabase project.
-2. In the SQL editor, run [supabase/migrations/0001_init.sql](supabase/migrations/0001_init.sql)
-   (or `supabase db push` with the Supabase CLI).
-3. Copy `.env.example` to `.env.local` and set `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` and `PHONE_HASH_SALT`.
+1. Create a Neon project (free tier is fine) and copy its connection string from **Connection details**.
+2. Copy `.env.example` to `.env.local` and set `DATABASE_URL` and `PHONE_HASH_SALT`.
+3. `npm run db:migrate` applies [db/migrations](db/migrations) in order and records them in `schema_migrations`.
+   (You can also paste the SQL into the Neon SQL editor.)
 4. `npm run seed` adds the fictional polling units and the mock demo reports. It is safe to re-run.
-   ([supabase/seed.sql](supabase/seed.sql) adds the units only, if you prefer SQL.)
 5. `npm run dev`.
 
-Row Level Security is on with no policies, so only the server (service role key) can read or write. The key is
-used only in server code.
+The app talks to Neon over its HTTP driver ([lib/db/neon.ts](lib/db/neon.ts)): one statement per request, no
+connection pool to manage, which suits Vercel functions. Only the server holds `DATABASE_URL`; there is no public
+API in front of the database. The migration script uses Neon's WebSocket pool because it runs multi-statement SQL
+in a transaction.
 
-To reset the demo data, run this in the SQL editor (the log refuses row deletes, by design):
+On the free tier Neon suspends an idle database, so the first request after a quiet spell is slower. Send a
+message or two before a live demo.
+
+To reset the demo data, run this in the Neon SQL editor (the log refuses row deletes, by design):
 
 ```sql
 truncate result_submissions, signals, senders restart identity;
@@ -120,16 +124,19 @@ hash chain. Adding them is a straightforward extension.
 ## Tests
 
 ```bash
-npm test          # Vitest: rules, parser, hash chain, handler, concurrency, Twilio signature
+npm test          # Vitest: rules, parser, hash chain, handler, concurrency, Twilio signature,
+                  # and the real migration + Postgres store on PGlite (embedded Postgres)
 npm run typecheck
 ```
 
 ## Deploy to Vercel
 
 1. Push this repo to GitHub and import it in Vercel (framework preset: Next.js, no build settings to change).
-2. Set the environment variables from `.env.example` in Project Settings. **Use Supabase for any shared deployment.**
+2. Add Neon from the Vercel Marketplace (Storage tab), which creates the database and sets `DATABASE_URL`, or set
+   `DATABASE_URL` yourself. Add the other variables from `.env.example`. **Use Neon for any shared deployment.**
    The in-memory store is per server instance, so on Vercel different requests can see different data.
-3. Run the migration and `npm run seed` against that Supabase project (from your machine, with `.env.local` pointing at it).
+3. Run `npm run db:migrate` and `npm run seed` against that database from your machine, with `.env.local`
+   pointing at it.
 4. Deploy. Check `/verify` shows "Chain intact" and `/simulator` replies.
 5. For a public demo, consider `SIMULATOR_ENABLED=false` once Twilio is set up, since the simulator endpoint has no
    rate limiting.
@@ -143,11 +150,13 @@ lib/rules/              pure validation, consensus, comparison and summary rules
 lib/chain/              canonical JSON, SHA-256 chain, verification, append-with-retry
 lib/commands/           shared command parser and message handler
 lib/providers/          VoterLookup, IRev and Messaging interfaces, mock and Twilio implementations
-lib/store/              Supabase store and in-memory store behind one interface
+lib/store/              Postgres (Neon) store and in-memory store behind one interface
+lib/db/                 Neon HTTP driver connection
 lib/i18n/               English, Pidgin, and flagged Hausa/Yorùbá/Igbo stubs
 data/seed/              mock JSON: polling units, cards, published results, demo reports
-supabase/               SQL migration and seed
-scripts/seed.ts         seeds Supabase
+db/migrations/          SQL migrations
+scripts/migrate.ts      applies migrations to DATABASE_URL
+scripts/seed.ts         seeds the database
 design/tally.html       the landing page/demo used as the design and copy reference
 tests/                  Vitest
 ```

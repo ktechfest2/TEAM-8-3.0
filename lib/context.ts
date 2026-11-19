@@ -3,7 +3,8 @@ import { MockIRev, MockVoterLookup } from "@/lib/providers/mock";
 import type { IRevProvider, MessagingProvider, VoterLookupProvider } from "@/lib/providers/types";
 import { SEED_UNITS, seedDemoReports } from "@/lib/seed";
 import { MemoryStore } from "@/lib/store/memory";
-import { SupabaseStore } from "@/lib/store/supabase";
+import { PostgresStore } from "@/lib/store/postgres";
+import { neonSql } from "@/lib/db/neon";
 import type { Store } from "@/lib/store/types";
 
 export interface Deps {
@@ -29,20 +30,19 @@ function buildMessaging(): MessagingProvider {
 
 async function build(): Promise<Deps> {
   const warnings: string[] = [];
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const databaseUrl = process.env.DATABASE_URL;
   let salt = process.env.PHONE_HASH_SALT ?? "";
 
   let store: Store;
-  if (url && key) {
-    if (!salt) throw new Error("PHONE_HASH_SALT must be set when Supabase is configured");
-    store = new SupabaseStore(url, key);
+  if (databaseUrl) {
+    if (!salt) throw new Error("PHONE_HASH_SALT must be set when DATABASE_URL is set");
+    store = new PostgresStore(neonSql(databaseUrl));
   } else {
     if (!salt) {
       salt = DEV_SALT;
       warnings.push("PHONE_HASH_SALT is not set; using a development salt.");
     }
-    warnings.push("Supabase is not configured: using an in-memory demo store. Data resets on restart.");
+    warnings.push("DATABASE_URL is not set: using an in-memory demo store. Data resets on restart.");
     store = new MemoryStore(SEED_UNITS);
     await seedDemoReports(store, salt);
   }
