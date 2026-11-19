@@ -1,0 +1,63 @@
+[
+  {
+    "id": "mismatch-32-15.en",
+    "kind": "mismatch",
+    "asked": "Why do the announced results for Obio/Akpor differ from the result sheets on the portal?",
+    "lang": "en",
+    "found": [
+      "The announced Obio/Akpor figures were 80,239 for APC, 3,829 for LP, 368 for PDP and 161 for NNPP. Leadership and NewsOnline reported these numbers.",
+      "Several outlets added up the polling unit sheets on INEC's portal (IReV) and said the sums did not match the announcement. The BBC counted far fewer APC votes and far more LP votes from the sheets than were announced. NewsOnline, which carried a Premium Times report, reached the same kind of gap. Both said sheets that were blurred, missing or not yet uploaded could only add votes, so they would not explain the LP drop.",
+      "Earlier, CDD's fact-check looked at a tweet that claimed a mismatch. CDD said many Obio/Akpor sheets were not visible or were uploaded badly. It said nobody could reliably add up the portal figures, and it rated the tweet's specific numbers unverifiable. This is a caution about any total, including ones from this count.",
+      "Reporters also found problems on some sheets themselves. NewsOnline and a CCIJ investigation, published on TheCable, described figures overwritten or whited out, and digits that did not match the words written beside them. They also reported some sheets from the wrong election. The BBC said INEC's Port Harcourt spokesperson blamed time and staff shortages for some collation problems. INEC's headquarters would not comment because of court cases, and Leadership reported INEC called the Premium Times report prejudicial for the same reason."
+    ],
+    "questions": [
+      "Which sheets or collation records explain the gap between the announced figures and the portal sheets? The reporting does not settle this.",
+      "Did the overwritten sheets reflect changes made at the polling unit, or were they altered later? The reporting describes them but does not say.",
+      "Has any court or INEC review given a final finding on the Obio/Akpor figures? The sources I read do not say."
+    ],
+    "sources": [
+      {
+        "title": "Nigeria election: The mystery of the altered results in disputed poll",
+        "url": "https://www.bbc.com/news/65163713",
+        "publisher": "BBC News",
+        "date": "2023-05-16"
+      },
+      {
+        "title": "INEC Faults Report On Rivers Presidential Results, Says It's Prejudicial",
+        "url": "https://leadership.ng/inec-faults-report-on-rivers-presidential-results-says-its-prejudicial/",
+        "publisher": "Leadership",
+        "date": "2023-04-17"
+      },
+      {
+        "title": "FACT CHECK: Does Obio Akpor LGA result on INEC portal differ from what was announced?",
+        "url": "https://cddfactcheck.org/fact-check-does-obio-akpor-lga-result-on-inec-portal-differ-from-what-was-announced/",
+        "publisher": "CDD Fact Check",
+        "date": "2023-03-08"
+      },
+      {
+        "title": "Official Results On INEC Portal Show Peter Obi, Not Tinubu, Won In Rivers",
+        "url": "https://newsonlineng.com/official-results-on-inec-portal-show-peter-obi-not-tinubu-won-in-rivers/",
+        "publisher": "NewsOnline Nigeria (carrying a Premium Times report)",
+        "date": "2023-04-26"
+      },
+      {
+        "title": "INEC's broken promises, altered voting tallies, poor electoral oversight casts doubt over Nigeria's presidential election",
+        "url": "https://www.thecable.ng/inecs-broken-promises-altered-voting-tallies-poor-electoral-oversight-casts-doubt-over-nigerias-presidential-election/",
+        "publisher": "TheCable (CCIJ investigation)",
+        "date": "2024-12-22"
+      }
+    ],
+    "strength": "partly_reported",
+    "strengthLine": "Several established outlets report a gap between the announced figures and the portal sheets, but none explains it, and INEC has not answered on the merits.",
+    "steps": [
+      "Searched the web for Obio/Akpor 2023 presidential results against the portal sheets.",
+      "Read the long excerpts of the BBC investigation and the Leadership report on INEC's response.",
+      "Read the CDD fact-check, the NewsOnline/Premium Times report and the CCIJ investigation on TheCable.",
+      "Did not open pages in full or search X. I relied on the excerpts the search returned.",
+      "Skipped the Mundx page because it is not an official source."
+    ],
+    "researchedAt": "2026-11-19T21:10:33.926Z",
+    "recorded": true,
+    "about": "32/15"
+  }
+]
