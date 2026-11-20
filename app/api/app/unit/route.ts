@@ -24,8 +24,11 @@ export async function POST(req: Request) {
   const voter = await voterFrom(deps, `app:${id}`);
 
   if (body.action === "ready") {
-    const last4 = typeof body.last4 === "string" ? body.last4 : "";
-    if (!/^\d{4}$/.test(last4)) return json({ error: "Enter the last 4 digits of your card" }, 400);
+    // The number is used for this one lookup and never stored or logged.
+    const vin = typeof body.vin === "string" ? body.vin.replace(/[\s-]/g, "") : "";
+    const digits = vin.replace(/\D/g, "");
+    if (!/^[A-Za-z0-9]{19}$/.test(vin) || digits.length < 4) return json({ error: "Enter the 19-character number on your voter's card" }, 400);
+    const last4 = digits.slice(-4);
     const r = await checkReadiness(deps, voter, last4);
     if (!r) return json({ found: false });
     return json({ found: true, readiness: r, summary: r.unit ? await unitSummary(deps, r.unit) : null });

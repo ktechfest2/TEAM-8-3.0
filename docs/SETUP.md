@@ -7,15 +7,22 @@ There are two levels. The first takes two minutes and shows everything except li
 Needs Node 20 or newer.
 
 ```bash
-npm install
-npm run dev
+npm run demo
 ```
 
-Open http://localhost:3000 for the landing page, and http://localhost:3000/unit for the app. It has three tabs:
+`npm run demo` installs what is missing, starts Tallie, prints what is connected, and opens http://localhost:3000/status, which shows the same thing: the data, the sealed log, Claude Code, and each place the research agent reads. When Claude Code is found it turns live research on (`TALLY_RESEARCH=live`) for you. Use `npm run demo -- --no-open` to keep the browser closed, or `PORT=4000 npm run demo` for another port. `npm run dev` still starts the app on its own, with live research off.
 
-- **Morning:** enter `4821` (card valid, unit moved). Other demo cards: `1234`, `5555`, `2027`.
-- **Results:** opens on Rivers State, 2023. Tap Obio/Akpor or Oyigbo.
-- **Rumours:** tap a suggested question. It replays a note recorded from an earlier real research run.
+Open http://localhost:3000.
+
+**The landing page** (`/`) plays three walkthroughs by themselves, with captions. They are scripted; the figures and notes in them are read from the same data the app uses.
+
+**The app** is at http://localhost:3000/unit. It has three tabs:
+
+- **Election:** tap **Use a demo card**, then **Check** (card valid, polling unit moved). Any 19-character voter identification number works in the demo; its last four digits pick the answer, so numbers ending `1234`, `5555` and `2027` show other cases.
+- **Results:** opens on Rivers State, 2023. Open Obio/Akpor or Oyigbo under "2 do not add up", then **See what was reported about this**.
+- **Rumours:** tap a suggested question. It replays a note recorded from an earlier real research run. Switch language at the top.
+
+**Run it yourself** (`/setup`) is this guide as a page.
 
 The text channel is not live; `/simulator` runs the same code in the browser. Try `READY 4821`, `UNIT`, `REPORT ARRIVED`, `LANG PIDGIN`.
 
@@ -65,6 +72,12 @@ Tallie uses these. Web search and page reading are enough to start; the rest add
 If a channel is missing the agent moves on to the others.
 
 ### c. Start Tallie with live research on
+
+```bash
+npm run demo
+```
+
+The page that opens should say **Live research is on**. To turn it on by hand instead:
 
 ```bash
 # macOS / Linux

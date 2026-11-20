@@ -8,7 +8,7 @@ const icon = { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke
 const TABS = [
   {
     href: "/unit",
-    label: "Morning",
+    label: "Election",
     match: (p: string) => p.startsWith("/unit"),
     svg: (
       <svg {...icon} aria-hidden>
