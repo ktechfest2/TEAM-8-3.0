@@ -12,6 +12,8 @@ Today Tallie works in the browser, and voice in the browser is being added. What
 
 Built for the *Every Vote, Every Voice* hackathon (KTech Fest 3.0).
 
+**Try it live: [tallie-sandy.vercel.app](https://tallie-sandy.vercel.app/)** · the landing page plays the three walkthroughs, and [the app](https://tallie-sandy.vercel.app/unit) is the working product (tap **Use a demo card** on the first screen). The hosted site replays research notes recorded from real runs; live research runs only on your own computer ([why](docs/adr/0003-research-runs-locally-hosted-site-shows-recorded-notes.md)).
+
 ## The weak link we chose
 
 A Nigerian election is counted in public at the polling unit, then added up on paper at ward, local-government and state collation centres. Where independent checks have caught altered results, the figures changed **after** the polling-unit count, during collation. INEC publishes a photo of every polling-unit result sheet, but not the collation forms, and has said it will not for 2027.
