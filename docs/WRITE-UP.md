@@ -1,6 +1,6 @@
 # Write-up
 
-**Tally: know it counted.** Team 8, *Every Vote, Every Voice*, KTech Fest 3.0.
+**Tallie: an election companion, from your polling unit to the final result.** Team 8, *Every Vote, Every Voice*, KTech Fest 3.0.
 
 ## The problem
 
@@ -10,10 +10,10 @@ Between her polling unit and the announcement, the figures are added up on paper
 
 ## The solution
 
-Tally is one companion with three parts that lead into each other.
+Tallie is one companion with three parts that lead into each other.
 
-1. **My unit.** A voter gives the last four digits of their card. Tally says whether the card is ready and whether the polling unit moved, then shows what other voters at that unit report: officials arrived, accreditation started, long queue. One voter's report is shown as unverified; it takes two to count as reported.
-2. **Count.** Tally adds up the published polling-unit results for each ward, local government and state, and shows each sum beside the announced figure. It says how many sheets it could read. It flags an *unexplained mismatch* only in two cases: the partial sum is already above the announced figure, or the announced figure is higher by more than every registered voter in the unread units.
+1. **My unit.** A voter gives the last four digits of their card. Tallie says whether the card is ready and whether the polling unit moved, then shows what other voters at that unit report: officials arrived, accreditation started, long queue. One voter's report is shown as unverified; it takes two to count as reported.
+2. **Count.** Tallie adds up the published polling-unit results for each ward, local government and state, and shows each sum beside the announced figure. It says how many sheets it could read. It flags an *unexplained mismatch* only in two cases: the partial sum is already above the announced figure, or the announced figure is higher by more than every registered voter in the unread units.
 3. **Ask.** For a flagged mismatch, or any rumour the voter types, a research agent searches news, observer statements, fact-checkers and social media, and returns a *note*: what was reported, by whom, the sources, how solid the evidence is, and what is still open. It works like a community note that is not tied to one platform.
 
 The same engine serves the app and the WhatsApp and SMS channel, so a voter with a basic phone gets the unit features by text.
@@ -26,12 +26,12 @@ The team's first version asked voters to type in the figures from the wall and c
 - Loaded real data: 6,866 polling units from the 2023 presidential election in Rivers State.
 - Added the research agent and notes, with five languages.
 - Redesigned the interface as a phone app.
-- Repurposed the tamper-evident log to seal the published results Tally uses.
+- Repurposed the tamper-evident log to seal the published results Tallie uses.
 - Wrote a glossary and decision records so the product's language and reasons are explicit.
 
 ### Does it work?
 
-On the Rivers 2023 data Tally flags two of 23 local governments, Obio/Akpor and Oyigbo. Those are the two the BBC investigated. In Oyigbo both tests fire: the LP sum of sheets (17,875) is above the announced 10,784, and the announced APC figure (16,630) is higher than the sheets (2,435) by more than the 8,682 registered voters in the unread units.
+On the Rivers 2023 data Tallie flags two of 23 local governments, Obio/Akpor and Oyigbo. Those are the two the BBC investigated. In Oyigbo both tests fire: the LP sum of sheets (17,875) is above the announced 10,784, and the announced APC figure (16,630) is higher than the sheets (2,435) by more than the 8,682 registered voters in the unread units.
 
 ## How AI is used
 
@@ -62,13 +62,13 @@ Live research needs Claude Code and Agent Reach installed, so it runs on a local
 - **Basic phones:** the unit features work over SMS with five short commands.
 - **Language:** replies in English and Pidgin; notes in five languages.
 - **Poor network:** the text channel needs no data; the app's count screens are plain server-rendered pages.
-- **The law:** Tally shows a labelled sum of INEC's published figures and names no winner. Our reading of section 124(4) of the Electoral Act 2026 and INEC's November 2026 statement on independent tabulation is in [ADR 0001](adr/0001-portal-sums-never-a-result-or-winner.md). It is not legal advice.
-- **The existing field:** groups already read portal sheets into data. Tally is designed to consume such a feed, and to hand journalists and observers a short list of where to look.
+- **The law:** Tallie shows a labelled sum of INEC's published figures and names no winner. Our reading of section 124(4) of the Electoral Act 2026 and INEC's November 2026 statement on independent tabulation is in [ADR 0001](adr/0001-portal-sums-never-a-result-or-winner.md). It is not legal advice.
+- **The existing field:** groups already read portal sheets into data. Tallie is designed to consume such a feed, and to hand journalists and observers a short list of where to look.
 
 ## Limits
 
 - The count depends on someone reading the portal's sheets into figures. Coverage for Rivers 2023 is 77%, and the figures were machine-read.
-- Tally detects and documents. It cannot stop a result being changed.
+- Tallie detects and documents. It cannot stop a result being changed.
 - Card lookup and live reports are simulated; a real lookup needs INEC's cooperation.
 - Only four parties are in the dataset.
 - The research agent can be wrong. Every note shows its sources so a reader can check.

@@ -5,7 +5,7 @@ import "./globals.css";
 const outfit = Outfit({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-outfit", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Tally: know it counted",
+  title: "Tallie: an election companion for Nigerian voters",
   description:
     "An election companion for Nigerian voters: is my polling unit ready, did the count change on its way up, and is this thing I heard true.",
 };
@@ -14,14 +14,11 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f3f4f2" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b0e0c" },
-  ],
+  themeColor: "#f3f4f2",
 };
 
-// Apply a saved theme before first paint, so there is no flash.
-const themeScript = `try{var t=localStorage.getItem("tally.theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
+// Light unless the visitor chose dark. Apply that choice before first paint, so there is no flash.
+const themeScript = `try{if(localStorage.getItem("tally.theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

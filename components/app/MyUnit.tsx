@@ -100,7 +100,7 @@ export function MyUnit() {
     return (
       <section className="card">
         <p className="eyebrow">My polling unit</p>
-        <h2 className="mt-2 text-xl font-semibold">Is my card ready? Did my unit move?</h2>
+        <h2 className="mt-2 text-xl font-semibold">Is my card valid? Did my unit move?</h2>
         <form onSubmit={check} className="mt-4 flex gap-2">
           <label htmlFor="last4" className="sr-only">
             Last 4 digits of your voter card
@@ -121,7 +121,7 @@ export function MyUnit() {
           </button>
         </form>
         <p className="mt-3 text-sm text-mu" role="status">
-          {message ?? "Tally remembers your polling unit, never your card. Try 4821 in this demo."}
+          {message ?? "Tallie remembers your polling unit, never your card. Try 4821 in this demo."}
         </p>
       </section>
     );
@@ -144,7 +144,7 @@ export function MyUnit() {
         </p>
         <div className="mt-4 space-y-2">
           <p className={saved.cardReady ? "card-ok text-[15px]" : "card-warn text-[15px]"}>
-            {saved.cardReady ? "Your card is marked ready." : "Your card is not marked ready yet. Ask at your ward collection point."}
+            {saved.cardReady ? "Your card is valid." : "Your card is not showing as valid yet. Ask at your ward collection point."}
           </p>
           {saved.moved && (
             <p className="card-warn text-[15px]">
@@ -153,7 +153,7 @@ export function MyUnit() {
           )}
         </div>
         <Link href={`/count/${ward}`} className="btn-o mt-4 w-full">
-          Follow this ward&apos;s count
+          See this ward&apos;s results
         </Link>
       </section>
 

@@ -2,62 +2,46 @@
 
 import { useEffect, useState } from "react";
 
-type Theme = "system" | "light" | "dark";
-const NEXT: Record<Theme, Theme> = { system: "light", light: "dark", dark: "system" };
-
-function Icon({ theme }: { theme: Theme }) {
-  const common = { width: 18, height: 18, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const };
-  if (theme === "light")
-    return (
-      <svg {...common} aria-hidden>
-        <circle cx="12" cy="12" r="4" />
-        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
-      </svg>
-    );
-  if (theme === "dark")
-    return (
-      <svg {...common} aria-hidden>
-        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
-      </svg>
-    );
-  return (
-    <svg {...common} aria-hidden>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" />
-    </svg>
-  );
-}
-
+/** Light by default. The visitor can switch to dark, and the choice is remembered. */
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("system");
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    const t = document.documentElement.dataset.theme;
-    if (t === "light" || t === "dark") setTheme(t);
+    setDark(document.documentElement.dataset.theme === "dark");
   }, []);
 
-  function cycle() {
-    const next = NEXT[theme];
-    setTheme(next);
-    if (next === "system") delete document.documentElement.dataset.theme;
-    else document.documentElement.dataset.theme = next;
+  function flip() {
+    const next = !dark;
+    setDark(next);
+    if (next) document.documentElement.dataset.theme = "dark";
+    else delete document.documentElement.dataset.theme;
     try {
-      if (next === "system") localStorage.removeItem("tally.theme");
-      else localStorage.setItem("tally.theme", next);
+      if (next) localStorage.setItem("tally.theme", "dark");
+      else localStorage.removeItem("tally.theme");
     } catch {
       /* storage blocked: the choice lasts for this page only */
     }
   }
 
+  const common = { width: 18, height: 18, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const };
   return (
     <button
       type="button"
-      onClick={cycle}
-      title={`Theme: ${theme}`}
-      aria-label={`Theme: ${theme}. Change theme`}
-      className="grid size-9 cursor-pointer place-items-center rounded-full text-mu hover:bg-gl hover:text-tx"
+      onClick={flip}
+      title={dark ? "Light mode" : "Dark mode"}
+      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+      className="grid size-11 cursor-pointer place-items-center rounded-full text-mu hover:bg-gl hover:text-tx"
     >
-      <Icon theme={theme} />
+      {dark ? (
+        <svg {...common} aria-hidden>
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+        </svg>
+      ) : (
+        <svg {...common} aria-hidden>
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        </svg>
+      )}
     </button>
   );
 }

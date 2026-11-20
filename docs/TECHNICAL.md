@@ -1,4 +1,4 @@
-# Tally: technical notes
+# Tallie: technical notes
 
 The short version is in the [README](../README.md). Words in **bold** below are defined in the [glossary](../GLOSSARY.md).
 
@@ -16,7 +16,9 @@ One Next.js app (App Router, TypeScript, Tailwind). Server logic lives in `lib/`
 | **Log** sealing the published results | Real ([lib/log](../lib/log)) |
 | **Readiness check** (`VoterLookupProvider`) | **Simulated**: [data/seed/voters.json](../data/seed/voters.json). Uses the last 4 digits of a card, which a real lookup could never rely on |
 | **Live reports** from other voters | **Simulated** seed data, sent through the same code as real ones |
-| WhatsApp and SMS delivery | In-app simulator by default; optional Twilio |
+| WhatsApp and SMS delivery | Not live. An in-app simulator runs the same code; Twilio webhooks exist but are not connected |
+| USSD | Designed, not built |
+| Voice in the browser | In progress |
 | Hausa, Yorùbá, Igbo chat replies | Fall back to English. Notes in those languages are machine-translated and not reviewed by native speakers |
 
 ## Modules
@@ -33,7 +35,7 @@ One Next.js app (App Router, TypeScript, Tailwind). Server logic lives in `lib/`
 
 ## The count trail
 
-For each area Tally computes a **portal sum** per party from the polling units whose sheet could be read, and the **coverage**: units read, units that exist, and the registered voters in the units not read.
+For each area Tallie computes a **portal sum** per party from the polling units whose sheet could be read, and the **coverage**: units read, units that exist, and the registered voters in the units not read.
 
 Where an **announced result** exists (local governments, and the state when every local government has one), each party gets one of three findings:
 
@@ -111,10 +113,12 @@ Import the repository in Vercel (preset: Next.js). No environment variables are 
 ## Layout
 
 ```
-app/(app)/        the phone app: Home (my unit), Count, Ask, More
-app/(site)/       text-channel simulator, Newsroom, Verify
-app/api/          ask, app/unit, whatsapp, sms, newsroom, verify
+app/(landing)/    the landing page
+app/(app)/        the phone app: Morning (home), Results, Rumours, More
+app/(site)/       text-channel simulator, Verify, setup guide
+app/api/          ask, app/unit, whatsapp, sms, verify
 components/app/   app screens' client components
+components/landing/ the landing page's player
 lib/count/        count trail and its wording
 lib/notes/        notes, the research agent, recorded notes
 lib/log/          the sealed log

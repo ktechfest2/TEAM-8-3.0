@@ -28,7 +28,7 @@ const EXAMPLE_UNIT = "32/15/04/012";
 const en: Messages = {
   help: () =>
     [
-      "Tally helps you on election day. Send:",
+      "Tallie helps you on election day. Send:",
       "READY 1234: is my card ready, did my unit move? (last 4 digits of your card)",
       "UNIT: my polling unit and live reports",
       "REPORT ARRIVED, REPORT ACCRED or REPORT QUEUE: tell other voters what you see",
@@ -75,7 +75,7 @@ const pcm: Messages = {
   ...en,
   help: () =>
     [
-      "Tally go help you for election day. Send:",
+      "Tallie go help you for election day. Send:",
       "READY 1234: your card don ready? your unit don move? (last 4 number for your card)",
       "UNIT: your polling unit and wetin people dey report",
       "REPORT ARRIVED, REPORT ACCRED or REPORT QUEUE: tell other voters wetin you see",

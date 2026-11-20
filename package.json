@@ -2,7 +2,7 @@
   "name": "tally",
   "version": "0.1.0",
   "private": true,
-  "description": "Tally: a WhatsApp/SMS election-day companion for first-time voters (hackathon prototype).",
+  "description": "Tallie: an election companion for Nigerian voters, from their polling unit to the final result (hackathon prototype).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -7,9 +7,9 @@ const icon = { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke
 
 const TABS = [
   {
-    href: "/",
-    label: "My unit",
-    match: (p: string) => p === "/",
+    href: "/unit",
+    label: "Morning",
+    match: (p: string) => p.startsWith("/unit"),
     svg: (
       <svg {...icon} aria-hidden>
         <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" />
@@ -19,7 +19,7 @@ const TABS = [
   },
   {
     href: "/count",
-    label: "Count",
+    label: "Results",
     match: (p: string) => p.startsWith("/count"),
     svg: (
       <svg {...icon} aria-hidden>
@@ -29,7 +29,7 @@ const TABS = [
   },
   {
     href: "/ask",
-    label: "Ask",
+    label: "Rumours",
     match: (p: string) => p.startsWith("/ask"),
     svg: (
       <svg {...icon} aria-hidden>

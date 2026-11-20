@@ -1,5 +1,5 @@
 /**
- * Everything Tally cannot actually access sits behind one of these interfaces.
+ * Everything Tallie cannot actually access sits behind one of these interfaces.
  * No INEC data access is assumed.
  */
 

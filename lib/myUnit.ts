@@ -5,13 +5,13 @@ import { hashSender } from "@/lib/senders";
 import type { LiveReportKind, PollingUnit, Sender } from "@/lib/types";
 
 /**
- * A voter and their polling unit: the readiness check, the unit Tally remembers for them, and their live reports.
+ * A voter and their polling unit: the readiness check, the unit Tallie remembers for them, and their live reports.
  * The chat channels (WhatsApp, SMS) and the app both go through here, so the rules live in one place.
  */
 
 export interface Readiness {
   cardReady: boolean;
-  /** Null when the card points at a polling unit Tally does not know. */
+  /** Null when the card points at a polling unit Tallie does not know. */
   unit: PollingUnit | null;
   assignedCode: string;
   /** True when the voter's polling unit changed since they registered. */

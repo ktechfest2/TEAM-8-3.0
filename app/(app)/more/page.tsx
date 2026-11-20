@@ -3,12 +3,12 @@ import Link from "next/link";
 import { Chevron, ScreenHeader } from "@/components/app/ui";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
-export const metadata: Metadata = { title: "More · Tally" };
+export const metadata: Metadata = { title: "More · Tallie" };
 
 const LINKS = [
-  { href: "/simulator", title: "Text Tally", sub: "The same companion over WhatsApp and SMS, for any phone" },
-  { href: "/newsroom", title: "Newsroom", sub: "Live reports by polling unit, for journalists" },
-  { href: "/verify", title: "Verify the log", sub: "Check that the published results Tally uses have not been altered" },
+  { href: "/simulator", title: "Text Tallie", sub: "A simulator of the WhatsApp and SMS channel, which is not live yet" },
+  { href: "/setup", title: "Run it yourself", sub: "Set Tallie up on your own computer, with live research" },
+  { href: "/verify", title: "Verify the log", sub: "Check that the published results Tallie uses have not been altered" },
 ];
 
 export default function MorePage() {

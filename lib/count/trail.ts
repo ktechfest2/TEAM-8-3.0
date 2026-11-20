@@ -91,7 +91,7 @@ function add(into: PartyFigures, f: PartyFigures) {
 /**
  * How far two figures may differ before it counts as a mismatch. Published figures are read off photographed
  * sheets, so some difference is reading noise, and it grows with the number of sheets added up. The allowance is
- * deliberately generous: Tally would sooner miss a small mismatch than flag noise as one.
+ * deliberately generous: Tallie would sooner miss a small mismatch than flag noise as one.
  */
 export function readingNoise(announced: number, sheetsRead: number): number {
   return Math.max(100, Math.round(announced * 0.1), Math.round(sheetsRead / 4));

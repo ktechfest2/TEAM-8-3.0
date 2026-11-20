@@ -3,7 +3,7 @@ import { Ask } from "@/components/app/Ask";
 import { defaultMismatchQuestion } from "@/lib/notes/prompt";
 import { recordedNotes } from "@/lib/notes/recorded";
 
-export const metadata: Metadata = { title: "Ask · Tally" };
+export const metadata: Metadata = { title: "When a rumour spreads · Tallie" };
 
 export default async function AskPage({ searchParams }: { searchParams: Promise<{ about?: string }> }) {
   const { about } = await searchParams;

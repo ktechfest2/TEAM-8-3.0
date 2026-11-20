@@ -7,5 +7,5 @@ Voter-typed figures can be mistyped or invented, and two people agreeing proves 
 ## Consequences
 
 - Ward results are never announced publicly, so ward portal sums are shown as working and the first real comparison is at local-government level.
-- The portal publishes images, not data. Tally depends on someone reading the sheets into figures. The demo uses the 2023 Rivers State figures read by CCIJ; a live election needs an equivalent feed.
+- The portal publishes images, not data. Tallie depends on someone reading the sheets into figures. The demo uses the 2023 Rivers State figures read by CCIJ; a live election needs an equivalent feed.
 - Voters still send live reports about what is happening at their polling unit. Those were never part of the count.
