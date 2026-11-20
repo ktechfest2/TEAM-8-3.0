@@ -27,11 +27,11 @@ _Avoid_: Region, level, zone
 ### Before and during election day
 
 **Card**:
-The voter's permanent voter card. Tallie uses it only to answer the Readiness Check and never keeps its digits.
+The voter's permanent voter card. Tallie uses the voter identification number printed on it only to answer the Readiness Check, and never keeps it.
 _Avoid_: PVC, ID, voter ID
 
 **Readiness Check**:
-The answer to "is my card ready, and did my polling unit move?".
+The answer to "is my card valid, and did my polling unit move?".
 _Avoid_: Lookup, registration check, status check
 
 **Live Report**:

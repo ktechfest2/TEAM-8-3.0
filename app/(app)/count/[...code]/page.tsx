@@ -50,6 +50,12 @@ export default async function AreaPage({ params }: Props) {
       <div className="pb-8">
         <ScreenHeader title={area.name} sub={`Local government · ${currentElection.state.name} State`} back={{ href: "/count", label: "Results" }} />
         <div className="space-y-4 px-4">
+          {area.finding === "unexplained" && (
+            <Link href={`/ask?about=${encodeURIComponent(area.code)}`} className="btn w-full">
+              See what was reported about this
+            </Link>
+          )}
+
           <section className="card">
             <CoverageBar read={area.coverage.read} total={area.coverage.total} />
             <p className="num mt-2 text-sm font-medium">{coverageLine(area)}</p>
@@ -61,19 +67,16 @@ export default async function AreaPage({ params }: Props) {
             ))}
           </section>
 
-          {area.finding === "unexplained" && (
-            <Link href={`/ask?about=${encodeURIComponent(area.code)}`} className="btn w-full">
-              Ask Tallie what was reported
-            </Link>
-          )}
-
-          <section>
-            <h2 className="eyebrow px-1 pb-2 pt-2">{area.areas.length} wards</h2>
-            <p className="px-1 pb-3 text-sm text-mu">
-              Ward results are never announced publicly, so these sums have nothing to be compared with. They show where the
-              votes on the sheets come from.
+          <details className="group card overflow-hidden !p-0">
+            <summary className="flex min-h-[60px] cursor-pointer list-none items-center gap-3 px-5 py-3 [&::-webkit-details-marker]:hidden">
+              <span className="flex-1 text-lg font-semibold">{area.areas.length} wards</span>
+              <span className="text-sm text-mu group-open:hidden">Show</span>
+              <span className="hidden text-sm text-mu group-open:inline">Hide</span>
+            </summary>
+            <p className="border-t border-ln px-5 py-3 text-sm text-mu">
+              Ward results are never announced publicly, so these sums have nothing to be compared with.
             </p>
-            <ul className="card rows !p-0">
+            <ul className="rows border-t border-ln">
               {area.areas.map((w) => (
                 <li key={w.code}>
                   <Link href={`/count/${w.code}`} className="flex min-h-[64px] items-center gap-3 px-5 py-3 text-tx no-underline">
@@ -88,7 +91,7 @@ export default async function AreaPage({ params }: Props) {
                 </li>
               ))}
             </ul>
-          </section>
+          </details>
         </div>
       </div>
     );

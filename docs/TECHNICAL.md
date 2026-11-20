@@ -14,7 +14,7 @@ One Next.js app (App Router, TypeScript, Tailwind). Server logic lives in `lib/`
 | **Count trail**, **portal sums**, **coverage**, **mismatch** rules | Real ([lib/count/trail.ts](../lib/count/trail.ts)) |
 | **Notes** from live research | Real when run locally ([lib/notes](../lib/notes)); the hosted site replays **recorded notes** |
 | **Log** sealing the published results | Real ([lib/log](../lib/log)) |
-| **Readiness check** (`VoterLookupProvider`) | **Simulated**: [data/seed/voters.json](../data/seed/voters.json). Uses the last 4 digits of a card, which a real lookup could never rely on |
+| **Readiness check** (`VoterLookupProvider`) | **Simulated**: [data/seed/voters.json](../data/seed/voters.json). The app takes the 19-character voter identification number, uses it for the one lookup and never stores it. The simulated lookup reads only its last 4 digits |
 | **Live reports** from other voters | **Simulated** seed data, sent through the same code as real ones |
 | WhatsApp and SMS delivery | Not live. An in-app simulator runs the same code; Twilio webhooks exist but are not connected |
 | USSD | Designed, not built |
@@ -48,6 +48,21 @@ Reading noise is `max(100, 10% of the announced figure, one vote per four sheets
 
 Wards have no announced result, so they have a portal sum and nothing to compare it with.
 
+## The landing page
+
+`/` tells the story in order: what Tallie found on the real election, the three moments a voter is left guessing, what's next, and how to run it. Copy lives in `app/(landing)/content.ts`.
+
+The three moments are walkthroughs in `components/landing/Reel.tsx`. Each plays by itself like a screen recording, with a caption for every step, and can be paused or stepped through. They are scripted and fetch nothing while playing, but they invent nothing either: `reelData()` in `app/(landing)/page.tsx` reads every figure from `currentTrail()` and every note from the recorded notes.
+
+## The app
+
+`/unit`, `/count` and `/ask` are the working product, laid out as a phone with four tabs: Election, Results, Rumours, More. On a wide screen the phone sits beside a panel that says how the tab on screen works (`components/app/Context.tsx`).
+
+- **Results** groups the local governments by finding: do not add up, add up, too few sheets to tell. A local government's page shows each party's portal sum beside the announced result, and for an unexplained mismatch a button to the research note.
+- **Run it yourself** (`/setup`) is the setup guide as a page, with commands to copy.
+- **Connections** (`/status`, and `/api/status` as JSON) says what is connected on this machine: the data, the sealed log, Claude Code, and each program the research agent reads through. It only checks what is loaded and what is on the PATH (`lib/status.ts`); it runs no research and reads no credential.
+- `npm run demo` (`scripts/demo.mjs`) installs packages if needed, turns live research on when Claude Code is found, starts the app, prints the same checks and opens `/status`.
+
 ## Notes and the research agent
 
 `ask()` takes a question, a language, and optionally the area a mismatch is in.
@@ -80,7 +95,7 @@ One parser serves WhatsApp, SMS and the simulator. Commands are case-insensitive
 ## Privacy
 
 - Phone numbers are never stored or logged. A voter is a salted SHA-256 of the number ([lib/senders.ts](../lib/senders.ts)).
-- Card digits are used for the lookup and never stored.
+- The voter identification number is used for the lookup and never stored or logged.
 - The app identifies a voter by a random id it keeps on the phone, namespaced so it cannot collide with a phone number.
 - The research agent cannot read local files, and its X session is passed to the child process only.
 
@@ -114,11 +129,11 @@ Import the repository in Vercel (preset: Next.js). No environment variables are 
 
 ```
 app/(landing)/    the landing page
-app/(app)/        the phone app: Morning (home), Results, Rumours, More
+app/(app)/        the phone app: Election (home), Results, Rumours, More
 app/(site)/       text-channel simulator, Verify, setup guide
 app/api/          ask, app/unit, whatsapp, sms, verify
 components/app/   app screens' client components
-components/landing/ the landing page's player
+components/landing/ the landing page's walkthroughs (Reel.tsx)
 lib/count/        count trail and its wording
 lib/notes/        notes, the research agent, recorded notes
 lib/log/          the sealed log

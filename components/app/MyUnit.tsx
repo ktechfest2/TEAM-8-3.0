@@ -20,6 +20,17 @@ interface Saved {
   note?: string | null;
 }
 
+/** A made-up voter identification number for the demo. */
+const DEMO_VIN = "90F5 B1E3 6229 6014 821";
+
+/** Groups the 19 characters in fours, the way they are printed on the card. */
+const formatVin = (raw: string) =>
+  raw
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, "")
+    .slice(0, 19)
+    .replace(/(.{4})(?=.)/g, "$1 ");
+
 const KEY = "tally.myunit";
 
 function load(): Saved {
@@ -46,7 +57,7 @@ const countLine = (n: number) => (n === 0 ? "No reports yet" : n === 1 ? "1 vote
 export function MyUnit() {
   const [saved, setSaved] = useState<Saved | null>(null);
   const [summary, setSummary] = useState<UnitSummary | null>(null);
-  const [last4, setLast4] = useState("");
+  const [vin, setVin] = useState("");
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [sent, setSent] = useState<Partial<Record<LiveReportKind, boolean>>>({});
@@ -64,10 +75,10 @@ export function MyUnit() {
     if (!saved || busy) return;
     setBusy(true);
     setMessage(null);
-    const r = await call<{ found?: boolean; readiness?: Readiness; summary?: UnitSummary | null; error?: string }>({ voter: saved.voter, action: "ready", last4 });
+    const r = await call<{ found?: boolean; readiness?: Readiness; summary?: UnitSummary | null; error?: string }>({ voter: saved.voter, action: "ready", vin });
     setBusy(false);
     if (r.error) return setMessage(r.error);
-    if (!r.found || !r.readiness?.unit) return setMessage("We couldn't find that card. Check the last 4 digits and try again.");
+    if (!r.found || !r.readiness?.unit) return setMessage("We couldn't find that card. Check the number and try again.");
     const next: Saved = { voter: saved.voter, unit: r.readiness.unit, cardReady: r.readiness.cardReady, moved: r.readiness.moved, note: r.readiness.note };
     store(next);
     setSaved(next);
@@ -89,7 +100,7 @@ export function MyUnit() {
     store(next);
     setSaved(next);
     setSummary(null);
-    setLast4("");
+    setVin("");
     setSent({});
   }
 
@@ -101,28 +112,31 @@ export function MyUnit() {
       <section className="card">
         <p className="eyebrow">My polling unit</p>
         <h2 className="mt-2 text-xl font-semibold">Is my card valid? Did my unit move?</h2>
-        <form onSubmit={check} className="mt-4 flex gap-2">
-          <label htmlFor="last4" className="sr-only">
-            Last 4 digits of your voter card
+        <form onSubmit={check} className="mt-4 space-y-2">
+          <label htmlFor="vin" className="block text-sm text-mu">
+            Voter identification number, on the front of your card
           </label>
           <input
-            id="last4"
-            className="field num flex-1 tracking-[0.3em]"
-            inputMode="numeric"
-            pattern="\d{4}"
-            maxLength={4}
-            placeholder="Last 4 digits"
-            value={last4}
-            onChange={(e) => setLast4(e.target.value.replace(/\D/g, ""))}
+            id="vin"
+            className="field num tracking-[0.06em]"
+            inputMode="text"
+            autoCapitalize="characters"
+            placeholder="0000 0000 0000 0000 000"
+            value={vin}
+            onChange={(e) => setVin(formatVin(e.target.value))}
             autoComplete="off"
+            spellCheck={false}
           />
-          <button className="btn" type="submit" disabled={busy || last4.length !== 4}>
+          <button className="btn w-full" type="submit" disabled={busy || vin.replace(/\s/g, "").length !== 19}>
             Check
           </button>
         </form>
         <p className="mt-3 text-sm text-mu" role="status">
-          {message ?? "Tallie remembers your polling unit, never your card. Try 4821 in this demo."}
+          {message ?? "Tallie remembers your polling unit, never your card."}
         </p>
+        <button type="button" onClick={() => setVin(DEMO_VIN)} className="mt-1 min-h-11 cursor-pointer text-sm font-medium text-gr">
+          Use a demo card
+        </button>
       </section>
     );
   }

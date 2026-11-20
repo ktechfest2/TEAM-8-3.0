@@ -18,12 +18,12 @@ flowchart LR
 
   subgraph tally["Tallie"]
     direction LR
-    U["My unit<br/>readiness and live reports"]
-    S["Count<br/>add up the published sheets"]
-    R["Ask<br/>research what was reported"]
+    U["Election morning<br/>card check and live reports"]
+    S["After the results<br/>add up the published sheets"]
+    R["When a rumour spreads<br/>research what was reported"]
   end
 
-  A -. "is my card ready,<br/>did my unit move" .-> U
+  A -. "is my card valid,<br/>did my unit move" .-> U
   B -. "what voters at the<br/>unit report" .-> U
   C == "published results" ==> S
   E == "announced results" ==> S
@@ -49,7 +49,7 @@ flowchart TB
   end
 
   subgraph engine["One engine"]
-    MU["My unit<br/>readiness check, live reports"]
+    MU["Election morning<br/>readiness check, live reports"]
     CT["Count trail<br/>portal sums, coverage, mismatches"]
     NT["Notes<br/>ask, research, record"]
     LG["Log<br/>hash-chained seal of published results"]

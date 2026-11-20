@@ -1,12 +1,18 @@
-import { explainComparison, n, PARTY_NAME } from "@/lib/count/explain";
+import { n, PARTY_NAME } from "@/lib/count/explain";
 import type { AreaTrail, PartyComparison } from "@/lib/count/trail";
 import { FindingPill } from "./ui";
 
+/** Why a mismatch cannot be explained, in one short line. */
+const REASON: Record<NonNullable<PartyComparison["reason"]>, string> = {
+  sum_above_announced: "Missing sheets could only add votes.",
+  gap_beyond_missing: "Too few voters in the missing sheets to make up the gap.",
+};
+
 /**
- * One party in one area: the portal sum and the announced result as two bars on the same scale,
- * then a sentence saying what the difference does and does not show.
+ * One party in one area: the portal sum and the announced result as two bars on the same scale.
+ * The picture carries the comparison; only an unexplained mismatch gets a line of words.
  */
-export function Comparison({ c, area, scale }: { c: PartyComparison; area: AreaTrail; scale: number }) {
+export function Comparison({ c, scale }: { c: PartyComparison; area?: AreaTrail; scale: number }) {
   const w = (v: number) => `${Math.max(1.5, (v / scale) * 100)}%`;
   return (
     <section className="py-4">
@@ -34,7 +40,7 @@ export function Comparison({ c, area, scale }: { c: PartyComparison; area: AreaT
           </div>
         </div>
       </dl>
-      <p className="mt-3 text-[15px] text-mu">{explainComparison(c, area)}</p>
+      {c.finding === "unexplained" && c.reason && <p className="mt-3 text-sm font-medium text-am">{REASON[c.reason]}</p>}
     </section>
   );
 }

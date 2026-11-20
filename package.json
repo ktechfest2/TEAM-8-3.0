@@ -5,6 +5,7 @@
   "description": "Tallie: an election companion for Nigerian voters, from their polling unit to the final result (hackathon prototype).",
   "scripts": {
     "dev": "next dev",
+    "demo": "node scripts/demo.mjs",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",

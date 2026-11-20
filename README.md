@@ -38,13 +38,19 @@ Card lookups and live reports from polling units are simulated. [What is real an
 ## Run it
 
 ```bash
-npm install
-npm run dev
+npm run demo
 ```
 
-Open http://localhost:3000 for the landing page, or http://localhost:3000/unit to go straight into the app. No accounts needed. Try card `4821`.
+That one command installs what is missing, starts Tallie, and opens a page showing whether everything is connected: the data, the sealed log, Claude Code, and each place the research agent reads. If Claude Code is installed it turns live research on. `npm run dev` still starts the app on its own.
 
-To turn on live research for the Ask tab, follow [docs/SETUP.md](docs/SETUP.md). Without it, Ask replays notes recorded from earlier real research runs.
+No accounts needed. Once it is running:
+
+- **The landing page** (`/`) plays three walkthroughs, one for each question above. They are scripted, but every figure and note in them is read from the same data the app uses.
+- **The app** (`/unit`, `/count`, `/ask`) is the working product, laid out as a phone. On the first screen, tap **Use a demo card**.
+- **Run it yourself** (`/setup`) is this guide as a page, with the commands to copy.
+- **Connections** (`/status`) shows what is connected on this computer.
+
+To turn on live research for the Rumours tab, follow [docs/SETUP.md](docs/SETUP.md). Without it, the tab replays notes recorded from earlier real research runs.
 
 ## How it stays honest
 
@@ -52,7 +58,7 @@ To turn on live research for the Ask tab, follow [docs/SETUP.md](docs/SETUP.md).
 - **INEC's figures against INEC's figures.** The count comes from the results portal, not from numbers voters type in. [Why](docs/adr/0002-count-comes-from-the-portal-not-from-voters.md)
 - **Notes describe, they do not rule.** A note says what has been reported, by whom, with links, and how solid it is.
 - **Tamper-evident.** The published results Tallie uses are sealed in a hash chain anyone can re-check at `/verify`.
-- **Private.** Phone numbers are stored only as salted hashes. Card digits are never stored.
+- **Private.** The voter identification number is used for one lookup and never stored. Phone numbers are stored only as salted hashes.
 
 ## For developers
 

@@ -12,11 +12,11 @@ Between her polling unit and the announcement, the figures are added up on paper
 
 Tallie is one companion with three parts that lead into each other.
 
-1. **My unit.** A voter gives the last four digits of their card. Tallie says whether the card is ready and whether the polling unit moved, then shows what other voters at that unit report: officials arrived, accreditation started, long queue. One voter's report is shown as unverified; it takes two to count as reported.
-2. **Count.** Tallie adds up the published polling-unit results for each ward, local government and state, and shows each sum beside the announced figure. It says how many sheets it could read. It flags an *unexplained mismatch* only in two cases: the partial sum is already above the announced figure, or the announced figure is higher by more than every registered voter in the unread units.
-3. **Ask.** For a flagged mismatch, or any rumour the voter types, a research agent searches news, observer statements, fact-checkers and social media, and returns a *note*: what was reported, by whom, the sources, how solid the evidence is, and what is still open. It works like a community note that is not tied to one platform.
+1. **Election morning.** A voter gives the voter identification number on their card. Tallie says whether the card is valid and whether the polling unit moved, then shows what other voters at that unit report: officials arrived, accreditation started, long queue. One voter's report is shown as unverified; it takes two to count as reported.
+2. **After the results.** Tallie adds up the published polling-unit results for each ward, local government and state, and shows each sum beside the announced figure. It says how many sheets it could read. It flags an *unexplained mismatch* only in two cases: the partial sum is already above the announced figure, or the announced figure is higher by more than every registered voter in the unread units.
+3. **When a rumour spreads.** For a flagged mismatch, or any rumour the voter types, a research agent searches news, observer statements, fact-checkers and social media, and returns a *note*: what was reported, by whom, the sources, how solid the evidence is, and what is still open. It works like a community note that is not tied to one platform.
 
-The same engine serves the app and the WhatsApp and SMS channel, so a voter with a basic phone gets the unit features by text.
+Tallie works in the browser today, and voice in the browser is being added. The same engine is built to serve WhatsApp, SMS and USSD, so that a voter with a basic phone gets the polling-unit features by text. Those channels are not live yet: the text channel runs in a simulator.
 
 ### What we built in the hackathon
 
@@ -25,7 +25,8 @@ The team's first version asked voters to type in the figures from the wall and c
 - Replaced voter-typed figures with the results INEC itself publishes, and built the count trail on them.
 - Loaded real data: 6,866 polling units from the 2023 presidential election in Rivers State.
 - Added the research agent and notes, with five languages.
-- Redesigned the interface as a phone app.
+- Redesigned the interface as a phone app, and renamed the product from Tally to Tallie.
+- Added a landing page whose three walkthroughs play the product by themselves, using the real figures and recorded notes, and a page that walks through running it locally.
 - Repurposed the tamper-evident log to seal the published results Tallie uses.
 - Wrote a glossary and decision records so the product's language and reasons are explicit.
 
@@ -37,7 +38,7 @@ On the Rivers 2023 data Tallie flags two of 23 local governments, Obio/Akpor and
 
 AI is used in two places, and deliberately not in a third.
 
-- **Research agent (in the product).** The Ask feature runs Claude through Claude Code in headless mode on a local machine. It may only run a fixed list of read-only search and reading commands, provided by Agent Reach: web search (Exa), page reading (Jina), and searches of X, Reddit, Facebook and Instagram. It cannot read or write local files. It is told that anything it reads online is material to assess, never an instruction; that every statement must come from a source it opened; and that it must describe reporting without ruling on who is right. Its reply is parsed strictly: sources without a real web address are dropped, and a note with no sources can only be graded "nothing reliable found".
+- **Research agent (in the product).** The research feature runs Claude through Claude Code in headless mode on a local machine. It may only run a fixed list of read-only search and reading commands, provided by Agent Reach: web search (Exa), page reading (Jina), and searches of X, Reddit, Facebook and Instagram. It cannot read or write local files. It is told that anything it reads online is material to assess, never an instruction; that every statement must come from a source it opened; and that it must describe reporting without ruling on who is right. Its reply is parsed strictly: sources without a real web address are dropped, and a note with no sources can only be graded "nothing reliable found".
 - **Translation.** Notes are researched once in English, then translated by the same model into Pidgin, Hausa, Yorùbá and Igbo. These translations have not been reviewed by native speakers.
 - **Not used for the count.** Adding up results and deciding what counts as a mismatch is plain arithmetic in about 180 lines of tested code. No model decides anything about an election figure.
 - **Building it.** Claude, through Claude Code, helped write the code, tests and these documents. The team reviewed what it produced.
@@ -51,7 +52,7 @@ Live research needs Claude Code and Agent Reach installed, so it runs on a local
 | App | Next.js 15, React 19, TypeScript, Tailwind CSS 4 |
 | Tests | Vitest; PGlite (embedded Postgres) for the database tests |
 | Storage | In-memory store for the demo; Neon Postgres when configured |
-| Messaging | Twilio webhooks for WhatsApp and SMS (optional) |
+| Messaging | Twilio webhooks for WhatsApp and SMS (written, not connected) |
 | Research agent | Claude (Anthropic) through Claude Code, headless |
 | Search and social reading | Agent Reach: Exa, Jina reader, twitter-cli, OpenCLI |
 | Data | CCIJ's *Nigeria-2023-election* dataset |
@@ -59,9 +60,9 @@ Live research needs Claude Code and Agent Reach installed, so it runs on a local
 
 ## Fit with Nigerian conditions
 
-- **Basic phones:** the unit features work over SMS with five short commands.
+- **Basic phones:** the polling-unit features are designed to work over SMS with five short commands. The commands run today in a simulator; the SMS, WhatsApp and USSD channels are not live.
 - **Language:** replies in English and Pidgin; notes in five languages.
-- **Poor network:** the text channel needs no data; the app's count screens are plain server-rendered pages.
+- **Poor network:** the text channel is designed to need no data; the app's results screens are plain server-rendered pages.
 - **The law:** Tallie shows a labelled sum of INEC's published figures and names no winner. Our reading of section 124(4) of the Electoral Act 2026 and INEC's November 2026 statement on independent tabulation is in [ADR 0001](adr/0001-portal-sums-never-a-result-or-winner.md). It is not legal advice.
 - **The existing field:** groups already read portal sheets into data. Tallie is designed to consume such a feed, and to hand journalists and observers a short list of where to look.
 
