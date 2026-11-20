@@ -1,6 +1,6 @@
-# Tally
+# Tallie
 
-A WhatsApp and SMS companion that walks a first-time voter through election day. Hackathon prototype for "Every Vote, Every Voice". One Next.js app (App Router, TypeScript, Tailwind); details in `docs/TECHNICAL.md`.
+An election companion for Nigerian voters, from their polling unit to the final result: where do I vote and has it opened, is the result on the wall the one that was announced, and is this thing I heard true. It runs in the browser as a phone-style app with a landing page; WhatsApp, SMS and USSD are designed but not live. Hackathon prototype for "Every Vote, Every Voice". One Next.js app (App Router, TypeScript, Tailwind); details in `docs/TECHNICAL.md`.
 
 ## Commands
 

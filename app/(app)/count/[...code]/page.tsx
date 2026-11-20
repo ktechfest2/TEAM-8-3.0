@@ -18,7 +18,7 @@ function load(segments: string[]): AreaTrail {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const area = load((await params).code);
-  return { title: `${area.name} · Follow the count · Tally` };
+  return { title: `${area.name} · After the results · Tallie` };
 }
 
 const SHEET_NOTE: Record<PublishedUnit["sheet"], string> = {
@@ -48,7 +48,7 @@ export default async function AreaPage({ params }: Props) {
     const scale = comparisonScale(area);
     return (
       <div className="pb-8">
-        <ScreenHeader title={area.name} sub={`Local government · ${currentElection.state.name} State`} back={{ href: "/count", label: "Count" }} />
+        <ScreenHeader title={area.name} sub={`Local government · ${currentElection.state.name} State`} back={{ href: "/count", label: "Results" }} />
         <div className="space-y-4 px-4">
           <section className="card">
             <CoverageBar read={area.coverage.read} total={area.coverage.total} />
@@ -63,7 +63,7 @@ export default async function AreaPage({ params }: Props) {
 
           {area.finding === "unexplained" && (
             <Link href={`/ask?about=${encodeURIComponent(area.code)}`} className="btn w-full">
-              Ask Tally what was reported
+              Ask Tallie what was reported
             </Link>
           )}
 

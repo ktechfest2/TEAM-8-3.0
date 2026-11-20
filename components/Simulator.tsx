@@ -41,7 +41,7 @@ function save(key: string, value: unknown) {
   }
 }
 
-const WELCOME: Msg = { id: "welcome", who: "tally", text: "Hi, I'm Tally. Start with READY 4821." };
+const WELCOME: Msg = { id: "welcome", who: "tally", text: "Hi, I'm Tallie. Start with READY 4821." };
 
 export function Simulator() {
   const [sender, setSender] = useState<string>("");
@@ -150,13 +150,13 @@ export function Simulator() {
   return (
     <div className="mx-auto max-w-[440px]">
       <section
-        aria-label="Chat with Tally"
+        aria-label="Chat with Tallie"
         className="flex h-[min(72dvh,640px)] flex-col rounded-[32px] bg-sf p-3 shadow-[0_20px_60px_-25px_rgba(0,0,0,.35)] ring-1 ring-ln sm:p-4"
       >
         <div className="flex items-center gap-2.5 px-1 pb-3">
           <span className="grid size-8 place-items-center rounded-full bg-gr text-sm font-bold text-bg">T</span>
           <div className="mr-auto leading-tight">
-            <div className="font-semibold">Tally</div>
+            <div className="font-semibold">Tallie</div>
             <div className="text-xs text-mu" aria-live="polite">
               {!online ? "Offline · will send when signal returns" : busy ? "typing…" : "online"}
             </div>
@@ -174,7 +174,7 @@ export function Simulator() {
                 m.who === "me" ? "ml-auto rounded-br-md bg-tx text-sf" : "rounded-bl-md bg-sf"
               }`}
             >
-              <span className="sr-only">{m.who === "me" ? "You: " : "Tally: "}</span>
+              <span className="sr-only">{m.who === "me" ? "You: " : "Tallie: "}</span>
               {m.text}
               {m.who === "me" && m.status && m.status !== "sent" && (
                 <span className="mt-1 block text-xs opacity-80">{m.status === "queued" ? "⏳ queued" : "not sent"}</span>

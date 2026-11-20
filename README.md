@@ -1,14 +1,14 @@
-# Tally
+# Tallie
 
-**Know it counted.** An election companion for Nigerian voters. It answers three questions, in the voter's own language:
+**An election companion, from your polling unit to the final result.** Tallie answers a Nigerian voter at the three moments they are left guessing, in their own language:
 
-| | The voter asks | Tally answers from |
+| | The voter asks | Tallie answers from |
 |---|---|---|
-| **My unit** | Is my card ready? Did my polling unit move? Is it running? | A readiness check, and counts of what voters at that unit report |
-| **Count** | Did the count change on its way up? | The result sheets INEC published, added up and set beside what was announced |
-| **Ask** | I heard something. Is it true? | Public reporting, researched by an agent and returned as a sourced note |
+| **Election morning** | Where do I vote, and has my polling unit opened? | A check on the card and polling unit, and counts of what voters at that unit report |
+| **After the results** | Is the result on the wall the one that was announced? | The result sheets INEC published, added up and set beside what was announced |
+| **When a rumour spreads** | I heard something about the election. Is it true? | Public reporting, researched by an agent and returned as a sourced note |
 
-It runs as a phone app in the browser, and over WhatsApp and SMS for any phone.
+Today Tallie works in the browser, and voice in the browser is being added. WhatsApp, SMS and USSD are part of the design, so that it reaches a basic phone with no data, but they are not live: the text channel runs in an in-app simulator.
 
 Built for the *Every Vote, Every Voice* hackathon (KTech Fest 3.0).
 
@@ -16,7 +16,7 @@ Built for the *Every Vote, Every Voice* hackathon (KTech Fest 3.0).
 
 A Nigerian election is counted in public at the polling unit, then added up on paper at ward, local-government and state collation centres. Where independent checks have caught altered results, the figures changed **after** the polling-unit count, during collation. INEC publishes a photo of every polling-unit result sheet, but not the collation forms, and has said it will not for 2027.
 
-So Tally does the addition in the open. It sums the published polling-unit results for each area and shows that sum beside the announced figure. Where they differ by more than the missing sheets could explain, it says so, and an agent researches what has been reported about it.
+So Tallie does the addition in the open. It sums the published polling-unit results for each area and shows that sum beside the announced figure. Where they differ by more than the missing sheets could explain, it says so, and an agent researches what has been reported about it.
 
 Read more: [problem brief](docs/PROBLEM-BRIEF.md) · [system sketch](docs/SYSTEM-SKETCH.md) · [write-up](docs/WRITE-UP.md)
 
@@ -24,7 +24,7 @@ Read more: [problem brief](docs/PROBLEM-BRIEF.md) · [system sketch](docs/SYSTEM
 
 The count in this prototype is not invented. It is the **2023 presidential election in Rivers State**: 6,866 polling units, with figures read from the result sheets on INEC's portal by [CCIJ](https://github.com/anndawn/Nigeria-2023-election), and the local-government figures INEC released under a freedom-of-information request.
 
-On that data Tally flags two local governments, the same two the BBC reported on in 2023:
+On that data Tallie flags two local governments, the same two the BBC reported on in 2023:
 
 | Local government | Party | Result sheets add up to | Announced |
 |---|---|---|---|
@@ -42,16 +42,16 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. No accounts needed. Try card `4821` on the first screen.
+Open http://localhost:3000 for the landing page, or http://localhost:3000/unit to go straight into the app. No accounts needed. Try card `4821`.
 
 To turn on live research for the Ask tab, follow [docs/SETUP.md](docs/SETUP.md). Without it, Ask replays notes recorded from earlier real research runs.
 
 ## How it stays honest
 
-- **A sum, never a result.** Tally labels its figure as a sum of published sheets with how many were read. It names no winner. [Why](docs/adr/0001-portal-sums-never-a-result-or-winner.md)
+- **A sum, never a result.** Tallie labels its figure as a sum of published sheets with how many were read. It names no winner. [Why](docs/adr/0001-portal-sums-never-a-result-or-winner.md)
 - **INEC's figures against INEC's figures.** The count comes from the results portal, not from numbers voters type in. [Why](docs/adr/0002-count-comes-from-the-portal-not-from-voters.md)
 - **Notes describe, they do not rule.** A note says what has been reported, by whom, with links, and how solid it is.
-- **Tamper-evident.** The published results Tally uses are sealed in a hash chain anyone can re-check at `/verify`.
+- **Tamper-evident.** The published results Tallie uses are sealed in a hash chain anyone can re-check at `/verify`.
 - **Private.** Phone numbers are stored only as salted hashes. Card digits are never stored.
 
 ## For developers

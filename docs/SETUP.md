@@ -11,12 +11,13 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000.
+Open http://localhost:3000 for the landing page, and http://localhost:3000/unit for the app. It has three tabs:
 
-- **My unit:** enter `4821` (card ready, unit moved). Other demo cards: `1234`, `5555`, `2027`.
-- **Count:** opens on Rivers State, 2023. Tap Obio/Akpor or Oyigbo.
-- **Ask:** tap a suggested question. It replays a note recorded from an earlier real research run.
-- **Text Tally** (`/simulator`): the WhatsApp and SMS channel. Try `READY 4821`, `UNIT`, `REPORT ARRIVED`, `LANG PIDGIN`.
+- **Morning:** enter `4821` (card valid, unit moved). Other demo cards: `1234`, `5555`, `2027`.
+- **Results:** opens on Rivers State, 2023. Tap Obio/Akpor or Oyigbo.
+- **Rumours:** tap a suggested question. It replays a note recorded from an earlier real research run.
+
+The text channel is not live; `/simulator` runs the same code in the browser. Try `READY 4821`, `UNIT`, `REPORT ARRIVED`, `LANG PIDGIN`.
 
 No accounts or keys are needed. Data is kept in memory and resets when the server restarts.
 
@@ -52,7 +53,7 @@ Then check which channels work on your machine:
 agent-reach doctor
 ```
 
-Tally uses these. Web search and page reading are enough to start; the rest add social media.
+Tallie uses these. Web search and page reading are enough to start; the rest add social media.
 
 | Channel | Command the agent runs | Needs |
 |---|---|---|
@@ -63,7 +64,7 @@ Tally uses these. Web search and page reading are enough to start; the rest add 
 
 If a channel is missing the agent moves on to the others.
 
-### c. Start Tally with live research on
+### c. Start Tallie with live research on
 
 ```bash
 # macOS / Linux
@@ -73,7 +74,7 @@ TALLY_RESEARCH=live npm run dev
 $env:TALLY_RESEARCH = "live"; npm run dev
 ```
 
-Now the Ask tab researches any question you type. A run takes one to four minutes. If a run fails, Tally falls back to a recorded note when one matches.
+Now the Rumours tab researches any question you type. A run takes one to four minutes. If a run fails, Tallie falls back to a recorded note when one matches.
 
 Optional settings:
 

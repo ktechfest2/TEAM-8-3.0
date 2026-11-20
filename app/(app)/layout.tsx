@@ -1,43 +1,30 @@
 import Link from "next/link";
 import { TabBar } from "@/components/app/TabBar";
 
-const POINTS = [
-  { k: "My unit", v: "Is my card ready, did my polling unit move, and is it running right now?" },
-  { k: "Count", v: "Follow the count from polling unit to ward, local government and state, and see where it stops adding up." },
-  { k: "Ask", v: "Heard something? Tally researches it and answers with sources, in your language." },
-];
-
 /**
  * The app. On a phone it fills the screen. On a wide screen it sits in a phone-sized frame
- * beside a short explanation of what you are looking at.
+ * beside the way back to the landing page.
  */
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto flex min-h-dvh max-w-[1120px] items-center justify-center gap-16 lg:px-8">
-      <aside className="hidden max-w-[440px] flex-1 lg:block">
-        <p className="eyebrow">Every Vote, Every Voice</p>
-        <h1 className="mt-3 text-[56px] font-bold leading-[1.02]">Know it counted.</h1>
-        <p className="mt-4 text-lg text-mu">
-          Tally is an election companion for Nigerian voters. It works as an app, and over WhatsApp and SMS on any phone.
-        </p>
-        <dl className="mt-8 space-y-5">
-          {POINTS.map((p) => (
-            <div key={p.k}>
-              <dt className="font-semibold">{p.k}</dt>
-              <dd className="text-mu">{p.v}</dd>
-            </div>
-          ))}
-        </dl>
-        <p className="mt-8 text-sm text-mu">
-          The count shown is real: Rivers State, 2023 presidential election, read from result sheets on INEC&apos;s portal by CCIJ.
-          Card lookups and live reports are simulated.
+    <div className="mx-auto flex min-h-dvh max-w-[1040px] items-center justify-center gap-20 lg:px-8">
+      <aside className="hidden max-w-[400px] flex-1 lg:block">
+        <Link href="/" className="flex w-fit items-center gap-3 text-[44px] font-bold leading-none text-tx no-underline">
+          <span className="grid size-12 place-items-center rounded-full bg-ac text-xl text-ad" aria-hidden>
+            T
+          </span>
+          Tallie
+        </Link>
+        <p className="mt-5 text-lg text-mu">An election companion for Nigerian voters, from your polling unit to the final result.</p>
+        <p className="mt-6 text-sm text-mu">
+          The results are real data: Rivers State, 2023 presidential election. Card checks and reports from polling units are simulated.
         </p>
         <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
-          <Link className="text-gr underline-offset-4 hover:underline" href="/simulator">
-            Text Tally by SMS
+          <Link className="text-gr underline-offset-4 hover:underline" href="/">
+            About Tallie
           </Link>
-          <Link className="text-gr underline-offset-4 hover:underline" href="/newsroom">
-            Newsroom
+          <Link className="text-gr underline-offset-4 hover:underline" href="/setup">
+            Run it yourself
           </Link>
           <Link className="text-gr underline-offset-4 hover:underline" href="/verify">
             Verify the log

@@ -40,7 +40,7 @@ const SCHEMA = `{
 /** The instructions for one research run. Everything the agent reads online is evidence, never instruction. */
 export function researchPrompt(req: ResearchRequest): string {
   const facts = req.about ? mismatchFacts(req.about) : null;
-  return `You are the researcher behind Tally, an election companion for Nigerian voters. A voter has asked something. Research what has been publicly reported and write a note, in the manner of a community note: grounded, sourced, neutral.
+  return `You are the researcher behind Tallie, an election companion for Nigerian voters. A voter has asked something. Research what has been publicly reported and write a note, in the manner of a community note: grounded, sourced, neutral.
 
 THE VOTER ASKED:
 ${req.question}

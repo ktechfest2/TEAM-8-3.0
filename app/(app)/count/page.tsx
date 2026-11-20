@@ -4,7 +4,7 @@ import { Chevron, CoverageBar, FindingPill, ScreenHeader } from "@/components/ap
 import { currentElection, currentTrail } from "@/lib/count/current";
 import { coverageLine, explainComparison, headlineComparison, n, unexplainedAreas } from "@/lib/count/explain";
 
-export const metadata: Metadata = { title: "Follow the count · Tally" };
+export const metadata: Metadata = { title: "After the results · Tallie" };
 
 const STEPS = ["Polling unit", "Ward", "Local government", "State"];
 
@@ -14,7 +14,7 @@ export default function CountPage() {
 
   return (
     <div className="pb-8">
-      <ScreenHeader title="Follow the count" sub={`${currentElection.state.name} State · ${currentElection.election}`} />
+      <ScreenHeader title="After the results" sub={`${currentElection.state.name} State · ${currentElection.election}`} />
 
       <div className="space-y-4 px-4">
         <section className="card">
@@ -27,7 +27,7 @@ export default function CountPage() {
             ))}
           </ol>
           <p className="mt-3 text-[15px] text-mu">
-            Tally adds up the result sheets INEC published for every polling unit, then sets that sum beside what was announced
+            Tallie adds up the result sheets INEC published for every polling unit, then sets that sum beside what was announced
             for each local government.
           </p>
           <div className="mt-4">

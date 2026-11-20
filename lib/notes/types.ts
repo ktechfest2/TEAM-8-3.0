@@ -47,7 +47,7 @@ export interface ResearchRequest {
   about?: string;
 }
 
-/** The seam between Tally and whatever does the research. Two adapters: live (local agent) and recorded. */
+/** The seam between Tallie and whatever does the research. Two adapters: live (local agent) and recorded. */
 export interface Researcher {
   readonly mode: "live" | "recorded";
   /** Null means this researcher has no note for the request. */

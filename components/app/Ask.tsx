@@ -84,7 +84,7 @@ function NoteCard({ note, shown }: { note: Note; shown: number }) {
               ))}
             </ol>
           )}
-          <p className="mt-3 text-xs text-mu">Tally describes what has been reported. It does not rule on who is right.</p>
+          <p className="mt-3 text-xs text-mu">Tallie describes what has been reported. It does not rule on who is right.</p>
         </div>
       )}
     </article>
@@ -139,14 +139,14 @@ export function Ask({ suggestions, initial }: { suggestions: string[]; initial?:
         });
         outcome = (await res.json()) as AskOutcome;
       } catch {
-        outcome = { status: "failed", message: "Could not reach Tally. Check your connection and try again." };
+        outcome = { status: "failed", message: "Could not reach Tallie. Check your connection and try again." };
       }
       waiting = false;
 
       if (outcome.status !== "note") {
         const info =
           outcome.status === "live_only"
-            ? "Nobody has researched this one yet. Live research runs where Tally is set up on a computer; here you can open the questions that were researched earlier."
+            ? "Nobody has researched this one yet. Live research runs where Tallie is set up on a computer; here you can open the questions that were researched earlier."
             : `The research did not finish: ${outcome.message}`;
         setTurns((ts) => ts.filter((t) => t.id !== workId).concat({ id: nextId.current++, role: "info", text: info }));
         setBusy(false);
@@ -207,8 +207,8 @@ export function Ask({ suggestions, initial }: { suggestions: string[]; initial?:
   return (
     <div className="flex min-h-full flex-col">
       <header className="px-5 pb-3 pt-[max(20px,env(safe-area-inset-top))]">
-        <h1 className="text-[30px] font-bold">Ask Tally</h1>
-        <p className="mt-1 text-[15px] text-mu">Heard something? Tally checks what has been reported and shows its sources.</p>
+        <h1 className="text-[30px] font-bold">When a rumour spreads</h1>
+        <p className="mt-1 text-[15px] text-mu">Heard something? Tallie checks what has been reported and shows its sources.</p>
         <div className="-mx-5 mt-3 flex gap-2 overflow-x-auto px-5 pb-1 [scrollbar-width:none]" role="group" aria-label="Answer language">
           {LANGS.map((l) => (
             <button

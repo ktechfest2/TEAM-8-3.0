@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { RIVERS_2023 } from "@/lib/count/rivers2023";
 import { RIVERS_2023_SEAL, verifyRivers2023 } from "@/lib/log/rivers2023";
 
-export const metadata: Metadata = { title: "Verify the log · Tally" };
+export const metadata: Metadata = { title: "Verify the log · Tallie" };
 export const dynamic = "force-dynamic";
 
 const short = (h: string) => `${h.slice(0, 12)}…`;

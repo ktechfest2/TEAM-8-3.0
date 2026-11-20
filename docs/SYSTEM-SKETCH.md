@@ -1,8 +1,8 @@
 # System sketch
 
-## Where Tally sits in the election
+## Where Tallie sits in the election
 
-The top row is the official process. Tally reads what that process already makes public and never writes back into it.
+The top row is the official process. Tallie reads what that process already makes public and never writes back into it.
 
 ```mermaid
 flowchart LR
@@ -16,7 +16,7 @@ flowchart LR
     F --> G["Declaration"]
   end
 
-  subgraph tally["Tally"]
+  subgraph tally["Tallie"]
     direction LR
     U["My unit<br/>readiness and live reports"]
     S["Count<br/>add up the published sheets"]
@@ -35,16 +35,17 @@ flowchart LR
   R --> N["Note with sources"]
 ```
 
-Ward collation has no arrow into Tally because ward results are never announced publicly. Tally shows ward sums as working, and the first real comparison is at local-government level.
+Ward collation has no arrow into Tallie because ward results are never announced publicly. Tallie shows ward sums as working, and the first real comparison is at local-government level.
 
 ## How the parts fit together
 
 ```mermaid
 flowchart TB
-  subgraph channels["How voters reach Tally"]
-    APP["App in the browser"]
-    WA["WhatsApp"]
-    SMS["SMS"]
+  subgraph channels["How voters reach Tallie"]
+    APP["Browser<br/>text, and voice in progress"]
+    WA["WhatsApp<br/>designed, not live"]
+    SMS["SMS<br/>designed, not live"]
+    USSD["USSD<br/>designed, not built"]
   end
 
   subgraph engine["One engine"]
@@ -62,8 +63,9 @@ flowchart TB
   end
 
   APP --> MU
-  WA --> MU
-  SMS --> MU
+  WA -.-> MU
+  SMS -.-> MU
+  USSD -.-> MU
   APP --> CT
   APP --> NT
   MU --> VL
@@ -94,6 +96,6 @@ The code for this is [`lib/count/trail.ts`](../lib/count/trail.ts), about 180 li
 
 ## How it connects to the rest of the system
 
-- **In:** any feed of polling-unit results read from the portal. Today that is one dataset (CCIJ, Rivers 2023). Groups such as the NEDO consortium and Yiaga Africa's ERAD already produce such feeds for 2027; Tally would consume one, not build another reader.
+- **In:** any feed of polling-unit results read from the portal. Today that is one dataset (CCIJ, Rivers 2023). Groups such as the NEDO consortium and Yiaga Africa's ERAD already produce such feeds for 2027; Tallie would consume one, not build another reader.
 - **Out:** a per-area mismatch with the two figures, the coverage, the sealed inputs and a sourced note. That is the starting material for a journalist, an observer's statement, or a request to INEC for certified copies.
-- **Not replaced:** INEC's collation, observers' parallel vote tabulation, and fact-checkers. Tally points each of them at where to look.
+- **Not replaced:** INEC's collation, observers' parallel vote tabulation, and fact-checkers. Tallie points each of them at where to look.

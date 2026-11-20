@@ -1,18 +1,14 @@
-# Tally
+# Tallie
 
-Tally is an election companion for Nigerian voters. It answers three kinds of question in the voter's own language: is my polling unit ready and running, did the count change on its way up, and is this thing I heard true.
+Tallie is an election companion for Nigerian voters. It answers three kinds of question in the voter's own language: is my polling unit ready and running, did the count change on its way up, and is this thing I heard true.
 
 ## Language
 
 ### People
 
 **Voter**:
-A person who asks Tally about the election. Tally knows a voter only by a salted hash of their phone number, never the number itself.
+A person who asks Tallie about the election. Tallie knows a voter only by a salted hash of their phone number, never the number itself.
 _Avoid_: User, sender, reporter, citizen
-
-**Journalist**:
-A person who reads the Newsroom to see what voters are reporting across polling units. Journalists read; they never send reports.
-_Avoid_: Admin, observer, monitor
 
 ### Places
 
@@ -31,7 +27,7 @@ _Avoid_: Region, level, zone
 ### Before and during election day
 
 **Card**:
-The voter's permanent voter card. Tally uses it only to answer the Readiness Check and never keeps its digits.
+The voter's permanent voter card. Tallie uses it only to answer the Readiness Check and never keeps its digits.
 _Avoid_: PVC, ID, voter ID
 
 **Readiness Check**:
@@ -61,7 +57,7 @@ The figures an election official declares aloud at a collation centre for an are
 _Avoid_: Declared result, final result, official result
 
 **Portal Sum**:
-Tally's own addition of the published results of every polling unit in an area that has one. It is working shown as evidence; it is never a result and never names a winner.
+Tallie's own addition of the published results of every polling unit in an area that has one. It is working shown as evidence; it is never a result and never names a winner.
 _Avoid_: Total, tally, estimate, projection, our result, actual number
 
 **Coverage**:
@@ -87,7 +83,7 @@ Something a voter has heard or seen about the election and wants checked.
 _Avoid_: Claim, fake news, misinformation, story
 
 **Note**:
-Tally's written answer to a rumour or a mismatch: what was asked, what public reporting says, the sources, and how solid the evidence is. A note describes what has been reported; it never rules on who is right.
+Tallie's written answer to a rumour or a mismatch: what was asked, what public reporting says, the sources, and how solid the evidence is. A note describes what has been reported; it never rules on who is right.
 _Avoid_: Verdict, fact-check, ruling, answer
 
 **Recorded Note**:
@@ -103,9 +99,3 @@ _Avoid_: Ledger, blockchain, audit trail
 **Entry**:
 One record in the Log.
 _Avoid_: Block, row, record
-
-### Surfaces
-
-**Newsroom**:
-The page where journalists see live reports and the count trail by area.
-_Avoid_: Dashboard, admin panel

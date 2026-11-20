@@ -1,8 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { MyUnit } from "@/components/app/MyUnit";
 import { Chevron } from "@/components/app/ui";
 import { currentElection, currentTrail } from "@/lib/count/current";
 import { n, unexplainedAreas } from "@/lib/count/explain";
+
+export const metadata: Metadata = { title: "Election morning · Tallie" };
 
 export default function HomePage() {
   const trail = currentTrail();
@@ -11,19 +14,19 @@ export default function HomePage() {
     <div className="pb-8">
       <header className="flex items-center gap-2.5 px-5 pb-2 pt-[max(20px,env(safe-area-inset-top))]">
         <span className="grid size-9 place-items-center rounded-full bg-ac text-[15px] font-bold text-ad">T</span>
-        <span className="text-xl font-bold">Tally</span>
+        <span className="text-xl font-bold">Tallie</span>
       </header>
       <div className="space-y-4 px-4 pt-2">
         <section className="px-1">
-          <h1 className="text-[34px] font-bold">Know it counted.</h1>
-          <p className="mt-2 text-mu">Your polling unit, the count, and the things you hear, checked.</p>
+          <h1 className="text-[34px] font-bold">Election morning</h1>
+          <p className="mt-2 text-mu">Where you vote, and whether your polling unit has opened.</p>
         </section>
 
         <MyUnit />
 
         <Link href="/count" className="card pop block text-tx no-underline">
           <div className="flex items-center justify-between">
-            <p className="eyebrow">Follow the count</p>
+            <p className="eyebrow">After the results</p>
             <Chevron />
           </div>
           <p className="mt-2 text-xl font-semibold">
@@ -36,11 +39,11 @@ export default function HomePage() {
 
         <Link href="/ask" className="card pop block text-tx no-underline" style={{ animationDelay: "80ms" }}>
           <div className="flex items-center justify-between">
-            <p className="eyebrow">Heard something?</p>
+            <p className="eyebrow">When a rumour spreads</p>
             <Chevron />
           </div>
-          <p className="mt-2 text-xl font-semibold">Ask Tally to check it</p>
-          <p className="mt-1 text-[15px] text-mu">Tally researches what has been reported and answers with sources.</p>
+          <p className="mt-2 text-xl font-semibold">Ask Tallie to check it</p>
+          <p className="mt-1 text-[15px] text-mu">Tallie researches what has been reported and answers with sources.</p>
         </Link>
       </div>
     </div>

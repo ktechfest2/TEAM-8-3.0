@@ -1,6 +1,6 @@
 # Problem brief
 
-**Every Vote, Every Voice · Team 8 · Tally**
+**Every Vote, Every Voice · Team 8 · Tallie**
 
 ## The link we chose: collation
 
@@ -22,7 +22,7 @@ We chose the adding up.
 - **Party agents and candidates**, who have 21 days to file a petition and must tie evidence to specific polling units.
 - **INEC itself**, whose results are doubted even where they are sound, because nobody can check.
 
-## What Tally does about it
+## What Tallie does about it
 
 1. **Follows the count.** It adds up the published polling-unit results for every ward, local government and state, and sets each sum beside the announced figure. It flags a mismatch only when the sheets still missing could not account for it.
 2. **Researches what was reported.** For a flagged mismatch, or any rumour a voter sends, an agent searches news, observer statements and social media, and returns a short note with its sources and how solid the evidence is.
@@ -32,10 +32,10 @@ It works as an app, and over WhatsApp and SMS, in English and Pidgin, with resea
 
 ## What it does not do
 
-Tally never declares a result or names a winner. It shows a sum of INEC's own published figures, says how many sheets it covers, and describes differences without accusing anyone. It detects and documents; it does not prevent.
+Tallie never declares a result or names a winner. It shows a sum of INEC's own published figures, says how many sheets it covers, and describes differences without accusing anyone. It detects and documents; it does not prevent.
 
 ## Proof it works
 
-Run on real data from Rivers State in 2023, Tally flags Obio/Akpor and Oyigbo, the two local governments the BBC reported, and leaves the other 21 unflagged.
+Run on real data from Rivers State in 2023, Tallie flags Obio/Akpor and Oyigbo, the two local governments the BBC reported, and leaves the other 21 unflagged.
 
 Sources for the figures above are listed in the [write-up](WRITE-UP.md#sources).
